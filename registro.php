@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css.map">
         <link rel="shortcut icon" href="#">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css.map" rel="stylesheet">
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css.map" rel="stylesheet">-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
@@ -27,7 +27,7 @@
     </head>
 
     <body>
-        <header class="header py-3">
+        <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-4 col-8 mb-4 mb-md-0">
@@ -45,11 +45,11 @@
             </div>
         </header>
 
-        <main class="container py-4">
+        <main class="container py-3">
             <div class="row justify-content-center">
                 <div class="col-md-8 bg-white contenido-nosotros py-4 px-3">
                     <h2 class="separador text-center my-3">Regístrate</h2>
-                    <form method="post" action="guardarficha.php">
+                    <div id="ficha">
                         <p>Introduce a continuación los datos con los que quieres acceder a tu cuenta de usuario<br>
                             Todos los campos son obligatorios</p>
                         <div class="form-group">
@@ -131,7 +131,7 @@
                                         <div class="form-group ">
                                             <label for="documento">Número de documento</label>
                                             <input type="text" class="form-control" name="documento" id="documento"
-                                                   aria-describedby="helpId" placeholder="Tu documento" required>
+                                                   aria-describedby="helpId" placeholder="Tu documento" onbrequired>
                                             <div class="alert alert-danger" role="alert" id="errordn1" style="display: none;">
                                                 <a class="close" data-dismiss="alert"> × </a>
                                                 El número del DNI o del NIE no es correcto, revíselo.
@@ -263,16 +263,21 @@
                                         Debes aceptar las condiciones antes de enviar el formulario
                                     </div>
                                 </div>
-                                <div class="form-group py-2">
-                                    <input type="submit" class="btn btn-primary" value="Enviar" name="enviar" id="enviar">
-                                </div>
-                                <div class="alert alert-success" role="alert" id="cuentaOk" style="display: none;">
-                                    Cuenta de usuario creada y datos de la ficha guardados.
-                                </div>
+
+                                    <!--<input type="submit" class="btn btn-primary" value="Enviar" name="enviar" id="enviar">-->
+                                <button class="btn btn-primary" type="button" id="enviar">Enviar</button>
                             </div>   
                         </div>                    
-                    </form>
-                    <p>
+                    </div>
+                    <div class="alert alert-info text-center" role="alert" id="cuentaOk" style="display: none;">
+                        <p>FELICIDADES<br>
+                        TU CUENTA DE USUARIO HA SIDO CREADA CON EXITO</p>
+                        <a class="btn btn-light" href="incio.php">Accede a tu cuenta</a>
+                    </div>
+                    <div class="alert alert-success text-center" role="alert" id="cuentaNoOk" style="display: none;">
+                        Se ha producido un error a la hora de grabar sus datos.<br>Inténtalo de nuevo utilizando un nombre de usuario diferente.
+                    </div>
+                    <p id="condiciones">
                         1. El abono de las cuotas de los entrenamientos se hará a principio de cada mes.
                         2. La hoja de inscripción junto con la bonificación de las cuotas serán requisito necesario para
                         estar dado en el club.
@@ -295,9 +300,6 @@
                 </div>
             </div>
         </main>
-
-
-
         <footer class="footer p-4">
             <div class="container">
                 <div class="row justify-content-between align-items-center">

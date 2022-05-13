@@ -1,6 +1,7 @@
 <?php
 
 include_once 'password.php';
+include_once 'creaUsuario';
 
 $usuarioE = $_POST['usuarioE'];
 

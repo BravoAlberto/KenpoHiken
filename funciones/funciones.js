@@ -57,8 +57,10 @@ function cargarEventos() {
                 document.getElementById("password").addEventListener("blur", comprobarContraseña, false);
             if (document.getElementById("continuar") != null)
                 document.getElementById("continuar").addEventListener("click", seguir, false);
+            if (document.getElementById("documento") != null)
+                document.getElementById("documento").addEventListener("blur", comprobarDocumento, false);
             if (document.getElementById("enviar") != null)
-                document.getElementById("enviar").addEventListener("click", enviar, false);
+                document.getElementById("enviar").addEventListener("click", enviaDatos, false);
             if (document.getElementById("acceder") != null)
                 document.getElementById("acceder").addEventListener("click", acceder, false);
         }
@@ -115,7 +117,17 @@ function cargarEventos() {
         }
     }
 
-    function enviar() {
+    function comprobarDocumento() {
+        let documento = $("#documento").val();
+        let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
+        if (!expreg.test(documento)) {
+            $('#errordn1').show();
+        } else {
+            $('#errordn1').hide();
+        }
+    }
+
+    function enviaDatos() {
         let usuario = $("#usuario").val();
         let clave = $("#password").val();
         let nombre = $("#nombre").val();
@@ -135,16 +147,10 @@ function cargarEventos() {
         let enfermedad = $("#dolencia").val();
         let mensaje = $("#mensaje").val();
         let conformidad = $("#conformidad").val();
-        let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
-        if (!expreg.test(dni)) {
-            $('#errordn1').show();
-        }
         /*Aquí grabamos el usuario y la contraseña junto con los datos del deportista en la base de datos*/
         $.ajax({
-            url: "funciones/guardarDatos.php",
-            data: {user: usuario,
-                password: clave,
-                usuario: usuario,
+            url: "funciones/guardarficha.php",
+            data: {usuario: usuario,
                 clave: clave,
                 nombre: nombre,
                 apellido1: apellido1,
@@ -165,8 +171,19 @@ function cargarEventos() {
                 conformidad: conformidad
             },
             type: 'POST',
-            success: function () {
-
+            success: function (response) {
+                if (response == 1) {
+                    $("#cuentaOk").show();
+                    $('#ficha').hide();
+                    $('#condiciones').hide();
+                } else {
+                    $('#datos').hide();
+                    $('#condiciones').hide();
+                    $("#cuentaNoOk").show();
+                    $("#continuar").show();
+                    $('#usuario').removeAttr("disabled");
+                    $('#password').removeAttr("disabled");
+                }
             }
         });
     }
