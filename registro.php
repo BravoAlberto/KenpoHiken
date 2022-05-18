@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,7 +262,6 @@
                                         Debes aceptar las condiciones antes de enviar el formulario
                                     </div>
                                 </div>
-
                                     <!--<input type="submit" class="btn btn-primary" value="Enviar" name="enviar" id="enviar">-->
                                 <button class="btn btn-primary" type="button" id="enviar">Enviar</button>
                             </div>   
@@ -271,7 +269,7 @@
                     </div>
                     <div class="alert alert-info text-center" role="alert" id="cuentaOk" style="display: none;">
                         <p>FELICIDADES<br>
-                        TU CUENTA DE USUARIO HA SIDO CREADA CON EXITO</p>
+                            TU CUENTA DE USUARIO HA SIDO CREADA CON EXITO</p>
                         <a class="btn btn-light" href="incio.php">Accede a tu cuenta</a>
                     </div>
                     <div class="alert alert-success text-center" role="alert" id="cuentaNoOk" style="display: none;">
@@ -310,9 +308,8 @@
                 </div>
             </div>
         </footer>
-
-
-
+        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=672233318&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+            <img src="img/whatsapp.png" alt="whatsapp"/>
+        </a>
     </body>
-
 </html>

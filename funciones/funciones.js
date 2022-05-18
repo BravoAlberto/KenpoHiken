@@ -47,6 +47,26 @@
  }
  }
  */
+/*
+    function enviaMail() {
+        let nombre = $('#nombre').val;
+        let telefono = $('#telefono').val;
+        let mail = $('#mail').val;
+        let mensaje = $('#mensaje').val;
+        $.ajax({
+            url: "funciones/guardarficha.php",
+            data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
+            type: 'POST',
+            success: function (response) {
+                if (response == 1) {
+                    $("#cuentaOk").show();
+                } else {
+                    $("#cuentaNoOk").show();
+                }
+            }
+        });
+    }
+*/
 document.addEventListener("readystatechange", cargarEventos, false);
 function cargarEventos() {
     if (document.readyState == "interactive") {
@@ -63,6 +83,8 @@ function cargarEventos() {
                 document.getElementById("enviar").addEventListener("click", enviaDatos, false);
             if (document.getElementById("acceder") != null)
                 document.getElementById("acceder").addEventListener("click", acceder, false);
+            if (document.getElementById("correo") != null)
+                document.getElementById("correo").addEventListener("click", enviaMail, false);
         }
     }
     function comprobarUsuario() {
@@ -172,7 +194,7 @@ function cargarEventos() {
             },
             type: 'POST',
             success: function (response) {
-                if (response == 1) {
+                if (parseInt(response == 1)) {
                     $("#cuentaOk").show();
                     $('#ficha').hide();
                     $('#condiciones').hide();
@@ -203,6 +225,26 @@ function cargarEventos() {
             }
         });
     }
+
+    function enviaMail() {
+        let nombre = $('#nombre').val;
+        let telefono = $('#telefono').val;
+        let mail = $('#mail').val;
+        let mensaje = $('#mensaje').val;
+        $.ajax({
+            url: "funciones/guardarficha.php",
+            data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
+            type: 'POST',
+            success: function (response) {
+                if (response == 1) {
+                    $("#cuentaOk").show();
+                } else {
+                    $("#cuentaNoOk").show();
+                }
+            }
+        });
+    }
+    
     /*
      function validaDni() {
      let dni = $('#dni1').val();

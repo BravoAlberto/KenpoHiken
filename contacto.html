@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contacto</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="shortcut icon" href="#">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="funciones/funciones.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
 </head>
 <body>
-
     <header class="header py-3 mb-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
@@ -28,66 +39,60 @@
             </div>
         </div>
     </header>
-<!--
-<div class="container">
-        <div class="row imagen-destacada contacto-bg"></div>
-</div>
--->
-<main class="container py-4">
-    <div class="row justify-content-center">
-        <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
-            <h2 class="separador text-center my-3">Contacto</h2>
-            <form action="#">
+    <!--
+    <div class="container">
+            <div class="row imagen-destacada contacto-bg"></div>
+    </div>
+    -->
+    <main class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
+                <h2 class="separador text-center my-3">Contacto</h2>
                 <div class="form-group">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu Nombre">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu Nombre" required>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
                                 <label for="telefono">Teléfono</label>
-                                <input type="tel" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Teléfono">
+                                <input type="tel" class="form-control" name="telefono" id="telefono" aria-describedby="helpId" placeholder="Teléfono" required>
                             </div>
                         </div><!--.col-md-6-->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="mail">E-mail</label>
-                                <input type="tel" class="form-control" name="mail" id="mail" aria-describedby="helpId" placeholder="E-mail">
+                                <input type="tel" class="form-control" name="mail" id="mail" aria-describedby="helpId" placeholder="E-mail" required>
                             </div>
                         </div><!--.col-md-6-->
                     </div><!--.row-->
                     <div class="form-group">
-                      <label for="mensaje">Mensaje</label>
-                      <textarea class="form-control" name="mensaje" id="mensaje" rows="3"></textarea>
+                        <label for="mensaje">Mensaje</label>
+                        <textarea class="form-control" name="mensaje" id="mensaje" rows="3" placeholder="Explica brevemente en que podemos ayudarte" required></textarea>
                     </div>
-
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Enviar">
+                        <button class="btn btn-primary" type="button" id="correo">Enviar</button><!--onclick=-->
+                    </div>
+                    <div class="alert alert-success text-center" role="alert" id="mailOk" style="display: none;">
+                        <p>Tu email se ha enviado correctamete</p>
+                    </div>
+                    <div class="alert alert-danger text-center" role="alert" id="mailNoOk" style="display: none;">
+                        <p>Tu email no ha podido enviarse</p>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</main>
-
-
-   
-<footer class="footer p-4">
-    <div class="container">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-md-12 col-8">
-                <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
             </div>
         </div>
-    </div>
-</footer>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+    </main>
+    <footer class="footer p-4">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-12 col-8">
+                    <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
+                    <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

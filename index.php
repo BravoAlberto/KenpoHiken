@@ -88,7 +88,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
             <section class="nosotros mt-5">
                 <h2 class="separador text-center mb-3">Sobre nosotros</h2>
@@ -97,27 +96,30 @@
                         <img src="img/Movil.jpg" class="img-fluid mb-3" alt="imagenhiken">
                         <h3>Kenpo Hiken</h3>
                         <p>Nuestro club nace como consecuencia de la amistad creada entre compañeros de Kenpo del
-                            Polideportivo Municipal Arganzuela.</p>
+                            Polideportivo Municipal Arganzuela.<br>
+                            <a class="btn btn-link" href="https://www.kenpohiken.es/">más información</a></p>
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/icono_kenpo_americano.jpg" class="img-fluid mb-3" alt="imagenAmer">
                         <h3>Kenpo Americano</h3>
                         <p>Somos practicantes de Kenpo en el estilo de Kenpo Karate o Kenpo Americano, creado por Ed.
-                            Parker.</p>
+                            Parker.<br>
+                            <a class="btn btn-link" href="https://www.americankenpo.com/">más información</a></p>                        
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/AKA_BN.jpg" class="img-fluid mb-3" alt="imagenAKA">
                         <h3>A.K.A.</h3>
                         <p>Nuestro club es miembro de American Kenpo Academies, una asociación de clubes y para la práctica
-                            y mejora de nuestro arte.</p>
+                            y mejora de nuestro arte.<br>
+                            <a class="btn btn-link" href="https://es-es.facebook.com/akakenpo/">más información</a></p>
                     </div>
                 </div>
             </section>
         </div>
         <!--.container-->
-
         <section class="clases mt-5 py-5">
             <h2 class="inverso text-center mb-3">Sobre nuestras clases</h2>
+            <a name="info"></a>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
@@ -208,6 +210,9 @@
                             <a href="https://www.youtube.com/channel/UCMua7FE1B_lpO1lzTXDwgvw"
                                class="fab fa-youtube icono youtube d-inline-flex align-items-center justify-content-center">
                             </a>
+                            <a href="https://twitter.com/kenpohiken"
+                               class="fab fa-twitter icono twitter d-inline-flex align-items-center justify-content-center">
+                            </a>
                         </nav>
                     </div>
                     <div class="menu contacto text-center text-md-right col-md-6 col-8 mb-4 mb-md-0">
@@ -217,7 +222,9 @@
                 </div>
             </div>
         </footer>
-
+        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=646921290&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+            <img src="img/whatsapp.png" alt="whatsapp"/>
+        </a>
     </body>
 
 </html>
