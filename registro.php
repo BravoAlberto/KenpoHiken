@@ -51,7 +51,7 @@
                     <div id="ficha">
                         <p>Introduce a continuación los datos con los que quieres acceder a tu cuenta de usuario<br>
                             Todos los campos son obligatorios</p>
-                        <div class="form-group">
+                        <div class="form-group needs-validation">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
                                 <input type="text" class="form-control" name="usuario" id="usuario"
@@ -71,6 +71,10 @@
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="button" id="continuar">Continuar</button>
+                            <button class="btn btn-primary" type="button" id="spinner" disabled style="display: none;">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Continuar</button>
+                            <br>
                             <br>
                             <div class="alert alert-info" role="alert" id="errorvacio17" style="display: none;">
                                 <a class="close" data-dismiss="alert"> × </a>
@@ -256,7 +260,7 @@
                                     <textarea class="form-control" name="mensaje" id="mensaje" rows="2"></textarea>
                                 </div>
                                 <div class="form-check py-2">
-                                    <input type="checkbox" class="form-check-input is-invalid" name="conformidad" id="conformidad" required>
+                                    <input type="checkbox" class="form-check-input is-invalid" name="conformidad" id="conformidad" disabled>
                                     <label class="form-check-label" for="conformidad">Acepto las condiciones y consiento el tratamiento de mis datos por parte de Kenpo Hiken.</label>
                                     <div id="invalidCheck3Feedback" class="invalid-feedback">
                                         Debes aceptar las condiciones antes de enviar el formulario

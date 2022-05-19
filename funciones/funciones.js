@@ -119,6 +119,8 @@ function cargarEventos() {
         /*Aquí comprobamos si el usuario ya existe en la base de datos*/
         if (comprobarContraseña()) {
             if (comprobarUsuario()) {
+                        $("#continuar").hide();
+                        $("#spinner").show();
                 $.ajax({
                     url: "funciones/combruebaUsuario.php",
                     data: {user: usuario, password: clave},
@@ -126,12 +128,14 @@ function cargarEventos() {
                     success: function (response) {
                         if (response == 0) {
                             $("#errorvacio17").show();
+                            $("#spinner").Hide();
                         } else {
                             $('#usuario').prop("disabled", true);
                             $('#password').prop("disabled", true);
                             $("#errorvacio17").hide();
                             $("#datos").show();
-                            $("#continuar").hide();
+                            $("#continuar").hide();   
+                            $("#spinner").hide();
                         }
                     }
                 });

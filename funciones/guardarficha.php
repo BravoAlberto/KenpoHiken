@@ -35,9 +35,9 @@ $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $ap
 $query = $con->prepare($sql1);
 $resultado = $query->execute();
 $controlRows = $query->rowCount();
-    if ($controlRows <= 0) {
-        echo ('0');
+    if ($controlRows >=1) {
+        echo ('1');
     } else {
-        echo('1');
+        echo('0');
     }
 ?>
