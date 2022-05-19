@@ -1,12 +1,9 @@
 <?php
 
 include_once 'password.php';
-include_once 'creaUsuario';
 
-$usuarioE = $_POST['usuarioE'];
-
-$usuario = $usuarioE['user'];
-$clave = $usuarioE['password'];
+$usuario = $_POST['user'];
+$clave = $_POST['password'];
 
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 $sql = "SELECT clave FROM usuario WHERE usuario=$usuario";
@@ -15,9 +12,9 @@ $resultado = $query->execute();
 echo $resultado['clave'];
 
 if (Password::verify($clave, $resultado['clave'])) {
-    $usuario['user'] = $usuario;
-    echo('Registo correcto');
-}else{
-    echo('Acceso denegado');
+    $resultado['usuario'] = $usuario;
+    echo('1');
+} else {
+    echo('2');
 }
 ?>

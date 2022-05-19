@@ -24,20 +24,25 @@ $enfermedad = $_POST['enfermedad'];
 $mensaje = $_POST['mensaje'];
 $conformidad = $_POST['conformidad'];
 
-$sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
-$query = $con->prepare($sql);
-$resultado = $query->execute();
-
-$sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "',"
-        . "'" . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','" . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
-        . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "',"
-        . "'" . $conformidad . "')";
-$query = $con->prepare($sql1);
-$resultado = $query->execute();
-$controlRows = $query->rowCount();
-    if ($controlRows >=1) {
-        echo ('1');
+if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
+    $sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
+    $query = $con->prepare($sql);
+    $query->execute();
+    $resultado = $query->fetch();
+    if ($resultado['usuario'] !== null) {
+        echo ('0');
     } else {
-        echo('0');
+        $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
+        $query = $con->prepare($sql);
+        $resultado = $query->execute();
+
+        $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "',"
+                . "'" . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','" . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
+                . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "',"
+                . "'" . $conformidad . "')";
+        $query = $con->prepare($sql1);
+        $resultado = $query->execute();
+        echo('1');
     }
+}
 ?>

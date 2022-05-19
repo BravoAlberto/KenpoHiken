@@ -48,25 +48,25 @@
  }
  */
 /*
-    function enviaMail() {
-        let nombre = $('#nombre').val;
-        let telefono = $('#telefono').val;
-        let mail = $('#mail').val;
-        let mensaje = $('#mensaje').val;
-        $.ajax({
-            url: "funciones/guardarficha.php",
-            data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
-            type: 'POST',
-            success: function (response) {
-                if (response == 1) {
-                    $("#cuentaOk").show();
-                } else {
-                    $("#cuentaNoOk").show();
-                }
-            }
-        });
-    }
-*/
+ function enviaCorreo() {
+ let nombre = $('#nombre').val;
+ let telefono = $('#telefono').val;
+ let mail = $('#mail').val;
+ let mensaje = $('#mensaje').val;
+ $.ajax({
+ url: "funciones/correo.php",
+ data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
+ type: 'POST',
+ success: function (response) {
+ if (response == 1) {
+ $("#cuentaOk").show();
+ } else {
+ $("#cuentaNoOk").show();
+ }
+ }
+ });
+ }
+ */
 document.addEventListener("readystatechange", cargarEventos, false);
 function cargarEventos() {
     if (document.readyState == "interactive") {
@@ -82,9 +82,17 @@ function cargarEventos() {
             if (document.getElementById("enviar") != null)
                 document.getElementById("enviar").addEventListener("click", enviaDatos, false);
             if (document.getElementById("acceder") != null)
-                document.getElementById("acceder").addEventListener("click", acceder, false);
+                document.getElementById("acceder").addEventListener("click", acceso, false);
             if (document.getElementById("correo") != null)
-                document.getElementById("correo").addEventListener("click", enviaMail, false);
+                document.getElementById("correo").addEventListener("click", enviamail, false);
+            if (document.getElementById("form1") != null)
+                document.getElementById("form1").addEventListener("click", mostrarForm1, false);
+            if (document.getElementById("form2") != null)
+                document.getElementById("form2").addEventListener("click", mostrarForm2, false);
+            if (document.getElementById("form3") != null)
+                document.getElementById("form3").addEventListener("click", mostrarForm3, false);
+            if (document.getElementById("form4") != null)
+                document.getElementById("form4").addEventListener("click", mostrarForm4, false);
         }
     }
     function comprobarUsuario() {
@@ -119,22 +127,24 @@ function cargarEventos() {
         /*Aquí comprobamos si el usuario ya existe en la base de datos*/
         if (comprobarContraseña()) {
             if (comprobarUsuario()) {
-                        $("#continuar").hide();
-                        $("#spinner").show();
+                $("#continuar").hide();
+                $("#spinner").show();
+                $("#cuentaNoOk").hide();
                 $.ajax({
                     url: "funciones/combruebaUsuario.php",
                     data: {user: usuario, password: clave},
                     type: 'POST',
                     success: function (response) {
-                        if (response == 0) {
+                        if (response == 0) {//Esto significa que el usuario existe
                             $("#errorvacio17").show();
-                            $("#spinner").Hide();
+                            $("#spinner").hide();
+                            $("#continuar").show();
                         } else {
                             $('#usuario').prop("disabled", true);
                             $('#password').prop("disabled", true);
                             $("#errorvacio17").hide();
                             $("#datos").show();
-                            $("#continuar").hide();   
+                            $("#continuar").hide();
                             $("#spinner").hide();
                         }
                     }
@@ -198,82 +208,85 @@ function cargarEventos() {
             },
             type: 'POST',
             success: function (response) {
-                if (parseInt(response == 1)) {
-                    $("#cuentaOk").show();
-                    $('#ficha').hide();
-                    $('#condiciones').hide();
-                } else {
+                if (response == 0) {
                     $('#datos').hide();
                     $('#condiciones').hide();
                     $("#cuentaNoOk").show();
                     $("#continuar").show();
                     $('#usuario').removeAttr("disabled");
                     $('#password').removeAttr("disabled");
+
+                } else {
+                    $("#cuentaOk").show();
+                    $('#ficha').hide();
+                    $('#condiciones').hide();
                 }
             }
         });
     }
 
-    function acceder() {
-        let nombre = $("#usuario1").val();
-        let clave = $("#password1").val();
-        let usuarioE = {user: nombre, password: clave};
+    function enviamail() {
+        let nombre = $("#nombre").val();
+        let telefono = $("#telefono").val();
+        let correo = $("#correo").val();
+        let mensaje = $("#mensaje").val();
         $.ajax({
-            url: "funciones/accesoUsuario.php",
-            data: {usuarioE: usuarioE},
+            url: "funciones/correo.php",
+            data: {name: nombre,
+                phone: telefono,
+                correoel: correo,
+                text: mensaje
+            },
             type: 'POST',
             success: function (response) {
                 alert(response);
-                $('#usuario1').prop("disabled", true);
-                $('#password1').prop("disabled", true);
             }
         });
     }
 
-    function enviaMail() {
-        let nombre = $('#nombre').val;
-        let telefono = $('#telefono').val;
-        let mail = $('#mail').val;
-        let mensaje = $('#mensaje').val;
+    function acceso() {
+        let nombre = $("#usuario").val();
+        let clave = $("#password").val();
         $.ajax({
-            url: "funciones/guardarficha.php",
-            data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
+            url: "funciones/accesoUsuario.php",
+            data: {user: nombre, password: clave},
             type: 'POST',
             success: function (response) {
                 if (response == 1) {
-                    $("#cuentaOk").show();
+                    $(location).attr('href','../formulario.php');
                 } else {
-                    $("#cuentaNoOk").show();
+                    $("#errorregistro").show();
                 }
             }
         });
     }
-    
-    /*
-     function validaDni() {
-     let dni = $('#dni1').val();
-     $("#dni1p4").val(dni);
-     let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
-     if (!expreg.test(dni)) {
-     $('#errordn1').show();
-     $('#errordn1').text('el DNI no es correcto, revíselo');
-     } else {
-     $('#errordn1').hide();
-     $.ajax({
-     url: "../functions/dniValidator.php",
-     data: {dni: dni},
-     type: 'POST',
-     success: function (response) {
-     if (response != 'Este DNI no existe') {
-     datos = JSON.parse(response);
-     $('#dni1').prop("disabled", true);
-     
-     } else {
-     $('#').prop("disabled", true);
-     }
-     }
-     });
-     
-     }
-     }*/
+
+    function mostrarForm1() {
+        $("#form22").hide();
+        $("#form33").hide();
+        $("#form44").hide();
+        $("#form11").show();
+    }
+
+    function mostrarForm2() {
+        $("#form11").hide();
+        $("#form33").hide();
+        $("#form44").hide();
+        $("#form22").show();
+    }
+
+    function mostrarForm3() {
+        $("#form11").hide();
+        $("#form22").hide();
+        $("#form44").hide();
+        $("#form33").show();
+    }
+
+    function mostrarForm4() {
+        $("#form11").hide();
+        $("#form22").hide();
+        $("#form33").hide();
+        $("#form44").show();
+    }
+
 }
