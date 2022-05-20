@@ -7,6 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #1C2622;
+    position:relative;
 }
 
 p {
@@ -156,6 +157,10 @@ aside .inverso::after {
 
 .footer {
     border-bottom: 25px solid #BF1725;
+    /*position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;*/
 }
 
 .nav-link {
