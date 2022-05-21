@@ -36,7 +36,7 @@
                             Formularios Inscripción temporada
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Hiken</a>
+                            <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Club Kenpo Hiken</a>
                             <a class="dropdown-item" href="#" id="form2">Mandato inscripción < 18 años</a>
                             <a class="dropdown-item" href="#" id="form3">Autorización imagenes < 18 años</a>
                             <div class="dropdown-divider"></div>
@@ -54,26 +54,119 @@
         </header>
         <main class="container">
             <div class="row justify-content-center" id="form11" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
-                    <h2 class="separador text-center my-2">Ficha Deportiva Hiken</h2>
+                <div class="col-md-8 bg-white contenido-nosotros py-3 px-2">
+                    <h2 class="separador text-center my-1">Ficha Deportiva Club Kenpo Hiken</h2>
                     <form method="POST" action="" >
-                        <div class="form-group">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre1" placeholder="Tu nombre" required>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="apellido1">Primer apellido</label>
+                                <input type="text" class="form-control" name="apellido1" id="apellido1"
+                                       aria-describedby="helpId" placeholder="Tu primer apellido" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="apellido2">Segundo apellido</label>
+                                <input type="text" class="form-control" name="apellido2" id="apellido2"
+                                       aria-describedby="helpId" placeholder="Tu segundo apellido">
+                            </div>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-md-4">
+                                <label for="tipo">Tipo de documento</label>
+                                <select class="form-control" name="tipo" id="tipo" aria-describedby="helpId" required>
+                                    <option selected value="">Tipo documento</option>
+                                    <option value="dni">DNI</option>
+                                    <option value="nie">NIE</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="documento">Número de documento</label>
+                                <input type="text" class="form-control" name="documento" id="documento"
+                                       aria-describedby="helpId" placeholder="Tu documento" onbrequired>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nacimiento">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" name="nacimiento" id="nacimiento"
+                                       aria-describedby="helpId" required>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="telefono:">Teléfono:</label>
-                                <input type="tel" class="form-control" name="telefono" id="telefono1" placeholder="Teléfono" required>
+                                <label for="lugarNac">Lugar de nacimiento</label>
+                                <input type="text" class="form-control" name="lugarNac" id="lugarNac"
+                                       aria-describedby="helpId" placeholder="Tu lugar de nacimiento" required>
+                            </div>
+                            <!--.col-md-6-->
+                            <div class="col-md-6">
+                                <label for="pais">Nacionalidad</label>
+                                <input type="text" class="form-control" name="pais" id="pais"
+                                       aria-describedby="helpId" placeholder="Tu nacionalidad" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="address">Dirección</label>
+                            <input type="text" class="form-control" name="address" id="address"
+                                   placeholder="Tu dirección" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="ciudad">Ciudad</label>
+                                <input type="text" class="form-control" name="ciudad" id="ciudad"
+                                       aria-describedby="helpId" placeholder="Tu ciudad" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="provincia">Provincia</label>
+                                <input type="text" class="form-control" name="provincia" id="provincia"
+                                       aria-describedby="helpId" placeholder="Tu provincia" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="CP">Código Postal</label>
+                                <input type="text" class="form-control" name="CP" id="CP" aria-describedby="helpId"
+                                       placeholder="Tu código postal" required>
+                            </div>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-md-6">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" class="form-control" name="telefono" id="telefono"
+                                       aria-describedby="helpId" placeholder="Tu teléfono" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="email:">E-mail</label>
-                                <input type="email" class="form-control" name="email" id="correo1" placeholder="E-mail" required>
+                                <label for="mail">E-mail</label>
+                                <input type="email" class="form-control" name="mail" id="mail"
+                                       aria-describedby="helpId" placeholder="Tu e-mail" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea class="form-control" name="mensaje" id="mensaje1" cols="30" rows="3" placeholder="Explica brevemente en que podemos ayudarte" required></textarea>
+                            <label for="dolencia">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
+                                práctica de kenpo?</label>
+                            <select class="form-control" name="dolencia" id="dolencia" aria-describedby="helpId" required>
+                                <option selected value="">Elige una de las dos opciones</option>
+                                <option value="si">SI</option>
+                                <option value="no">NO</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">En caso afirmativo, indique cuales</label>
+                            <textarea class="form-control" name="mensaje" id="mensaje" rows="2"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="ciudad2:">En</label>
+                                <input type="text" class="form-control" name="ciudad2" id="ciudad2" placeholder="Ciudad" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="fecha2:">a</label>
+                                <input type="date" class="form-control" name="fecha2" id="fecha2" required>
+                            </div>
+                        </div>
+                        <div class="text-dark mt-4">
+                            <p class="fw-normal">El abono de las cuotas de los entrenamientos se hará a principio de cada mes.</p>
+                            <p class="fw-normal">La hoja de inscripción junto con la bonificación de las cuotas serán requisito necesario para estar dado en el club.</p>
+                            <p class="fw-normal">De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su representante legal, queda informado y consiente expresa e inequívocamente la incorporación de sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken, domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia, autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la actualización de estos cuando esta sea necesaria.</p>
                         </div>
                         <div class="form-check py-2" style="display: none">
                             <label class="form-check-inline" for="conformidad1">Las condiciones han sido aceptadas</label>
@@ -87,15 +180,15 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-uppercase text-center" id="ModalLongTitle"><strong>Aceptación de condiciones para la cesión de imágenes de menores de 18 años</strong></h5>
+                                            <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la inscripción del alumno en el Club Deportivo Kenpo Hiken</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p><strong>DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</strong></p>
-                                            <p><strong>La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</strong></p>
-                                            <p><strong>El derecho a la propia imagen está reconocido al artículo 18. de la Constitución y regulado por la Ley 1/1982, de 5 de mayo, sobre el derecho al honor, a la intimidad personal y familiar y a la propia imagen y la Ley 15/1999, de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, artículo 13 del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</strong></p>
+                                            <p class="fw-normal">El abono de las cuotas de los entrenamientos se hará a principio de cada mes.</p>
+                                            <p class="fw-normal">La hoja de inscripción junto con la bonificación de las cuotas serán requisito necesario para estar dado en el club.</p>
+                                            <p class="fw-normal">De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su representante legal, queda informado y consiente expresa e inequívocamente la incorporación de sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken, domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia, autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la actualización de estos cuando esta sea necesaria.</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -129,12 +222,11 @@
                 </div> 
             </div>    
             <div class="row justify-content-center" id="form22" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
-                    <h4 class="separador text-center my-2">MANDATO ESPECÍFICO PARA LA INSCRIPCIÓN DE LA LICENCIA Y ACTIVIDADES DE LA FEDERACIÓN MADRILEÑA DE KARATE Y D.A.
-                        (DEPORTISTAS MENORES DE 18 AÑOS)
-                    </h4>
+                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
+                    <h3 class="separador text-center my-1">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.<br>(deportistas menores de 18 años)
+                    </h3>
                     <form method="POST" action="" >
-                        <div class="row py-2">
+                        <div class="row">
                             <div class="col-md-8">
                                 <label for="nombre2">D/Dª</label>
                                 <input type="text" class="form-control" name="nombre2" id="nombre2" placeholder="Nombre del deportista" required>
@@ -183,13 +275,13 @@
                             </div>
                         </div>
                         <div class="text-dark mt-4">
-                            <p><strong>en concepto de MANDANTE.</strong></p>
-                            <p><u><strong>Dice y otorga</strong></u></p>
-                            <p><strong>Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</strong></p>
-                            <p><strong>OBJETO DEL MANDATO.</strong></p>
-                            <p><strong>Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</strong></p>
-                            <p><strong>Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</strong></p>
-                            <p><strong>Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</strong></p>
+                            <p class="fw-normal">en concepto de MANDANTE.</p>
+                            <p class="fw-normal">Dice y otorga</p>
+                            <p class="fw-normal">Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</p>
+                            <p class="fw-normal">OBJETO DEL MANDATO.</p>
+                            <p class="fw-normal">Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</p>
+                            <p class="fw-normal">Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</p>
+                            <p class="fw-normal">Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -213,19 +305,19 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-uppercase text-center" id="ModalLongTitle"><strong>Aceptación de condiciones para la inscripción de la licencia y actividades en la FMK</strong></h5>
+                                            <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la inscripción de la licencia y actividades en la FMK</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p><strong>Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</strong></p>
-                                            <p><strong>OBJETO DEL MANDATO.</strong></p>
-                                            <p><strong>Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</strong></p>
-                                            <p><strong>Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</strong></p>
-                                            <p><strong>Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</strong></p>
-                                            <p><strong>Acepto el MANDATO conferido y me obligo a cumplirlo de conformidad a las instrucciones del MANDANTE, y declaro bajo mi responsabilidad de la veracidad y actualización de los datos facilitados para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.</strong></p>
-                                            <p><strong>EL MANDANTE (Representante legal)</strong></p>
+                                            <p class="fw-normal">Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</p>
+                                            <p class="fw-normal">OBJETO DEL MANDATO.</p>
+                                            <p class="fw-normal">Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</p>
+                                            <p class="fw-normal">>Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</p>
+                                            <p class="fw-normal">Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</p>
+                                            <p class="fw-normal">Acepto el MANDATO conferido y me obligo a cumplirlo de conformidad a las instrucciones del MANDANTE, y declaro bajo mi responsabilidad de la veracidad y actualización de los datos facilitados para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.</p>
+                                            <p class="fw-normal">EL MANDANTE (Representante legal)</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -259,8 +351,8 @@
                 </div> 
             </div>         
             <div class="row justify-content-center" id="form33" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
-                    <h3 class="separador text-center my-2">Autorización para la publicación de imágenes de los niños/as.</h3>
+                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
+                    <h3 class="separador text-center my-1">Autorización para la publicación de imágenes<br>(deportistas menores de 18 años)</h3>
                     <form method="POST" action="" >
                         <div class="form-group">
                             <label for="nombre3">Don/Doña</label>
@@ -277,9 +369,9 @@
                             </div>
                         </div>
                         <div class="text-dark mt-4">
-                            <p><strong>DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</strong></p>
-                            <p><strong>La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</strong></p>
-                            <p><strong>El derecho a la propia imagen está reconocido al artículo 18. de la Constitución y regulado por la Ley 1/1982, de 5 de mayo, sobre el derecho al honor, a la intimidad personal y familiar y a la propia imagen y la Ley 15/1999, de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, artículo 13 del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</strong></p>
+                            <p class="fw-normal">DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</p>
+                            <p class="fw-normal">La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</p>
+                            <p class="fw-normal">El derecho a la propia imagen está reconocido al artículo 18. de la Constitución y regulado por la Ley 1/1982, de 5 de mayo, sobre el derecho al honor, a la intimidad personal y familiar y a la propia imagen y la Ley 15/1999, de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, artículo 13 del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -303,15 +395,15 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-uppercase text-center" id="ModalLongTitle"><strong>Aceptación de condiciones para la cesión de imágenes de menores de 18 años</strong></h5>
+                                            <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la cesión de imágenes de menores de 18 años</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p><strong>DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</strong></p>
-                                            <p><strong>La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</strong></p>
-                                            <p><strong>El derecho a la propia imagen está reconocido al artículo 18. de la Constitución y regulado por la Ley 1/1982, de 5 de mayo, sobre el derecho al honor, a la intimidad personal y familiar y a la propia imagen y la Ley 15/1999, de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, artículo 13 del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</strong></p>
+                                            <p class="fw-normal">DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</p>
+                                            <p class="fw-normal">La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</p>
+                                            <p class="fw-normal">El derecho a la propia imagen está reconocido al artículo 18. de la Constitución y regulado por la Ley 1/1982, de 5 de mayo, sobre el derecho al honor, a la intimidad personal y familiar y a la propia imagen y la Ley 15/1999, de 13 de diciembre, sobre la Protección de Datos de Carácter Personal, artículo 13 del Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -345,11 +437,10 @@
                 </div> 
             </div> 
             <div class="row justify-content-center" id="form44" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
-                    <h4 class="separador text-center my-2">MANDATO ESPECÍFICO PARA LA INSCRIPCIÓN DE LA LICENCIA Y ACTIVIDADES DE LA FEDERACIÓN MADRILEÑA DE KARATE Y D.A.
-                        (DEPORTISTAS MAYORES DE 18 AÑOS)</h4>
+                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
+                    <h3 class="separador text-center my-2 ">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.<br>(deportistas mayores de 18 años)</h3>
                     <form method="POST" action="" >
-                        <div class="row py-2">
+                        <div class="row py-1">
                             <div class="col-md-8">
                                 <label for="nombre4">D/Dª</label>
                                 <input type="text" class="form-control" name="nombre4" id="nombre4" placeholder="Nombre del deportista" required>
@@ -374,13 +465,13 @@
                             </div>
                         </div>
                         <div class="text-dark mt-4">
-                            <p><strong>en concepto de MANDANTE (deportista).</strong></p>
-                            <p><u><strong>Dice y otorga</strong></u></p>
-                            <p><strong>Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</strong></p>
-                            <p><strong>OBJETO DEL MANDATO.</strong></p>
-                            <p><strong>Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</strong></p>
-                            <p><strong>Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</strong></p>
-                            <p><strong>Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</strong></p>
+                            <p class="fw-normal">en concepto de MANDANTE (deportista).</p>
+                            <p class="fw-normal fst-italic">Dice y otorga</p>
+                            <p class="fw-normal">Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</p>
+                            <p class="fw-normal">OBJETO DEL MANDATO.</p>
+                            <p class="fw-normal">Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</p>
+                            <p class="fw-normal">Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</p>
+                            <p class="fw-normal">Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -400,23 +491,23 @@
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato2">
                                 Acepta las condiciones
                             </button>
-                            <div class="modal fade"data-backdrop="false" id="condicionesMandato2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                            <div class="modal fade" data-backdrop="false" id="condicionesMandato2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title text-uppercase text-center" id="ModalLongTitle"><strong>Aceptación de condiciones para la cesión de imágenes de mayores de 18 años</strong></h5>
+                                            <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la cesión de imágenes de mayores de 18 años</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p><strong>Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</strong></p>
-                                            <p><strong>OBJETO DEL MANDATO.</strong></p>
-                                            <p><strong>Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</strong></p>
-                                            <p><strong>Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</strong></p>
-                                            <p><strong>Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</strong></p>
-                                            <p><strong>Acepto el MANDATO conferido y me obligo a cumplirlo de conformidad a las instrucciones del MANDANTE, y declaro bajo mi responsabilidad de la veracidad y actualización de los datos facilitados para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.</strong></p>
-                                            <p><strong>EL MANDANTE (deportista)</strong></p>
+                                            <p class="fw-normal">Que confiere MANDATO a favor del representante de la Entidad Deportiva, CLUB DEPORTIVO ELEMENTAL KENPO HIKEN, con domicilio en CALLE BOLÍVAR, 22, PORTAL C, 1º C, 28045, Localidad MADRID, en concepto de MANDATARIO.</p>
+                                            <p class="fw-normal">OBJETO DEL MANDATO.</p>
+                                            <p class="fw-normal">Que el MANDATO, que se rige por los arts. 1709 a 1739 CC español se confiere para que se pueda llevar a cabo la afiliación/reafiliación federativa del MANDANTE en al año 2022.</p>
+                                            <p class="fw-normal">Que este MANDATO también se otorga para que se pueda llevar a cabo la inscripción en actividades deportivas de la Federación Madrileña de Karate y D.A.</p>
+                                            <p class="fw-normal">Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación exclusivamente de los asuntos citados como objeto del MANDATO.</p>
+                                            <p class="fw-normal">Acepto el MANDATO conferido y me obligo a cumplirlo de conformidad a las instrucciones del MANDANTE, y declaro bajo mi responsabilidad de la veracidad y actualización de los datos facilitados para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.</p>
+                                            <p class="fw-normal">EL MANDANTE (deportista)</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -464,5 +555,4 @@
             <img src="img/whatsapp.png" alt="whatsapp"/>
         </a>
     </body>
-
 </html>
