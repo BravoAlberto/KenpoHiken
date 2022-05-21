@@ -49,8 +49,8 @@
                 <div class="col-md-8 bg-white contenido-nosotros py-4 px-3">
                     <h2 class="separador text-center my-3">Regístrate</h2>
                     <div id="ficha">
-                        <p>Introduce a continuación los datos con los que quieres acceder a tu cuenta de usuario<br>
-                            Todos los campos son obligatorios</p>
+                        <p class="fw-normal fs-5">Introduce los datos con los se accedera a la cuenta de usuario<br>                            
+                            <span class="fw-bold">Todos los campos son obligatorios</span></p>
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
@@ -81,9 +81,9 @@
                                 Este usuario ya existe, debes probar con otro nombre de usuario.
                             </div>
                             <hr class="my-3"/>
-                            <div id="datos" style="display: none;">
-                                <p>Introduce ahora tus datos personales para que podamos crear tu ficha de alumno<br>
-                                    Todos los campos son obligatorios</p>
+                            <div id="datos" style="display: block;">
+                                <p class="fw-normal fs-5">Introduce ahora los siguientes datos del <span class="fw-bold text-danger">deportista</span> para que podamos crear su ficha.<br>
+                                    <span class="fw-bold">Todos los campos son obligatorios</span></p>
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>
@@ -259,15 +259,8 @@
                                     <label for="mensaje">En caso afirmativo, indique cuales</label>
                                     <textarea class="form-control" name="mensaje" id="mensaje" rows="2"></textarea>
                                 </div>
-                                <div class="form-check py-2">
-                                    <input type="checkbox" class="form-check-input is-invalid" name="conformidad" id="conformidad">
-                                    <label class="form-check-label" for="conformidad">Acepto las condiciones y consiento el tratamiento de mis datos por parte de Kenpo Hiken.</label>
-                                    <div id="invalidCheck3Feedback" class="invalid-feedback">
-                                        Debes aceptar las condiciones antes de enviar el formulario
-                                    </div>
-                                </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                                    <input type="submit" class="btn btn-primary" id="enviar" value="Enviar datos">
                                 </div>
                                 <!-- antes del submit funciona pero no funcionan las validadciones de Bootstrap y ahora envía directamente
                             <button class="btn btn-primary" type="button" id="enviar">Enviar</button>
@@ -283,26 +276,6 @@
                     <div class="alert alert-success text-center" role="alert" id="cuentaNoOk" style="display: none;">
                         Se ha producido un error a la hora de grabar sus datos.<br>Inténtalo de nuevo utilizando un nombre de usuario diferente.
                     </div>
-                    <p id="condiciones">
-                        1. El abono de las cuotas de los entrenamientos se hará a principio de cada mes.
-                        2. La hoja de inscripción junto con la bonificación de las cuotas serán requisito necesario para
-                        estar dado en el club.
-                        3. De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su
-                        representante legal, queda informado y consiente expresa e inequívocamente la incorporación de
-                        sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad
-                        de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo
-                        consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por
-                        medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken,
-                        domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos
-                        personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y
-                        divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a
-                        los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso,
-                        rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos
-                        establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según
-                        procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia,
-                        autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la
-                        actualización de estos cuando esta sea necesaria.
-                    </p>
                 </div>
             </div>
         </main>
@@ -310,7 +283,6 @@
             <div class="container">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-12 col-8">
-                        <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
                         <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
                     </div>
                 </div>
