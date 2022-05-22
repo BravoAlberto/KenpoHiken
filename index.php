@@ -8,7 +8,7 @@
         <title>Kenpo Hiken</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css">
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
                 integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/3d613ca332.js "></script>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
 
     <body class="index">
@@ -26,7 +27,7 @@
         <header class="header menu py-3">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4 col-4 mb-4 mb-md-0">
+                    <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
                             <img src="img/Logo_Hiken.jpg" class="logo img-fluid" alt="imagenLogo">
                         </a>
@@ -48,24 +49,6 @@
                 </div>
             </div>
         </header>
-        <!--
-        <div class="container-fluid">
-            <div class="row imagen-superior imagen">
-                <div class="col-md-6 bg-primary">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-sm-8 col-md-6">
-                            <div class="contenido text-center text-light py-3">
-                                <h2 class="text-uppercase">10 Años de Experiencia</h2>
-                                <p>Con 100 alumnos y 2 ubicaciones.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 bg-cartel">
-                </div>
-            </div>
-        </div>
-        -->
         <div class="container">
             <div class="row imagen-superior">
                 <div class="col-md-12 bg-primary">
@@ -97,21 +80,21 @@
                         <h3>Kenpo Hiken</h3>
                         <p>Nuestro club nace como consecuencia de la amistad creada entre compañeros de Kenpo del
                             Polideportivo Municipal Arganzuela.<br>
-                            <a class="btn btn-link" href="https://www.kenpohiken.es/">más información</a></p>
+                            <a class="btn btn-link" href="https://www.kenpohiken.es/">Más información</a></p>
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/icono_kenpo_americano.jpg" class="img-fluid mb-3" alt="imagenAmer">
                         <h3>Kenpo Americano</h3>
                         <p>Somos practicantes de Kenpo en el estilo de Kenpo Karate o Kenpo Americano, creado por Ed.
                             Parker.<br>
-                            <a class="btn btn-link" href="https://www.americankenpo.com/">más información</a></p>                        
+                            <a class="btn btn-link" href="https://www.americankenpo.com/">Más información</a></p>                        
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/AKA_BN.jpg" class="img-fluid mb-3" alt="imagenAKA">
                         <h3>A.K.A.</h3>
                         <p>Nuestro club es miembro de American Kenpo Academies, una asociación de clubes y para la práctica
                             y mejora de nuestro arte.<br>
-                            <a class="btn btn-link" href="https://es-es.facebook.com/akakenpo/">más información</a></p>
+                            <a class="btn btn-link" href="https://es-es.facebook.com/akakenpo/">Más información</a></p>
                     </div>
                 </div>
             </section>
@@ -124,7 +107,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase1.jpg" class="card-img-top" alt="imagenClases">
+                            <img src="img/clase1.jpg" class="card-image" alt="imagenClases">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
@@ -141,7 +124,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase2.png" class="card-img-top" alt="imagenPrecios">
+                            <img src="img/clase2.png" class="card-image" alt="imagenPrecios">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                             </div>
@@ -157,7 +140,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase3.jpg" class="card-img-top" alt="imagenlocaliz">
+                            <img src="img/clase3.jpg" class="card-image" alt="imagenlocaliz">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
@@ -200,7 +183,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
-                        <nav class="nav d-flex flex-column text-center flex-md-row justify-content-md-start">
+                        <nav class="nav justify-content-center">
                             <a href="https://www.instagram.com/kenpohiken/"
                                class="fab fa-instagram icono instagram d-inline-flex align-items-center justify-content-center">
                             </a>
@@ -215,16 +198,20 @@
                             </a>
                         </nav>
                     </div>
-                    <div class="menu contacto text-center text-md-right col-md-6 col-8 mb-4 mb-md-0">
-                        <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-right">Todos los derechos reservados</p>
-                    </div>
+
                 </div>
             </div>
-        </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=646921290&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
-            <img src="img/whatsapp.png" alt="whatsapp"/>
-        </a>
-    </body>
+            <div class="container">
+                <div class="menu contacto text-center text-md-right col-12 mt-4 mb-md-0">
+                    <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
+                    <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+        <img src="img/whatsapp.png" alt="whatsapp"/>
+    </a>
+</body>
 
 </html>

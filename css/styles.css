@@ -119,6 +119,11 @@ aside .inverso::after {
     font-weight: 400;
 }
 
+.card-image{
+    width:100%;
+    height: 254px;
+}
+
 .card-body p {
     font-size: 1rem;
     line-height: 2rem;

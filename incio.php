@@ -22,18 +22,27 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="header py-3">
+        <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4 col-8 mb-4 mb-md-0">
+                    <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
                             <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
                         </a>
                     </div>
                     <div class="col-12 col-md-8">
-                        <nav
-                            class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                            <a href="index.php" class="nav-link">Volver</a>
+                        <nav class="nav-principal navbar navbar-expand-md navbar-light  justify-content-center ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_principal"
+                                    aria-expanded="false">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse flex-column flex-sm-row justify-content-md-end text-center"
+                                 id="nav_principal">
+                                <a href="incio.php" class="nav-link active">Entrar</a>
+                                <a href="registro.php" class="nav-link">Registrarse</a>
+                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                <a href="index.php" class="nav-link">Volver</a>
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -67,10 +76,10 @@
         </main>
         <footer class="footer p-4">
             <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-12 col-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
+                    <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                     </div>
                 </div>
             </div>

@@ -4,10 +4,7 @@
     $telefono = $_POST['phone'];
     $mail = $_POST['correoel'];
     $mensaje = $_POST['text'];
-    
-    echo ($nombre.''.$telefono.''.$mail.''.$mensaje);
-    
-    /*
+    echo "<script>alert('entro');</script>";
 if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email']) && isset($_POST['text'])) {
     $nombre = $_POST['name'];
     $telefono = $_POST['phone'];
@@ -25,6 +22,6 @@ if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['email']) &&
     }
 } else {
     echo 0;
-}*/
+}
 ?>
 

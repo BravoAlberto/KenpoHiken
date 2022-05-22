@@ -206,7 +206,7 @@ function cargarEventos() {
                 mensaje: mensaje,
                 conformidad: conformidad
             },
-            type: 'POST',
+            type: 'GET',
             success: function (response) {
                 if (response == 0) {
                     $('#datos').hide();

@@ -29,15 +29,24 @@
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4 col-8 mb-4 mb-md-0">
+                    <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
                             <img src="img/Logo_Hiken.jpg" class="img-fluid" alt="imagenLogo">
                         </a>
                     </div>
                     <div class="col-12 col-md-8">
-                        <nav
-                            class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                            <a href="index.php" class="nav-link">Volver</a>
+                        <nav class="nav-principal navbar navbar-expand-md navbar-light  justify-content-center ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_principal"
+                                    aria-expanded="false">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse flex-column flex-sm-row justify-content-md-end text-center"
+                                 id="nav_principal">
+                                <a href="incio.php" class="nav-link">Entrar</a>
+                                <a href="registro.php" class="nav-link active">Registrarse</a>
+                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                <a href="index.php" class="nav-link">Volver</a>
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -49,7 +58,7 @@
                 <div class="col-md-8 bg-white contenido-nosotros py-4 px-3">
                     <h2 class="separador text-center my-3">Regístrate</h2>
                     <div id="ficha">
-                        <p class="fw-normal fs-5">Introduce los datos con los se accedera a la cuenta de usuario<br>                            
+                        <p class="fw-normal fs-5">Introduce los datos con los se accederá a la cuenta de usuario<br>                            
                             <span class="fw-bold">Todos los campos son obligatorios</span></p>
                         <form method="POST" action="">
                             <div class="form-group">
@@ -80,8 +89,8 @@
                                 <a class="close" data-dismiss="alert"> × </a>
                                 Este usuario ya existe, debes probar con otro nombre de usuario.
                             </div>
-                            <hr class="my-3"/>
-                            <div id="datos" style="display: block;">
+                            <div id="datos" style="display: none;">
+                                <hr class="my-3"/>
                                 <p class="fw-normal fs-5">Introduce ahora los siguientes datos del <span class="fw-bold text-danger">deportista</span> para que podamos crear su ficha.<br>
                                     <span class="fw-bold">Todos los campos son obligatorios</span></p>
                                 <div class="form-group">
@@ -279,16 +288,16 @@
                 </div>
             </div>
         </main>
-        <footer class="footer p-4">
+        <footer class="footer mt-auto p-4">
             <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-12 col-8">
-                        <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-8 mb-2 mb-md-0">
+                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                     </div>
                 </div>
             </div>
         </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=672233318&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
             <img src="img/whatsapp.png" alt="whatsapp"/>
         </a>
     </body>

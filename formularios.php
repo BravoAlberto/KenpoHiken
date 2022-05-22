@@ -21,41 +21,42 @@
                 integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     </head>
-
     <body>
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4 col-8 mb-4 mb-md-0">
+                    <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
-                            <img src="img/Logo_Hiken.jpg" class="img-fluid" alt="imagenLogo">
+                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
                         </a>
                     </div>
-                    <div class="btn-group col-8 col-md-4 mt-4">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Formularios Inscripción temporada
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Club Kenpo Hiken</a>
-                            <a class="dropdown-item" href="#" id="form2">Mandato inscripción < 18 años</a>
-                            <a class="dropdown-item" href="#" id="form3">Autorización imagenes < 18 años</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" id="form4">Mandato inscripción > 18 años</a>
-                        </div>
-                    </div>
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-8">
                         <nav
                             class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                            <a href="index.php" class="nav-link">Volver</a>
+                            <a href="index.php" class="nav-link">Inicio</a>
                         </nav>
                     </div>
                 </div>
             </div>
         </header>
         <main class="container">
-            <div class="row justify-content-center" id="form11" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-3 px-2">
-                    <h2 class="separador text-center my-1">Ficha Deportiva Club Kenpo Hiken</h2>
+            <div class="row justify-content-center">
+                <div class="justify-content-center btn-group col-12 mb-5">
+                    <button type="button" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Formularios Inscripción temporada
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Club Kenpo Hiken</a>
+                        <a class="dropdown-item" href="#" id="form2">Mandato inscripción < 18 años</a>
+                        <a class="dropdown-item" href="#" id="form3">Autorización imagenes < 18 años</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item breadcrumb-item" href="#" id="form4">Mandato inscripción > 18 años</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center my-5" id="form11" style="display:none;">
+                <div class="col-md-8 bg-white contenido-nosotros py-5">
+                    <h3 class="text-center mb-3">Ficha Deportiva Club Kenpo Hiken</h3>
                     <form method="POST" action="" >
                         <div class="row">
                             <div class="col-md-4">
@@ -221,10 +222,12 @@
                     </form>
                 </div> 
             </div>    
-            <div class="row justify-content-center" id="form22" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
-                    <h3 class="separador text-center my-1">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.<br>(deportistas menores de 18 años)
+            <div class="row justify-content-center my-5" id="form22" style="display:none;">
+                <div class="col-md-8 bg-white contenido-nosotros py-5">
+                    <h3 class="text-center">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.
                     </h3>
+                    <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los menores de 18 años</span>
+                    </h5>
                     <form method="POST" action="" >
                         <div class="row">
                             <div class="col-md-8">
@@ -350,9 +353,11 @@
                     </form>
                 </div> 
             </div>         
-            <div class="row justify-content-center" id="form33" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
-                    <h3 class="separador text-center my-1">Autorización para la publicación de imágenes<br>(deportistas menores de 18 años)</h3>
+            <div class="row justify-content-center my-5" id="form33" style="display:none;">
+                <div class="col-md-8 bg-white contenido-nosotros py-5">
+                    <h3 class="text-center">Autorización para la publicación de imágenes</h3>
+                    <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los menores de 18 años</span>
+                    </h5>
                     <form method="POST" action="" >
                         <div class="form-group">
                             <label for="nombre3">Don/Doña</label>
@@ -436,9 +441,12 @@
                     </form>
                 </div> 
             </div> 
-            <div class="row justify-content-center" id="form44" style="display:none;">
-                <div class="col-md-8 bg-white contenido-nosotros py-2 px-2">
-                    <h3 class="separador text-center my-2 ">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.<br>(deportistas mayores de 18 años)</h3>
+            <div class="row justify-content-center my-5" id="form44" style="display:none;">
+                <div class="col-md-8 bg-white contenido-nosotros py-5">
+                    <h3 class="text-center">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.
+                    </h3>
+                    <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los mayores de 18 años</span>
+                    </h5>                    
                     <form method="POST" action="" >
                         <div class="row py-1">
                             <div class="col-md-8">
@@ -541,17 +549,17 @@
                 </div> 
             </div>   
         </main>
-        <footer class="footer p-4 col-12">
+        <footer class="footer p-4">
             <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-12 col-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-center">Todos los derechos reservados</p>
+                    <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                     </div>
                 </div>
             </div>
         </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=672233318&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
             <img src="img/whatsapp.png" alt="whatsapp"/>
         </a>
     </body>

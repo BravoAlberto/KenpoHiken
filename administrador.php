@@ -25,7 +25,7 @@
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-md-4 col-8 mb-4 mb-md-0">
+                    <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
                             <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
                         </a>
@@ -33,7 +33,7 @@
                     <div class="col-12 col-md-8">
                         <nav
                             class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                            <a href="index.php" class="nav-link">Volver</a>
+                            <a href="index.php" class="nav-link">Inicio</a>
                         </nav>
                     </div>
                 </div>
@@ -73,11 +73,11 @@
                                         <div class="alinear modal fade" data-backdrop="false" id="borrarCuenta" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Borrado de cuenta de usuario</h5>
+                                                    <div class="modal-header justify-content-around">
+                                                        <h5 class="alert alert-primary text-light modal-title text-uppercase" id="ModalLongTitle">Borrado de cuenta de usuario</h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p class="fw-normal">¿Estás seguro de que quieres borrar la cuenta de este deportista?<p>
+                                                        <p>¿Estás seguro de que quieres borrar la cuenta de este deportista?<p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
@@ -94,17 +94,15 @@
                 </div>
             </div>
         </main>
-        <footer class="footer p-4">
+        <footer class="footer mt-auto p-4">
             <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md-12 col-8">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-8 mb-2 mb-md-0">
+
                         <p class="copyright text-center text-md-center"></p>
                     </div>
                 </div>
             </div>
         </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=672233318&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
-            <img src="img/whatsapp.png" alt="whatsapp"/>
-        </a>
     </body>
 </html>

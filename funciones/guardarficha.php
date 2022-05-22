@@ -4,34 +4,35 @@ include_once 'password.php';
 
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 
-$usuario = $_POST['usuario'];
-$clave = Password::hash($_POST['clave']);
-$nombre = $_POST['nombre'];
-$apellido1 = $_POST['apellido1'];
-$apellido2 = $_POST['apellido2'];
-$tipo = $_POST['tipo'];
-$documento = $_POST['documento'];
-$nacimiento = $_POST['nacimiento'];
-$lugarnacim = $_POST['lugarnacim'];
-$nacionalidad = $_POST['nacionalidad'];
-$direccion = $_POST['direccion'];
-$ciudad = $_POST['ciudad'];
-$provincia = $_POST['provincia'];
-$codpostal = $_POST['codpostal'];
-$telefono = $_POST['telefono'];
-$mail = $_POST['mail'];
-$enfermedad = $_POST['enfermedad'];
-$mensaje = $_POST['mensaje'];
-$conformidad = $_POST['conformidad'];
+$usuario = $_REQUEST['usuario'];
+$clave = Password::hash($_REQUEST['clave']);
+$nombre = $_REQUEST['nombre'];
+$apellido1 = $_REQUEST['apellido1'];
+$apellido2 = $_REQUEST['apellido2'];
+$tipo = $_REQUEST['tipo'];
+$documento = $_REQUEST['documento'];
+$nacimiento = $_REQUEST['nacimiento'];
+$lugarnacim = $_REQUEST['lugarnacim'];
+$nacionalidad = $_REQUEST['nacionalidad'];
+$direccion = $_REQUEST['direccion'];
+$ciudad = $_REQUEST['ciudad'];
+$provincia = $_REQUEST['provincia'];
+$codpostal = $_REQUEST['codpostal'];
+$telefono = $_REQUEST['telefono'];
+$mail = $_REQUEST['mail'];
+$enfermedad = $_REQUEST['enfermedad'];
+$mensaje = $_REQUEST['mensaje'];
+$conformidad = $_REQUEST['conformidad'];
 
 if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
     $sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
     $query = $con->prepare($sql);
     $query->execute();
     $resultado = $query->fetch();
-    if ($resultado['usuario'] !== null) {
+    if ($resultado != null) {
         echo ('0');
     } else {
+        if(!empty($usuario) &&!empty($usuario) &&!empty($usuario) && !empty($usuario) &&!empty($usuario) &&!empty($usuario) && ){
         $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
         $query = $con->prepare($sql);
         $resultado = $query->execute();
@@ -43,6 +44,7 @@ if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
         $query = $con->prepare($sql1);
         $resultado = $query->execute();
         echo('1');
+        }
     }
 }
 ?>
