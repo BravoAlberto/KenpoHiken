@@ -83,6 +83,10 @@ function cargarEventos() {
                 document.getElementById("enviar").addEventListener("click", enviaDatos, false);
             if (document.getElementById("acceder") != null)
                 document.getElementById("acceder").addEventListener("click", acceso, false);
+            if (document.getElementById("usuarioAcceso") != null)
+                document.getElementById("usuarioAcceso").addEventListener("blur", comprobarUsuAcc, false);
+            if (document.getElementById("passwordAcceso") != null)
+                document.getElementById("passwordAcceso").addEventListener("blur", comprobarContAcc, false);
             if (document.getElementById("correo") != null)
                 document.getElementById("correo").addEventListener("click", enviamail, false);
             if (document.getElementById("form1") != null)
@@ -182,7 +186,6 @@ function cargarEventos() {
         let mail = $("#mail").val();
         let enfermedad = $("#dolencia").val();
         let mensaje = $("#mensaje").val();
-        let conformidad = $("#conformidad").val();
         /*Aquí grabamos el usuario y la contraseña junto con los datos del deportista en la base de datos*/
         $.ajax({
             url: "funciones/guardarficha.php",
@@ -204,22 +207,25 @@ function cargarEventos() {
                 mail: mail,
                 enfermedad: enfermedad,
                 mensaje: mensaje,
-                conformidad: conformidad
             },
             type: 'GET',
             success: function (response) {
-                if (response == 0) {
+                alert(response);
+                if (response == 1) {
+                    alert('paso 1');
+                    $("#cuentaOk").show();
+                    $('#ficha').hide();
+                    $('#condiciones').hide();
+                } else if (response == 0) {
+                    alert('paso 0');
                     $('#datos').hide();
                     $('#condiciones').hide();
                     $("#cuentaNoOk").show();
                     $("#continuar").show();
                     $('#usuario').removeAttr("disabled");
                     $('#password').removeAttr("disabled");
-
                 } else {
-                    $("#cuentaOk").show();
-                    $('#ficha').hide();
-                    $('#condiciones').hide();
+                    alert('faltan datos');
                 }
             }
         });
@@ -244,21 +250,53 @@ function cargarEventos() {
         });
     }
 
+    function comprobarUsuAcc() {
+        $("#ErrorClave").hide();
+        let usuario = $("#usuarioAcceso").val();
+        if (!usuario) {
+            $("#errorUsu").show();
+        } else {
+            $("#errorUsu").hide();
+            return true;
+        }
+    }
+
+    function comprobarContAcc() {
+        $("#errorUsu").hide();
+        let clave = $("#passwordAcceso").val();
+        if (clave.length < 6 || clave.length > 8) {
+            $("#ErrorClave").show();
+        } else {
+            $("#ErrorClave").hide();
+            return true;
+        }
+    }
+
     function acceso() {
-        let nombre = $("#usuario").val();
-        let clave = $("#password").val();
-        $.ajax({
-            url: "funciones/accesoUsuario.php",
-            data: {user: nombre, password: clave},
-            type: 'POST',
-            success: function (response) {
-                if (response == 1) {
-                    $(location).attr('href','../formulario.php');
-                } else {
-                    $("#errorregistro").show();
-                }
+        let nombre = $("#usuarioAcceso").val();
+        let clave = $("#passwordAcceso").val();
+        if (comprobarContAcc()) {
+            if (comprobarUsuAcc()) {
+                $("#acceder").hide();
+                $("#spinnerAcceso").show();
+                $.ajax({
+                    url: "funciones/accesoUsuario.php",
+                    data: {user: nombre, password: clave},
+                    type: 'POST',
+                    success: function (response) {
+                        alert(reponse);
+                        if (response == 0) {
+                            $(location).attr('href', '../kenpohiken/administrador.php');
+                        } else if (response == 1) {
+                            $(location).attr('href', '../kenpohiken/formularios.php');
+                        } else {
+                            alert('aquí 2');
+                            $("#errorRegistro").show();
+                        }
+                    }
+                });
             }
-        });
+        }
     }
 
     function mostrarForm1() {

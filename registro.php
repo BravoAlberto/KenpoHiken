@@ -60,7 +60,7 @@
                     <div id="ficha">
                         <p class="fw-normal fs-5">Introduce los datos con los se accederá a la cuenta de usuario<br>                            
                             <span class="fw-bold">Todos los campos son obligatorios</span></p>
-                        <form method="POST" action="">
+                        <form method="POST" action="#">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
                                 <input type="text" class="form-control" name="usuario" id="usuario"
@@ -110,10 +110,6 @@
                                             <label for="apellido1">Primer apellido</label>
                                             <input type="text" class="form-control" name="apellido1" id="apellido1"
                                                    aria-describedby="helpId" placeholder="Tu primer apellido" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio4" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -121,10 +117,6 @@
                                             <label for="apellido2">Segundo apellido</label>
                                             <input type="text" class="form-control" name="apellido2" id="apellido2"
                                                    aria-describedby="helpId" placeholder="Tu segundo apellido">
-                                            <div class="alert alert-danger" role="alert" id="errorvacio5" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -155,10 +147,6 @@
                                             <label for="nacimiento">Fecha de nacimiento</label>
                                             <input type="date" class="form-control" name="nacimiento" id="nacimiento"
                                                    aria-describedby="helpId" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio7" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -168,10 +156,6 @@
                                             <label for="lugarNac">Lugar de nacimiento</label>
                                             <input type="text" class="form-control" name="lugarNac" id="lugarNac"
                                                    aria-describedby="helpId" placeholder="Tu lugar de nacimiento" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio8" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                     <!--.col-md-6-->
@@ -180,10 +164,6 @@
                                             <label for="pais">Nacionalidad</label>
                                             <input type="text" class="form-control" name="pais" id="pais"
                                                    aria-describedby="helpId" placeholder="Tu nacionalidad" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio9" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -191,10 +171,6 @@
                                     <label for="address">Dirección</label>
                                     <input type="text" class="form-control" name="address" id="address"
                                            placeholder="Tu dirección" required>
-                                    <div class="alert alert-danger" role="alert" id="errorvacio10" style="display: none;">
-                                        <a class="close" data-dismiss="alert"> × </a>
-                                        No puedes dejar este campo vacío.
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
@@ -202,10 +178,6 @@
                                             <label for="ciudad">Ciudad</label>
                                             <input type="text" class="form-control" name="ciudad" id="ciudad"
                                                    aria-describedby="helpId" placeholder="Tu ciudad" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio11" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -213,21 +185,13 @@
                                             <label for="provincia">Provincia</label>
                                             <input type="text" class="form-control" name="provincia" id="provincia"
                                                    aria-describedby="helpId" placeholder="Tu provincia" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio12" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="CP">Código Postal</label>
-                                            <input type="text" class="form-control" name="CP" id="CP" aria-describedby="helpId"
+                                            <input type="number" class="form-control" name="CP" id="CP" aria-describedby="helpId"
                                                    placeholder="Tu código postal" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio13" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -235,23 +199,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label for="telefono">Teléfono</label>
-                                            <input type="tel" class="form-control" name="telefono" id="telefono"
+                                            <input type="number" class="form-control" name="telefono" id="telefono"
                                                    aria-describedby="helpId" placeholder="Tu teléfono" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio14" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="mail">E-mail</label>
-                                            <input type="email" class="form-control" name="mail" id="mail"
+                                            <input type="text" class="form-control" name="mail" id="mail"
                                                    aria-describedby="helpId" placeholder="Tu e-mail" required>
-                                            <div class="alert alert-danger" role="alert" id="errorvacio15" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                No puedes dejar este campo vacío.
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

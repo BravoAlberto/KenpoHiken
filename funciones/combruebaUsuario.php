@@ -11,7 +11,7 @@ if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
     $query = $con->prepare($sql);
     $query->execute();
     $resultado = $query->fetch();
-    if ($resultado['usuario'] === null) {
+    if ($resultado == null) {
         echo ('1');
     } else {
         echo('0');

@@ -107,7 +107,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase1.jpg" class="card-image" alt="imagenClases">
+                            <img src="img/clase1.jpg" class="card-img-top" alt="imagenClases">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
@@ -124,7 +124,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase2.png" class="card-image" alt="imagenPrecios">
+                            <img src="img/clase2.png" class="card-img-top" alt="imagenPrecios">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                             </div>
@@ -140,7 +140,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase3.jpg" class="card-image" alt="imagenlocaliz">
+                            <img src="img/clase3.jpg" class="card-img-top" alt="imagenlocaliz">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
@@ -182,7 +182,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-6 col-8 mb-2 mb-md-0">
+                    <div class="col-md-8 mb-2 mb-md-0">
                         <nav class="nav justify-content-center">
                             <a href="https://www.instagram.com/kenpohiken/"
                                class="fab fa-instagram icono instagram d-inline-flex align-items-center justify-content-center">

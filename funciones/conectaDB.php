@@ -6,7 +6,7 @@
   @author Alberto Bravo
  */
 
-class Singleton {
+class ConectaDB {
 
 //Sirve para que sólo se pueda tener una instancia de una clase. En este caso sólo podremos tener una conexión
     private $con;
@@ -22,10 +22,14 @@ class Singleton {
         }
     }
 
+    public function __destruct() {
+        $this->conexion = null;
+    }
+
     //3. MÉTODO ESTÁTICO DONDE CREAMOS LA INSTANCIA, si no está ceada
     public static function singleton() {
         if (!isset(SELF::$instancia)) {
-            SELF::$instancia = new Singleton;
+            SELF::$instancia = new ConectaDB;
         }
         return SELF::$instancia;
     }
@@ -35,12 +39,13 @@ class Singleton {
         trigger_error('No se permite clonar este objeto', E_USER_ERROR);
     }
 
-    public function getClave($login) {
-        $query = $this->con->prepare("select clave_hash from usuarioshash where login=:usuario");
-        $query->bindParam(':usuario', $login);
-        $query->execute();
-        $resultado = $query->fetch(PDO::FETCH_ASSOC);
-        return $resultado['clave_hash'];
+    public function getClave($usuario) {
+        $datos = array(':nombre' => $usuario);
+        $sql = "select clave from usuario where usuario=:nombre";
+        $consulta = $this->con->prepare($sql);
+        $consulta->execute($datos);
+        $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+        return $resultado['clave'];
     }
 
     public function getLdb($sql) {

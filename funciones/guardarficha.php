@@ -22,9 +22,8 @@ $telefono = $_REQUEST['telefono'];
 $mail = $_REQUEST['mail'];
 $enfermedad = $_REQUEST['enfermedad'];
 $mensaje = $_REQUEST['mensaje'];
-$conformidad = $_REQUEST['conformidad'];
 
-if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
+
     $sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
     $query = $con->prepare($sql);
     $query->execute();
@@ -32,19 +31,20 @@ if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
     if ($resultado != null) {
         echo ('0');
     } else {
-        if(!empty($usuario) &&!empty($usuario) &&!empty($usuario) && !empty($usuario) &&!empty($usuario) &&!empty($usuario) && ){
-        $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
-        $query = $con->prepare($sql);
-        $resultado = $query->execute();
-
-        $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "',"
-                . "'" . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','" . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
-                . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "',"
-                . "'" . $conformidad . "')";
-        $query = $con->prepare($sql1);
-        $resultado = $query->execute();
-        echo('1');
+        if (empty($nombre) || empty($apellido1) || empty($tipo) || empty($documento) || empty($nacimiento) || empty($lugarnacim) || empty($nacionalidad) || empty($direccion) || empty($ciudad) || empty($provincia) || empty($codpostal) || empty($telefono) || empty($mail) || empty($enfermedad)) {
+            echo ('2');
+        } else {
+            $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "'," . "'" . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','" . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
+                    . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "')";
+            $query = $con->prepare($sql1);
+            $resultado = $query->execute();
+            
+            $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
+            $query = $con->prepare($sql);
+            $resultado = $query->execute();
+            echo('1');
+            //echo"<script>alert('entro');</script>)";
         }
     }
-}
+
 ?>
