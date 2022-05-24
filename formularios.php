@@ -22,12 +22,18 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
+        <?php
+        session_start();
+        if (!empty($_SESSION['user'])) {
+            $usuario = $_SESSION['user'];
+        }
+        ?>
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
-                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
+                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid" alt="imagenLogo">
                         </a>
                     </div>
                     <div class="col-12 col-md-8">
@@ -54,105 +60,106 @@
                     </div>
                 </div>
             </div>
+            <input type="hidden" id="useroculto" name="useroculto" value="<?php echo $usuario ?>">
             <div class="row justify-content-center my-5" id="form11" style="display:none;">
                 <div class="col-md-8 bg-white contenido-nosotros py-5">
                     <h3 class="text-center mb-3">Ficha Deportiva Club Kenpo Hiken</h3>
-                    <form method="POST" action="" >
+                    <form method="POST" action="#" >
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>
+                                <label for="nombreFi">Nombre</label>
+                                <input type="text" class="form-control" name="nombreFi" id="nombreFi" placeholder="Tu nombre" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="apellido1">Primer apellido</label>
-                                <input type="text" class="form-control" name="apellido1" id="apellido1"
+                                <label for="apellidoFi1">Primer apellido</label>
+                                <input type="text" class="form-control" name="apellidoFi1" id="apellidoFi1"
                                        aria-describedby="helpId" placeholder="Tu primer apellido" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="apellido2">Segundo apellido</label>
-                                <input type="text" class="form-control" name="apellido2" id="apellido2"
+                                <label for="apellidoFi2">Segundo apellido</label>
+                                <input type="text" class="form-control" name="apellidoFi2" id="apellidoFi2"
                                        aria-describedby="helpId" placeholder="Tu segundo apellido">
                             </div>
                         </div>
                         <div class="row py-3">
                             <div class="col-md-4">
-                                <label for="tipo">Tipo de documento</label>
-                                <select class="form-control" name="tipo" id="tipo" aria-describedby="helpId" required>
+                                <label for="tipoFi">Tipo de documento</label>
+                                <select class="form-control" name="tipoFi" id="tipoFi" aria-describedby="helpId" required>
                                     <option selected value="">Tipo documento</option>
                                     <option value="dni">DNI</option>
                                     <option value="nie">NIE</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label for="documento">Número de documento</label>
-                                <input type="text" class="form-control" name="documento" id="documento"
-                                       aria-describedby="helpId" placeholder="Tu documento" onbrequired>
+                                <label for="documentoFi">Número de documento</label>
+                                <input type="text" class="form-control" name="documentoFi" id="documentoFi"
+                                       aria-describedby="helpId" placeholder="Tu documento" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="nacimiento">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" name="nacimiento" id="nacimiento"
+                                <label for="nacimientoFi">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" name="nacimientoFi" id="nacimientoFi"
                                        aria-describedby="helpId" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="lugarNac">Lugar de nacimiento</label>
-                                <input type="text" class="form-control" name="lugarNac" id="lugarNac"
+                                <label for="lugarNacFi">Lugar de nacimiento</label>
+                                <input type="text" class="form-control" name="lugarNacFi" id="lugarNacFi"
                                        aria-describedby="helpId" placeholder="Tu lugar de nacimiento" required>
                             </div>
                             <!--.col-md-6-->
                             <div class="col-md-6">
-                                <label for="pais">Nacionalidad</label>
-                                <input type="text" class="form-control" name="pais" id="pais"
+                                <label for="paisFi">Nacionalidad</label>
+                                <input type="text" class="form-control" name="paisFi" id="paisFi"
                                        aria-describedby="helpId" placeholder="Tu nacionalidad" required>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <label for="address">Dirección</label>
-                            <input type="text" class="form-control" name="address" id="address"
+                            <label for="addressFi">Dirección</label>
+                            <input type="text" class="form-control" name="addressFi" id="addressFi"
                                    placeholder="Tu dirección" required>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="ciudad">Ciudad</label>
-                                <input type="text" class="form-control" name="ciudad" id="ciudad"
+                                <label for="ciudadFi">Ciudad</label>
+                                <input type="text" class="form-control" name="ciudadFi" id="ciudadFi"
                                        aria-describedby="helpId" placeholder="Tu ciudad" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="provincia">Provincia</label>
-                                <input type="text" class="form-control" name="provincia" id="provincia"
+                                <label for="provinciaFi">Provincia</label>
+                                <input type="text" class="form-control" name="provinciaFi" id="provinciaFi"
                                        aria-describedby="helpId" placeholder="Tu provincia" required>
                             </div>
                             <div class="col-md-4">
-                                <label for="CP">Código Postal</label>
-                                <input type="text" class="form-control" name="CP" id="CP" aria-describedby="helpId"
+                                <label for="CPFi">Código Postal</label>
+                                <input type="text" class="form-control" name="CPFi" id="CPFi" aria-describedby="helpId"
                                        placeholder="Tu código postal" required>
                             </div>
                         </div>
                         <div class="row py-3">
                             <div class="col-md-6">
-                                <label for="telefono">Teléfono</label>
-                                <input type="tel" class="form-control" name="telefono" id="telefono"
+                                <label for="telefonoFi">Teléfono</label>
+                                <input type="tel" class="form-control" name="telefonoFi" id="telefonoFi"
                                        aria-describedby="helpId" placeholder="Tu teléfono" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="mail">E-mail</label>
-                                <input type="email" class="form-control" name="mail" id="mail"
+                                <label for="mailFi">E-mail</label>
+                                <input type="email" class="form-control" name="mailFi" id="mailFi"
                                        aria-describedby="helpId" placeholder="Tu e-mail" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="dolencia">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
+                            <label for="dolenciaFi">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
                                 práctica de kenpo?</label>
-                            <select class="form-control" name="dolencia" id="dolencia" aria-describedby="helpId" required>
+                            <select class="form-control" name="dolenciaFi" id="dolenciaFi" aria-describedby="helpId" required>
                                 <option selected value="">Elige una de las dos opciones</option>
                                 <option value="si">SI</option>
                                 <option value="no">NO</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="mensaje">En caso afirmativo, indique cuales</label>
-                            <textarea class="form-control" name="mensaje" id="mensaje" rows="2"></textarea>
+                            <label for="mensajeFi">En caso afirmativo, indique cuales</label>
+                            <textarea class="form-control" name="mensajeFi" id="mensajeFi" rows="2"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -170,8 +177,8 @@
                             <p class="fw-normal">De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su representante legal, queda informado y consiente expresa e inequívocamente la incorporación de sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken, domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia, autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la actualización de estos cuando esta sea necesaria.</p>
                         </div>
                         <div class="form-check py-2" style="display: none">
-                            <label class="form-check-inline" for="conformidad1">Las condiciones han sido aceptadas</label>
-                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad1" id="conformidad1" checked disabled>
+                            <label class="form-check-inline" for="conformidad2">Las condiciones han sido aceptadas</label>
+                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" checked disabled>
                         </div>
                         <div class="form-group mt-3">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesFicha">
@@ -204,19 +211,19 @@
                                 <input type="submit" class="btn btn-primary" id="enviopdf11" value="Enviar documento">   
                             </div>
                             <div class="col-md-3 col-4">
-                                <input type="submit" class="btn btn-primary" id="downloadpdf1" value="Descargar y enviar documento">
+                                <input type="submit" class="btn btn-primary" id="downloadpdf11" value="Descargar y enviar documento">
                             </div>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="pdfOk1" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="pdfOk11" style="display: none;">
                             <p>Tu formulario se ha enviado correctamente</p>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="downloadOK1" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="downloadOK11" style="display: none;">
                             <p>Tu formulario se ha descargado correctamente</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk1" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk11" style="display: none;">
                             <p>Tu formulario no se ha podido procesar</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK1" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK11" style="display: none;">
                             <p>Tu formulario no se ha podido desacargar</p>
                         </div>
                     </form>
@@ -228,53 +235,77 @@
                     </h3>
                     <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los menores de 18 años</span>
                     </h5>
-                    <form method="POST" action="" >
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label for="nombre2">D/Dª</label>
-                                <input type="text" class="form-control" name="nombre2" id="nombre2" placeholder="Nombre del deportista" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="documento2">con D.N.I.</label>
-                                <input type="text" class="form-control" name="documento2" id="documento2" placeholder="D.N.I. / N.I.E. del deportista" required>
-                            </div>
-                        </div>
-                        <div class="form-group mt-2">
-                            <label for="domicilio2">con domicilio a efectos de notificaciones en </label>
-                            <input type="text" class="form-control" name="emadomicilio2" id="domicilio2" placeholder="Domicilio del deportista" required>
-                        </div>
+                    <form method="POST" action="#" >
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="telefono2">Código postal</label>
-                                <input type="tel" class="form-control" name="telefono2" id="telefono2" placeholder="Código Postal" required>
+                                <label for="nombreManMen">D/Dª</label>
+                                <input type="text" class="form-control" name="nombreManMen" id="nombreManMen" placeholder="Nombre del deportista" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="localidad2">Localidad</label>
-                                <input type="text" class="form-control" name="localidad2" id="localidad2" placeholder="localidad" required>
+                                <label for="apellidoManMen">con primer apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMen" id="apellidoManMen"
+                                       aria-describedby="helpId" placeholder="Primer apellido" required>
                             </div>
                         </div>
                         <div class="row py-2">
-                            <div class="col-md-8">
-                                <label for="nombre22">D/Dª</label>
-                                <input type="text" class="form-control" name="nombre22" id="nombre22" placeholder="Nombre del tutor legal del deportista" required>
+                            <div class="col-md-6 mt-1">
+                                <label for="apellidoManMen2">, segundo apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMen2" id="apellidoManMen2"
+                                       aria-describedby="helpId" placeholder="Segundo apellido">
                             </div>
-                            <div class="col-md-4">
-                                <label for="documento22">con D.N.I.</label>
-                                <input type="text" class="form-control" name="documento22" id="documento22" placeholder="D.N.I. / N.I.E. del tutor" required>
+                            <div class="col-md-6 mt-1">
+                                <label for="documentoManMen">y con D.N.I. o N.I.E.</label>
+                                <input type="text" class="form-control" name="documentoManMen" id="documentoManMen" placeholder="D.N.I. / N.I.E. del deportista" required>
                             </div>
                         </div>
                         <div class="form-group mt-2">
-                            <label for="domicilio22">con domicilio a efectos de notificaciones en </label>
-                            <input type="text" class="form-control" name="emadomicilio22" id="domicilio22" placeholder="Domicilio del tutor" required>
+                            <label for="domicilioManMen">con domicilio a efectos de notificaciones en </label>
+                            <input type="text" class="form-control" name="domicilioManMen" id="domicilioManMen" placeholder="Domicilio del deportista" required>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="telefono22">Código postal</label>
-                                <input type="tel" class="form-control" name="telefono22" id="telefono22" placeholder="Código Postal" required>
+                                <label for="telefonoManMen">Código postal</label>
+                                <input type="tel" class="form-control" name="telefonoManMen" id="telefonoManMen" placeholder="Código Postal del deportista" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="localidad22">Localidad</label>
-                                <input type="text" class="form-control" name="localidad22" id="localidad22" placeholder="localidad" required>
+                                <label for="localidadManMen">Localidad</label>
+                                <input type="text" class="form-control" name="localidadManMen" id="localidadManMen" placeholder="Localidad del deportista" required>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6 mt-1">
+                                <label for="nombreManMenTu">D/Dª</label>
+                                <input type="text" class="form-control" name="nombreManMenTu" id="nombreManMenTu" placeholder="Nombre del tutor" required>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <label for="apellidoManMenTu">con primer apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMenTu" id="apellidoManMenTu"
+                                       aria-describedby="helpId" placeholder="Primer apellido del tutor" required>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <label for="apellidoManMenTu2">, segundo apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMenTu2" id="apellidoManMenTu2"
+                                       aria-describedby="helpId" placeholder="Segundo apellido del tutor">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentoManMenTu">y con D.N.I. o N.I.E.</label>
+                                <input type="text" class="form-control" name="documentoManMenTu" id="documentoManMenTu" placeholder="D.N.I. / N.I.E. del tutor" required>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="domicilioManMen2">con domicilio a efectos de notificaciones en </label>
+                            <input type="text" class="form-control" name="domicilioManMen2" id="domicilioManMen2" placeholder="Domicilio del tutor" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="telefonoManMen2">Código postal</label>
+                                <input type="tel" class="form-control" name="telefonoManMen2" id="telefonoManMen2" placeholder="Código Postal del tutor" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="localidadManMen2">Localidad</label>
+                                <input type="text" class="form-control" name="localidadManMen2" id="localidadManMen2" placeholder="Localidad del tutor" required>
                             </div>
                         </div>
                         <div class="text-dark mt-4">
@@ -288,17 +319,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="ciudad2:">En</label>
-                                <input type="text" class="form-control" name="ciudad2" id="ciudad2" placeholder="Ciudad" required>
+                                <label for="ciudad3:">En</label>
+                                <input type="text" class="form-control" name="ciudad3" id="ciudad3" placeholder="Ciudad" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="fecha2:">a</label>
-                                <input type="date" class="form-control" name="fecha2" id="fecha2" required>
+                                <label for="fecha3:">a</label>
+                                <input type="date" class="form-control" name="fecha3" id="fecha3" required>
                             </div>
                         </div>
                         <div class="form-check py-2" style="display: none">
-                            <label class="form-check-inline" for="conformidad2">Las condiciones han sido aceptadas</label>
-                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" checked disabled>
+                            <label class="form-check-inline" for="conformidad3">Las condiciones han sido aceptadas</label>
+                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad3" id="conformidad3" checked disabled>
                         </div>
                         <div class="form-group mt-3">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato1">
@@ -335,19 +366,19 @@
                                 <input type="submit" class="btn btn-primary" id="enviopdf22" value="Enviar documento">   
                             </div>
                             <div class="col-md-3 col-4">
-                                <input type="submit" class="btn btn-primary" id="downloadpdf2" value="Descargar y enviar documento">
+                                <input type="submit" class="btn btn-primary" id="downloadpdf22" value="Descargar y enviar documento">
                             </div>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="pdfOk2" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="pdfOk22" style="display: none;">
                             <p>Tu formulario se ha enviado correctamente</p>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="downloadOK2" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="downloadOK22" style="display: none;">
                             <p>Tu formulario se ha descargado correctamente</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk2" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk22" style="display: none;">
                             <p>Tu formulario no se ha podido procesar</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK2" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK22" style="display: none;">
                             <p>Tu formulario no se ha podido desacargar</p>
                         </div>
                     </form>
@@ -358,19 +389,35 @@
                     <h3 class="text-center">Autorización para la publicación de imágenes</h3>
                     <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los menores de 18 años</span>
                     </h5>
-                    <form method="POST" action="" >
-                        <div class="form-group">
-                            <label for="nombre3">Don/Doña</label>
-                            <input type="text" class="form-control" name="nombre3" id="nombre3" placeholder="Nombre del tutor del deportista menor de edad" required>
-                        </div>
+                    <form method="POST" action="#" >
                         <div class="row">
                             <div class="col-md-4">
-                                <label for="documento3:">con DNI</label>
-                                <input type="tel" class="form-control" name="documento3" id="documento3" placeholder="Documento del tutor" required>
+                                <label for="nombreCesImTu">Don/Doña</label>
+                                <input type="text" class="form-control" name="nombreCesImTu" id="nombreCesImTu" placeholder="Nombre del tutor" required>
                             </div>
-                            <div class="col-md-8">
-                                <label for="tutor3:">como padre/madre o tutor del alumno/a</label>
-                                <input type="email" class="form-control" name="tutor3" id="tutor3" placeholder="Nombre del deportista" required>
+                            <div class="col-md-4">
+                                <label for="apellidoCesImTu">con primer apellido</label>
+                                <input type="text" class="form-control" name="apellidoCesImTu" id="apellidoCesImTu"
+                                       aria-describedby="helpId" placeholder="1er apellido del tutor" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="apellidoCesImTu2">, segundo apellido</label>
+                                <input type="text" class="form-control" name="apellidoCesImTu2" id="apellidoCesImTu2"
+                                       aria-describedby="helpId" placeholder="2do apellido del tutor">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 mt-1">
+                                <label for="documentoCesImTu">y con D.N.I. o N.I.E.</label>
+                                <input type="tel" class="form-control" name="documentoCesImTu" id="documentoCesImTu" placeholder="Documento del tutor" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nombreCesIm">como padre/madre o</label>
+                                <input type="email" class="form-control" name="nombreCesIm" id="nombreCesIm" placeholder="Nombre deportista" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="apellidoCesIm">tutor del deportista</label>
+                                <input type="email" class="form-control" name="apellidoCesIm" id="apellidoCesIm" placeholder="1er apellido deportista" required>
                             </div>
                         </div>
                         <div class="text-dark mt-4">
@@ -380,17 +427,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="ciudad3:">En</label>
-                                <input type="text" class="form-control" name="ciudad3" id="ciudad3" placeholder="Ciudad" required>
+                                <label for="ciudad4">En</label>
+                                <input type="text" class="form-control" name="ciudad4" id="ciudad4" placeholder="Ciudad" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="fecha3:">a</label>
-                                <input type="date" class="form-control" name="fecha3" id="fecha3" required>
+                                <label for="fecha4:">a</label>
+                                <input type="date" class="form-control" name="fecha4" id="fecha4" required>
                             </div>
                         </div>
                         <div class="form-check py-2" style="display: none">
-                            <label class="form-check-inline" for="conformidad3">Las condiciones han sido aceptadas</label>
-                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad3" id="conformidad3" checked disabled>
+                            <label class="form-check-inline" for="conformidad4">Las condiciones han sido aceptadas</label>
+                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" checked disabled>
                         </div>
                         <div class="form-group mt-3">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesImagenes">
@@ -423,19 +470,19 @@
                                 <input type="submit" class="btn btn-primary" id="enviopdf33" value="Enviar documento">   
                             </div>
                             <div class="col-md-3 col-4">
-                                <input type="submit" class="btn btn-primary" id="downloadpdf3" value="Descargar y enviar documento">
+                                <input type="submit" class="btn btn-primary" id="downloadpdf33" value="Descargar y enviar documento">
                             </div>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="pdfOk3" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="pdfOk33" style="display: none;">
                             <p>Tu formulario se ha enviado correctamente</p>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="downloadOK3" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="downloadOK33" style="display: none;">
                             <p>Tu formulario se ha descargado correctamente</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk3" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk33" style="display: none;">
                             <p>Tu formulario no se ha podido procesar</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK3" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK33" style="display: none;">
                             <p>Tu formulario no se ha podido desacargar</p>
                         </div>
                     </form>
@@ -447,29 +494,41 @@
                     </h3>
                     <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los mayores de 18 años</span>
                     </h5>                    
-                    <form method="POST" action="" >
-                        <div class="row py-1">
-                            <div class="col-md-8">
-                                <label for="nombre4">D/Dª</label>
-                                <input type="text" class="form-control" name="nombre4" id="nombre4" placeholder="Nombre del deportista" required>
+                    <form method="POST" action="#" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="nombreManMay">D/Dª</label>
+                                <input type="text" class="form-control" name="nombreManMay" id="nombreManMay" placeholder="Nombre del deportista" required>
                             </div>
-                            <div class="col-md-4">
-                                <label for="documento4">con D.N.I.</label>
-                                <input type="text" class="form-control" name="documento4" id="documento4" placeholder="D.N.I. / N.I.E. del deportista" required>
+                            <div class="col-md-6">
+                                <label for="apellidoManMay">con primer apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMay" id="apellidoManMay"
+                                       aria-describedby="helpId" placeholder="Primer apellido" required>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-md-6">
+                                <label for="apellidoManMay2">, segundo apellido</label>
+                                <input type="text" class="form-control" name="apellidoManMay2" id="apellidoManMay2"
+                                       aria-describedby="helpId" placeholder="Segundo apellido">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="documentoManMay">y con D.N.I. o N.I.E.</label>
+                                <input type="text" class="form-control" name="documentoManMay" id="documentoManMay" placeholder="D.N.I. / N.I.E. del deportista" required>
                             </div>
                         </div>
                         <div class="form-group mt-2">
-                            <label for="domicilio4"> en su propio nombre y representación, con domicilio a efectos de notificaciones en </label>
-                            <input type="text" class="form-control" name="domicilio4" id="domicilio4" placeholder="Domicilio del deportista" required>
+                            <label for="domicilioManMay"> en su propio nombre y representación, con domicilio a efectos de notificaciones en </label>
+                            <input type="text" class="form-control" name="domicilioManMay" id="domicilioManMay" placeholder="Domicilio del deportista" required>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="telefono4">Código postal</label>
-                                <input type="tel" class="form-control" name="telefono4" id="telefono4" placeholder="Código Postal" required>
+                                <label for="telefonoManMay">Código postal</label>
+                                <input type="tel" class="form-control" name="telefonoManMay" id="telefonoManMay" placeholder="Código Postal" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="localidad4">Localidad</label>
-                                <input type="text" class="form-control" name="localidad4" id="localidad4" placeholder="localidad" required>
+                                <label for="localidadManMay">Localidad</label>
+                                <input type="text" class="form-control" name="localidadManMay" id="localidadManMay" placeholder="localidad" required>
                             </div>
                         </div>
                         <div class="text-dark mt-4">
@@ -483,17 +542,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="ciudad4:">En</label>
-                                <input type="text" class="form-control" name="ciudad4" id="ciudad4" placeholder="Ciudad" required>
+                                <label for="ciudad5:">En</label>
+                                <input type="text" class="form-control" name="ciudad5" id="ciudad5" placeholder="Ciudad" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="fecha4:">a</label>
-                                <input type="date" class="form-control" name="fecha4" id="fecha4" required>
+                                <label for="fecha5:">a</label>
+                                <input type="date" class="form-control" name="fecha5" id="fecha5" required>
                             </div>
                         </div>
                         <div class="form-check py-2" style="display: none">
-                            <label class="form-check-inline" for="conformidad4">Las condiciones han sido aceptadas</label>
-                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" checked disabled>
+                            <label class="form-check-inline" for="conformidad5">Las condiciones han sido aceptadas</label>
+                            <input type="checkbox" class="form-check-input is-invalid" name="conformidad5" id="conformidad5" checked disabled>
                         </div>
                         <div class="form-group mt-3">
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato2">
@@ -530,19 +589,19 @@
                                 <input type="submit" class="btn btn-primary" id="enviopdf44" value="Enviar documento">   
                             </div>
                             <div class="col-md-3 col-4">
-                                <input type="submit" class="btn btn-primary" id="downloadpdf4" value="Descargar y enviar documento">
+                                <input type="submit" class="btn btn-primary" id="downloadpdf44" value="Descargar y enviar documento">
                             </div>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="pdfOk4" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="pdfOk44" style="display: none;">
                             <p>Tu formulario se ha enviado correctamente</p>
                         </div>
-                        <div class="alert alert-success text-center" role="alert" id="downloadOK4" style="display: none;">
+                        <div class="alert alert-success text-center" role="alert" id="downloadOK44" style="display: none;">
                             <p>Tu formulario se ha descargado correctamente</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk4" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="pdfNoOk44" style="display: none;">
                             <p>Tu formulario no se ha podido procesar</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK4" style="display: none;">
+                        <div class="alert alert-danger text-center" role="alert" id="downloadNoOK44" style="display: none;">
                             <p>Tu formulario no se ha podido desacargar</p>
                         </div>
                     </form>
@@ -554,7 +613,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                    <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                     </div>
                 </div>
             </div>
