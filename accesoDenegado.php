@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Administración de deportistas</title>
+        <title>Acceso denegado</title>
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
@@ -24,73 +24,21 @@
     <body>
         <header class="header py-3 mb-5">
             <div class="container">
-                <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-start align-items-center">
                     <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
-                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
+                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid" alt="imagenLogo">
                         </a>
-                    </div>
-                    <div class="col-12 col-md-8">
-                        <nav
-                            class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                            <a href="index.php" class="nav-link">Inicio</a>
-                        </nav>
                     </div>
                 </div>
             </div>
         </header>
-
         <main class="container py-5">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-9 bg-white contenido-nosotros py-2 px-2">
-                    <h2 class="text-center py-3">Listado de deportistas</h2>
-                    <div class="table-responsive-md text-center">
-                        <table style="height: 100px;" class="table table-hover">
-                            <caption>Temporada 2021/2022</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido.1º</th>
-                                    <th scope="col">Apellido.2º</th>
-                                    <th scope="col">Teléfono</th>
-                                    <th scope="col">Ficha</th>
-                                    <th scope="col">Imágenes</th>
-                                    <th scope="col">Mandato</th>
-                                    <th scope="col">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle">Alberto</td>
-                                    <td class="align-middle">Bravo</td>
-                                    <td class="align-middle">García</td>
-                                    <td class="align-middle">672233318</td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#borrarCuenta">X</button>
-                                        <div class="alinear modal fade" data-backdrop="false" id="borrarCuenta" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header justify-content-around">
-                                                        <h5 class="alert alert-primary text-light modal-title text-uppercase" id="ModalLongTitle">Borrado de cuenta de usuario</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>¿Estás seguro de que quieres borrar la cuenta de este deportista?<p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
-                                                        <button type="button" class="btn btn-success" id="borrarCuenta">Si</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-8 col-lg-9 bg-light contenido-nosotros py-2 px-2">
+                    <h2 class="text-center py-3 text-danger text-uppercase">Acceso denegado</h2>
+                    <h3 class="text-center py-3">Prueba nuevamente</h3>
+                    <h4 class="text-center"><a href="../KenpoHiken/incio.php" class="nav-link text-info">Volver</a></h4>
                 </div>
             </div>
         </main>
@@ -98,7 +46,6 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
-
                         <p class="copyright text-center text-md-center"></p>
                     </div>
                 </div>
