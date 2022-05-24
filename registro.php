@@ -44,7 +44,7 @@
                                  id="nav_principal">
                                 <a href="incio.php" class="nav-link">Entrar</a>
                                 <a href="registro.php" class="nav-link active">Registrarse</a>
-                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                <a href="contacto.php" class="nav-link">Contacto</a>
                                 <a href="index.php" class="nav-link">Volver</a>
                             </div>
                         </nav>
@@ -60,7 +60,7 @@
                     <div id="ficha">
                         <p class="fw-normal fs-5">Introduce los datos con los se accederá a la cuenta de usuario<br>                            
                             <span class="fw-bold">Todos los campos son obligatorios</span></p>
-                        <form method="POST" action="#">
+                        <form method="POST">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
                                 <input type="text" class="form-control" name="usuario" id="usuario"

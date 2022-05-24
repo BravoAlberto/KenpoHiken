@@ -5,7 +5,7 @@ $nombre = $_REQUEST['name'];
 $telefono = $_REQUEST['phone'];
 $mail = $_REQUEST['correoel'];
 $mensaje = $_REQUEST['text'];
-echo "<script>alert('entro');</script>";
+
 if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['email']) && isset($_REQUEST['text'])) {
     $nombre = $_REQUEST['name'];
     $telefono = $_REQUEST['phone'];

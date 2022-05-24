@@ -42,7 +42,7 @@
                                  id="nav_principal">
                                 <a href="incio.php" class="nav-link">Entrar</a>
                                 <a href="registro.php" class="nav-link">Registrarse</a>
-                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                <a href="contacto.php" class="nav-link">Contacto</a>
                             </div>
                         </nav>
                     </div>

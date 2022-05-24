@@ -43,7 +43,7 @@
                                  id="nav_principal">
                                 <a href="incio.php" class="nav-link active">Entrar</a>
                                 <a href="registro.php" class="nav-link">Registrarse</a>
-                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                <a href="contacto.php" class="nav-link">Contacto</a>
                                 <a href="index.php" class="nav-link">Volver</a>
                             </div>
                         </nav>
@@ -55,7 +55,7 @@
             <div class="row justify-content-center">
                 <div class=" col-sm-6 col-9 bg-white contenido-nosotros py-5 px-3">
                     <h2 class="separador text-center my-3">Inicio de sesión</h2>
-                    <form method="POST" action="#">
+                    <form method="POST">
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="usuarioAcceso">Usuario</label>

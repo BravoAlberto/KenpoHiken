@@ -79,16 +79,28 @@ function cargarEventos() {
                 document.getElementById("continuar").addEventListener("click", seguir, false);
             if (document.getElementById("documento") != null)
                 document.getElementById("documento").addEventListener("blur", comprobarDocumento, false);
-            if (document.getElementById("enviar") != null)
-                document.getElementById("enviar").addEventListener("click", enviaDatos, false);
-            if (document.getElementById("acceder") != null)
-                document.getElementById("acceder").addEventListener("click", acceso, false);
+            if (document.getElementById("enviar") != null){
+                $("#enviar").on("click",function(event){
+                    event.preventDefault();
+                    enviaDatos();
+                }); 
+            }
+            if (document.getElementById("acceder") != null){
+                $("#acceder").on("click",function(event){
+                    event.preventDefault();
+                    acceso();
+                });                
+            }
             if (document.getElementById("usuarioAcceso") != null)
                 document.getElementById("usuarioAcceso").addEventListener("blur", comprobarUsuAcc, false);
             if (document.getElementById("passwordAcceso") != null)
                 document.getElementById("passwordAcceso").addEventListener("blur", comprobarContAcc, false);
-            if (document.getElementById("correo") != null)
-                document.getElementById("correo").addEventListener("click", enviamail, false);
+            if (document.getElementById("correo") != null){
+                $("#correo").on("click",function(event){
+                    event.preventDefault();
+                    enviamail();
+                }); 
+            }
             if (document.getElementById("form1") != null)
                 document.getElementById("form1").addEventListener("click", mostrarForm1, false);
             if (document.getElementById("form2") != null)
@@ -219,7 +231,7 @@ function cargarEventos() {
                 enfermedad: enfermedad,
                 mensaje: mensaje,
             },
-            type: 'GET',
+            type: 'POST',
             success: function (response) {
                 alert(response);
                 if (response == 1) {
@@ -251,6 +263,9 @@ function cargarEventos() {
         let telefono = $("#telefonoMail").val();
         let correo = $("#emailMail").val();
         let mensaje = $("#mensajeMail").val();
+        if(nombre==""|| telefono=="" || correo=="" || mensaje==""){
+            alert("No puedes dejar los campos vacios");
+        }else{
         $.ajax({
             url: "funciones/correo.php",
             data: {name: nombre,
@@ -263,6 +278,7 @@ function cargarEventos() {
                 alert(response);
             }
         });
+    }
     }
 
     //Función para comprobar la existencia del campo usuarioAcceso en página incio.php
@@ -303,17 +319,14 @@ function cargarEventos() {
                     url: "funciones/accesoUsuario.php",
                     data: {user: nombre, password: clave},
                     type: 'POST',
-                    success: function () {
-                        //Disabled pq hago los redireccionamientos desde el servidor con accesoUsuario.php
-                        /*alert(reponse);
+                    success: function (response) {
                          if (response == 0) {
-                         $(location).attr('href', '../kenpohiken/administrador.php');
+                         window.location.href = 'administrador.php';
                          } else if (response == 1) {
-                         $(location).attr('href', '../kenpohiken/formularios.php');
+                         window.location.href = 'formularios.php';
                          } else {
-                         alert('aquí 2');
                          $("#errorRegistro").show();
-                         }*/
+                         }
                     }
                 });
             }
@@ -329,15 +342,12 @@ function cargarEventos() {
         $("#form33").hide();
         $("#form44").hide();
         $("#form11").show();
-        let usuario = $("#useroculto").val;
-        alert('entro ficha');
-        alert(usuario);
+        let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeFicha.php",
             data: {user: usuario},
             type: 'POST',
             success: function (response) {
-                alert(reponse);
                 if (response != 0) {
                     datosFicha = JSON.parse(response);
                     $('#nombreFi').val(datosFicha.nombre);
@@ -371,7 +381,7 @@ function cargarEventos() {
         $("#form33").hide();
         $("#form44").hide();
         $("#form22").show();
-        let usuario = $("#useroculto").val;
+        let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeMandatoMen.php",
             data: {user: usuario},
@@ -405,7 +415,7 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form44").hide();
         $("#form33").show();
-    let usuario = $("#useroculto").val;
+    let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeMandato.php",
             data: {user: usuario},
@@ -445,7 +455,7 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").show();
-    let usuario = $("#useroculto").val;
+    let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeMandatoMen.php",
             data: {user: usuario},
