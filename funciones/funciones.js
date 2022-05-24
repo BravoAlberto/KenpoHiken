@@ -99,6 +99,8 @@ function cargarEventos() {
                 document.getElementById("form4").addEventListener("click", mostrarForm4, false);
         }
     }
+
+    //Función para comprobar la existencia del campo usuario en página registro.php
     function comprobarUsuario() {
         $("#errorvacio17").hide();
         $("#errorvacio2").hide();
@@ -110,7 +112,7 @@ function cargarEventos() {
             return true;
         }
     }
-
+    //Función para comprobar la existencia del campo password y su longitud en página registro.php
     function comprobarContraseña() {
         $("#errorvacio17").hide();
         $("#errorvacio1").hide();
@@ -123,6 +125,9 @@ function cargarEventos() {
         }
     }
 
+    /*Llamamos a las funciones anteriores (comprobarUsuario() & comprobarContraseña()
+     para luego con Jquery llamar a la página combruebaUsuario.php y hacer petición a la BBDD
+     con objeto de comprobar que el usuario existe*/
     function seguir() {
         $("#errorvacio1").show();
         $("#errorvacio2").show();
@@ -157,6 +162,7 @@ function cargarEventos() {
         }
     }
 
+    //Función para comprobar con una Expresión relativa los campos del documentos
     function comprobarDocumento() {
         let documento = $("#documento").val();
         let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
@@ -166,7 +172,12 @@ function cargarEventos() {
             $('#errordn1').hide();
         }
     }
-
+    /*
+     Función para enviar de la página registro.php todos los datos introducidos a la página del lado del servidor 
+     guardarficha.php y así grabar los datos en 2 tablas,
+     1. Usuario y contraseña en la tabla usuario.
+     2. Resto de datos en la tabla ficha.
+     */
     function enviaDatos() {
         let usuario = $("#usuario").val();
         let clave = $("#password").val();
@@ -231,11 +242,15 @@ function cargarEventos() {
         });
     }
 
+    /*Función para recoger los datos del usuario y enviarlos a la página del servidor correo.php
+     y así poder enviar consultas reales por email.
+     */
+
     function enviamail() {
-        let nombre = $("#nombre").val();
-        let telefono = $("#telefono").val();
-        let correo = $("#correo").val();
-        let mensaje = $("#mensaje").val();
+        let nombre = $("#nombreMail").val();
+        let telefono = $("#telefonoMail").val();
+        let correo = $("#emailMail").val();
+        let mensaje = $("#mensajeMail").val();
         $.ajax({
             url: "funciones/correo.php",
             data: {name: nombre,
@@ -250,6 +265,7 @@ function cargarEventos() {
         });
     }
 
+    //Función para comprobar la existencia del campo usuarioAcceso en página incio.php
     function comprobarUsuAcc() {
         $("#ErrorClave").hide();
         let usuario = $("#usuarioAcceso").val();
@@ -261,6 +277,7 @@ function cargarEventos() {
         }
     }
 
+    //Función para comprobar la existencia del campo passwordAcceso y su longitud en página incio.php
     function comprobarContAcc() {
         $("#errorUsu").hide();
         let clave = $("#passwordAcceso").val();
@@ -271,7 +288,10 @@ function cargarEventos() {
             return true;
         }
     }
-
+    /*Llamamos a las funciones anteriores (comprobarUsuAcc() & comprobarContAcc()
+     para luego con Jquery llamar a la página accesoUsuario.php y hacer petición a la BBDD
+     con objeto de comprobar los usuarios inbtroducidos y redirigirlos a las URLs
+     correspondientes según existan o el tipo de usuario introducido*/
     function acceso() {
         let nombre = $("#usuarioAcceso").val();
         let clave = $("#passwordAcceso").val();
@@ -283,48 +303,186 @@ function cargarEventos() {
                     url: "funciones/accesoUsuario.php",
                     data: {user: nombre, password: clave},
                     type: 'POST',
-                    success: function (response) {
-                        alert(reponse);
-                        if (response == 0) {
-                            $(location).attr('href', '../kenpohiken/administrador.php');
-                        } else if (response == 1) {
-                            $(location).attr('href', '../kenpohiken/formularios.php');
-                        } else {
-                            alert('aquí 2');
-                            $("#errorRegistro").show();
-                        }
+                    success: function () {
+                        //Disabled pq hago los redireccionamientos desde el servidor con accesoUsuario.php
+                        /*alert(reponse);
+                         if (response == 0) {
+                         $(location).attr('href', '../kenpohiken/administrador.php');
+                         } else if (response == 1) {
+                         $(location).attr('href', '../kenpohiken/formularios.php');
+                         } else {
+                         alert('aquí 2');
+                         $("#errorRegistro").show();
+                         }*/
                     }
                 });
             }
         }
     }
 
+    /*Función para mostrar el formulario de la ficha en la página formularios.php y a su vez 
+     para poder llamar a la página del servidor traeFicha.php y traer todos los campos de loa
+     tabla ficha y grabarlos en los campos de este formulario al cargarlo.
+     */
     function mostrarForm1() {
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").hide();
         $("#form11").show();
+        let usuario = $("#useroculto").val;
+        alert('entro ficha');
+        alert(usuario);
+        $.ajax({
+            url: "funciones/traeFicha.php",
+            data: {user: usuario},
+            type: 'POST',
+            success: function (response) {
+                alert(reponse);
+                if (response != 0) {
+                    datosFicha = JSON.parse(response);
+                    $('#nombreFi').val(datosFicha.nombre);
+                    $('#apellidoFi1').val(datosFicha.apellido1);
+                    $('#apellidoFi2').val(datosFicha.apellido2);
+                    $('#tipoFi').val(datosFicha.tipo);
+                    $('#documentoFi').val(datosFicha.documento);
+                    $('#nacimientoFi').val(datosFicha.nacimiento);
+                    $('#lugarNacFi').val(datosFicha.lugarnacim);
+                    $('#paisFi').val(datosFicha.nacionalidad);
+                    $('#addressFi').val(datosFicha.direccion);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#provinciaFi').val(datosFicha.provincia);
+                    $('#CPFi').val(datosFicha.codpostal);
+                    $('#telefonoFi').val(datosFicha.telefono);
+                    $('#mailFi').val(datosFicha.mail);
+                    $('#dolenciaFi').val(datosFicha.enfermedad);
+                    $('#mensajeFi').val(datosFicha.mensaje);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                }
+            }
+        });
     }
 
+    /*Función para mostrar el formulario de la autorización de las imágenes en la página formularios.php
+     y a su vez para poder llamar a la página del servidor traeFicha.php y traer todos los campos de la
+     tabla ficha y grabarlos en los campos de este formulario al cargarlo.
+     */
     function mostrarForm2() {
         $("#form11").hide();
         $("#form33").hide();
         $("#form44").hide();
         $("#form22").show();
+        let usuario = $("#useroculto").val;
+        $.ajax({
+            url: "funciones/traeMandatoMen.php",
+            data: {user: usuario},
+            type: 'POST',
+            success: function (response) {
+                alert(reponse);
+                if (response != 0) {
+                    datosFicha = JSON.parse(response);
+                    $('#nombreManMen').val(datosFicha.nombre);
+                    $('#apellidoManMen').val(datosFicha.apellido1);
+                    $('#apellidoManMen2').val(datosFicha.apellido2);
+                    $('#documentoManMen').val(datosFicha.documento);
+                    $('#domicilioManMen').val(datosFicha.direccion);
+                    $('#localidadManMen').val(datosFicha.ciudad);
+                    $('#telefonoManMen').val(datosFicha.telefono);
+                    $('#localidadManMen').val(datosFicha.ciudad);
+                    /*Faltarían los datos del tutor pero dudo de como condicionarlo
+                    al poder haberse guardado o no.
+                    */
+                }
+            }
+        });
     }
 
+    /*Función para mostrar el formulario del mandato a <18 años en la página formularios.php y a su vez 
+     para poder llamar a la página del servidor traeFicha.php y traer todos los campos de loa
+     tabla ficha y grabarlos en los campos de este formulario al cargarlo.
+     */
     function mostrarForm3() {
         $("#form11").hide();
         $("#form22").hide();
         $("#form44").hide();
         $("#form33").show();
+    let usuario = $("#useroculto").val;
+        $.ajax({
+            url: "funciones/traeMandato.php",
+            data: {user: usuario},
+            type: 'POST',
+            success: function (response) {
+                alert(reponse);
+                if (response != 0) {
+                    datosFicha = JSON.parse(response);
+                    $('#nombreManMen').val(datosFicha.nombre);
+                    $('#apellidoManMen').val(datosFicha.apellido1);
+                    $('#apellidoManMen').val(datosFicha.apellido2);
+                    $('#tipoFi').val(datosFicha.tipo);
+                    $('#documentoFi').val(datosFicha.documento);
+                    $('#nacimientoFi').val(datosFicha.nacimiento);
+                    $('#lugarNacFi').val(datosFicha.lugarnacim);
+                    $('#paisFi').val(datosFicha.nacionalidad);
+                    $('#addressFi').val(datosFicha.direccion);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#provinciaFi').val(datosFicha.provincia);
+                    $('#CPFi').val(datosFicha.codpostal);
+                    $('#telefonoFi').val(datosFicha.telefono);
+                    $('#mailFi').val(datosFicha.mail);
+                    $('#dolenciaFi').val(datosFicha.enfermedad);
+                    $('#mensajeFi').val(datosFicha.mensaje);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                }
+            }
+        });
     }
 
+    /*Función para mostrar el formulario del mandato a >18 años en la página formularios.php y a su vez 
+     para poder llamar a la página del servidor traeFicha.php y traer todos los campos de loa
+     tabla ficha y grabarlos en los campos de este formulario al cargarlo.
+     */
     function mostrarForm4() {
         $("#form11").hide();
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").show();
+    let usuario = $("#useroculto").val;
+        $.ajax({
+            url: "funciones/traeMandatoMen.php",
+            data: {user: usuario},
+            type: 'POST',
+            success: function (response) {
+                alert(reponse);
+                if (response != 0) {
+                    datosFicha = JSON.parse(response);
+                    $('#nombreManMen').val(datosFicha.nombre);
+                    $('#apellidoManMen').val(datosFicha.apellido1);
+                    $('#apellidoManMen').val(datosFicha.apellido2);
+                    $('#tipoFi').val(datosFicha.tipo);
+                    $('#documentoFi').val(datosFicha.documento);
+                    $('#nacimientoFi').val(datosFicha.nacimiento);
+                    $('#lugarNacFi').val(datosFicha.lugarnacim);
+                    $('#paisFi').val(datosFicha.nacionalidad);
+                    $('#addressFi').val(datosFicha.direccion);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#provinciaFi').val(datosFicha.provincia);
+                    $('#CPFi').val(datosFicha.codpostal);
+                    $('#telefonoFi').val(datosFicha.telefono);
+                    $('#mailFi').val(datosFicha.mail);
+                    $('#dolenciaFi').val(datosFicha.enfermedad);
+                    $('#mensajeFi').val(datosFicha.mensaje);
+                    $('#ciudadFi').val(datosFicha.ciudad);
+                }
+            }
+        });
     }
+
+    /*Con estas funciones se podran grabar los datos nuevos o actualizar los que modifique el usuario.
+     Para grabar los datos de los tutores será necesario grabar también el dato del usuario que va incorporado
+     en un campo oculto al inicio de la página formularios.php con el #useroculto
+     */
+    function grabarForm1() {}
+    function grabarForm2() {}
+    function grabarForm3() {}
+    function grabarForm4() {}
 
 }

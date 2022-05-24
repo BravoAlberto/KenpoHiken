@@ -1,20 +1,15 @@
 <?php
 
-include_once 'password.php';
-
-$usuario = $_POST['user'];
-$clave = Password::hash($_POST['password']);
+$usuario = $_REQUEST['user'];
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 
-if (!empty($usuario) && (strlen($clave) >= 6 || strlen($clave) <= 8)) {
-    $sql = "SELECT * FROM usuario WHERE usuario = '".$usuario."'";
-    $query = $con->prepare($sql);
-    $query->execute();
-    $resultado = $query->fetch();
-    if ($resultado == null) {
-        echo ('1');
+$sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
+$query = $con->prepare($sql);
+$query->execute();
+$resultado = $query->fetch();
+if ($resultado['usuario'] == null) {
+    echo ('El usuario no existe');
     } else {
-        echo('0');
-    }
+    echo json_encode($resultado);
 }
 ?>
