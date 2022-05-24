@@ -18,7 +18,7 @@ create table ficha(
 	usuario varchar(25) not null,
 	nombre varchar(25) not null,
 	apellido1 varchar(100) not null,
-	apellido2 varchar(100) not null,
+	apellido2 varchar(100),
 	tipo varchar(10) not null,
 	documento varchar(9) not null,
 	nacimiento date not null,
@@ -31,6 +31,7 @@ create table ficha(
 	telefono numeric(10) not null,
 	mail varchar (200) not null,
 	enfermedad varchar(2)not null,
+	mensaje varchar(500),
 	primary key(usuario)
 	);
 
@@ -40,4 +41,18 @@ create table usuario(
     usuario varchar(25) not null,
     clave varchar(25) not null,
     primary key(usuario)
+    );
+	
+#Creo tabla para los datos de los tutores
+
+create table tutor (
+    usuario varchar (25) not null,
+    nombre varchar(25) not null,
+    apellido1 varchar(100) not null,
+    apellido2 varchar(100),
+    documento varchar(9) not null,
+    direccion varchar (200) not null,
+    codpostal numeric(6) not null,
+    ciudad varchar(50) not null,
+    primary key (usuario)
     );
