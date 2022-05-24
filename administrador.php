@@ -39,7 +39,10 @@
                 </div>
             </div>
         </header>
-
+        <?php 
+        session_start();
+        if($_SESSION['usuario']=="administrador"){
+           ?>
         <main class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-9 bg-white contenido-nosotros py-2 px-2">
@@ -94,6 +97,14 @@
                 </div>
             </div>
         </main>
+        <?php
+        }else{
+            header('location:accesoDenegado.php');
+        ?>            
+            <!--<script>alert('Donde vas golfo?');</script>-->
+        <?php
+        }
+        ?>
         <footer class="footer mt-auto p-4">
             <div class="container">
                 <div class="row justify-content-center">
