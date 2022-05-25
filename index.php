@@ -5,10 +5,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Alberto Bravo">
         <title>Kenpo Hiken</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
-
+        <link rel="shortcut icon" href="#">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -23,7 +24,6 @@
     </head>
 
     <body class="index">
-
         <header class="header menu py-3">
             <div class="container">
                 <div class="row justify-content-center align-items-center">

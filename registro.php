@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Alberto Bravo">
         <title>Registro</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -24,7 +25,6 @@
                 integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
     </head>
-
     <body>
         <header class="header py-3 mb-5">
             <div class="container">
@@ -52,7 +52,6 @@
                 </div>
             </div>
         </header>
-
         <main class="container py-3">
             <div class="row justify-content-center">
                 <div class="col-md-8 bg-white contenido-nosotros py-4 px-3">
@@ -93,6 +92,12 @@
                                 <hr class="my-3"/>
                                 <p class="fw-normal fs-5">Introduce ahora los siguientes datos del <span class="fw-bold text-danger">deportista</span> para que podamos crear su ficha.<br>
                                     <span class="fw-bold">Todos los campos son obligatorios</span></p>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="camposVacios" style="display: none">
+                                    No puedes enviar el formulario con campos vacíos.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
+                                        <!--<span aria-hidden="true">&times;</span>-->
+                                    </button>
+                                </div>
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>

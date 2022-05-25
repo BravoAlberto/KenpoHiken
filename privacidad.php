@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Alberto Bravo">
         <title>Política de privacidad</title>
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" href="css/bootstrap.css">
@@ -22,6 +23,7 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
+        <a name="inicio"></a>
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
@@ -315,10 +317,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 justify-content-end mt-4">
+                        <p class="text-center"><a href="#inicio"><img class="flecha" src="img/flecha-hacia-arriba.png" alt="alt"/></a></p>
+                        <p class="text-center text-dark fs-5">Volver al inicio</p>
+                    </div>
                 </div>
             </div>
         </main>
-        <footer class="footer p-4">
+        <footer class="footer">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-0 mb-md-0">

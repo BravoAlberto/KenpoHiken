@@ -4,10 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Alberto Bravo">
         <title>Login</title>
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css.map">
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="css/bootstrap.min.css.map">-->
         <link rel="shortcut icon" href="#">
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css.map" rel="stylesheet">-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -51,9 +52,13 @@
                 </div>
             </div>
         </header>
-        <main class="container py-4">
+        <main class="container py-3">
             <div class="row justify-content-center">
-                <div class=" col-sm-6 col-9 bg-white contenido-nosotros py-5 px-3">
+                <div class=" col-sm-6 col-9 bg-white contenido-nosotros py-4 px-3">
+                    <div class="alert alert-danger" role="alert" id="errorRegistro" style="display: none;">
+                        <!--<a class="close" data-dismiss="alert"> × </a>-->
+                        El usuario o la contraseña son erróneos.<br>Intentalo nuevamente
+                    </div> 
                     <h2 class="separador text-center my-3">Inicio de sesión</h2>
                     <form method="POST">
                         <div class="form-group">
@@ -82,10 +87,7 @@
                             <br>                          
                         </div>
                     </form>
-                    <div class="alert alert-danger" role="alert" id="errorRegistro" style="display: none;">
-                        <a class="close" data-dismiss="alert"> × </a>
-                        El usuario o la contraseña son erróneos.<br>Intentalo nuevamente
-                    </div> 
+
                 </div>
             </div>
         </main>
