@@ -1,5 +1,5 @@
 <?php
-
+//@author Alberto Bravo
 $usuario = $_REQUEST['user'];
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 

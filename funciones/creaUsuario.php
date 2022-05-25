@@ -1,5 +1,5 @@
 <?php
-
+//@author Alberto Bravo
 include_once 'password.php';
 
 $usuario = $_POST['user'];

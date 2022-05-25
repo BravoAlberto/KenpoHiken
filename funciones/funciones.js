@@ -1,72 +1,4 @@
-/*function comprobarUsuario() {
- $("#errorvacio2").hide();
- let usuario = $("#usuario").val();
- if (!usuario) {
- $("#errorvacio1").show();
- } else {
- $("#errorvacio1").hide();
- return true;
- }
- }
- 
- function comprobarContraseña() {
- $("#errorvacio1").hide();
- let clave = $("#password").val();
- if (clave.length < 6 || clave.length > 8) {
- $("#errorvacio2").show();
- } else {
- $("#errorvacio2").hide();
- return true;
- }
- }
- 
- function seguir() {
- $("#errorvacio1").show();
- $("#errorvacio2").show();
- let usuario = $("#usuario").val();
- let clave = $("#password").val();
- if (comprobarContraseña()) {
- if (comprobarUsuario()) {
- $.ajax({
- url: "funciones/combruebaUsuario.php",
- data: {user: usuario, password: clave},
- type: 'POST',
- success: function (response) {
- if (response == 0) {
- $("#errorvacio17").show();
- } else {
- $('#usuario').prop("disabled", true);
- $('#password').prop("disabled", true);
- $("#errorvacio17").hide();
- $("#datos").show();
- $("#continuar").hide();
- }
- }
- });
- }
- }
- }
- */
-/*
- function enviaCorreo() {
- let nombre = $('#nombre').val;
- let telefono = $('#telefono').val;
- let mail = $('#mail').val;
- let mensaje = $('#mensaje').val;
- $.ajax({
- url: "funciones/correo.php",
- data: {nombre: nombre,telefono: telefono, mail:mail, mensaje:mensaje},
- type: 'POST',
- success: function (response) {
- if (response == 1) {
- $("#cuentaOk").show();
- } else {
- $("#cuentaNoOk").show();
- }
- }
- });
- }
- */
+//@author Alberto Bravo
 document.addEventListener("readystatechange", cargarEventos, false);
 function cargarEventos() {
     if (document.readyState == "interactive") {
@@ -79,27 +11,27 @@ function cargarEventos() {
                 document.getElementById("continuar").addEventListener("click", seguir, false);
             if (document.getElementById("documento") != null)
                 document.getElementById("documento").addEventListener("blur", comprobarDocumento, false);
-            if (document.getElementById("enviar") != null){
-                $("#enviar").on("click",function(event){
+            if (document.getElementById("enviar") != null) {
+                $("#enviar").on("click", function (event) {
                     event.preventDefault();
                     enviaDatos();
-                }); 
+                });
             }
-            if (document.getElementById("acceder") != null){
-                $("#acceder").on("click",function(event){
+            if (document.getElementById("acceder") != null) {
+                $("#acceder").on("click", function (event) {
                     event.preventDefault();
                     acceso();
-                });                
+                });
             }
             if (document.getElementById("usuarioAcceso") != null)
                 document.getElementById("usuarioAcceso").addEventListener("blur", comprobarUsuAcc, false);
             if (document.getElementById("passwordAcceso") != null)
                 document.getElementById("passwordAcceso").addEventListener("blur", comprobarContAcc, false);
-            if (document.getElementById("correo") != null){
-                $("#correo").on("click",function(event){
+            if (document.getElementById("correo") != null) {
+                $("#correo").on("click", function (event) {
                     event.preventDefault();
                     enviamail();
-                }); 
+                });
             }
             if (document.getElementById("form1") != null)
                 document.getElementById("form1").addEventListener("click", mostrarForm1, false);
@@ -107,8 +39,21 @@ function cargarEventos() {
                 document.getElementById("form2").addEventListener("click", mostrarForm2, false);
             if (document.getElementById("form3") != null)
                 document.getElementById("form3").addEventListener("click", mostrarForm3, false);
-            if (document.getElementById("form4") != null)
-                document.getElementById("form4").addEventListener("click", mostrarForm4, false);
+            if (document.getElementById("form4") != null) {
+                $("#form4").on("click", function (event) {
+                    event.preventDefault();
+                    mostrarForm4();
+                });
+            }
+            //document.getElementById("form4").addEventListener("click", mostrarForm4, false);
+            if (document.getElementById("aceptacionFicha") != null)
+                document.getElementById("aceptacionFicha").addEventListener("click", aceptacionForm1, false);
+            if (document.getElementById("aceptacionMandatoMen") != null)
+                document.getElementById("aceptacionMandatoMen").addEventListener("click", aceptacionForm2, false);
+            if (document.getElementById("aceptacionCondicionesImg") != null)
+                document.getElementById("aceptacionCondicionesImg").addEventListener("click", aceptacionForm3, false);
+            if (document.getElementById("aceptacionMandatoMay") != null)
+                document.getElementById("aceptacionMandatoMay").addEventListener("click", aceptacionForm4, false);
         }
     }
 
@@ -210,6 +155,37 @@ function cargarEventos() {
         let enfermedad = $("#dolencia").val();
         let mensaje = $("#mensaje").val();
         /*Aquí grabamos el usuario y la contraseña junto con los datos del deportista en la base de datos*/
+        if (nombre == "") {
+            if (apellido1 == "") {
+                if (tipo == "") {
+                    if (documento == "") {
+                        if (nacimiento == "") {
+                            if (lugarnacim == "") {
+                                if (nacionalidad == "") {
+                                    if (direccion == "") {
+                                        if (ciudad == "") {
+                                            if (provincia == "") {
+                                                if (codpostal == "") {
+                                                    if (telefono == "") {
+                                                        if (mail == "") {
+                                                            if (enfermedad == "") {
+                                                                $("#camposVacios").show();
+                                                                //Para ocultar el aviso a los 5 segundos.
+                                                                setInterval('$("#camposVacios").hide();', 5000);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         $.ajax({
             url: "funciones/guardarficha.php",
             data: {usuario: usuario,
@@ -233,14 +209,11 @@ function cargarEventos() {
             },
             type: 'POST',
             success: function (response) {
-                alert(response);
                 if (response == 1) {
-                    alert('paso 1');
                     $("#cuentaOk").show();
                     $('#ficha').hide();
                     $('#condiciones').hide();
                 } else if (response == 0) {
-                    alert('paso 0');
                     $('#datos').hide();
                     $('#condiciones').hide();
                     $("#cuentaNoOk").show();
@@ -248,11 +221,12 @@ function cargarEventos() {
                     $('#usuario').removeAttr("disabled");
                     $('#password').removeAttr("disabled");
                 } else {
-                    alert('faltan datos');
+                    $("#camposVacios").show();
                 }
             }
         });
     }
+
 
     /*Función para recoger los datos del usuario y enviarlos a la página del servidor correo.php
      y así poder enviar consultas reales por email.
@@ -263,25 +237,25 @@ function cargarEventos() {
         let telefono = $("#telefonoMail").val();
         let correo = $("#emailMail").val();
         let mensaje = $("#mensajeMail").val();
-        if(nombre==""|| telefono=="" || correo=="" || mensaje==""){
+        if (nombre == "" || telefono == "" || correo == "" || mensaje == "") {
             alert("No puedes dejar los campos vacios");
-        }else{
-        $.ajax({
-            url: "funciones/correo.php",
-            data: {name: nombre,
-                phone: telefono,
-                correoel: correo,
-                text: mensaje
-            },
-            type: 'POST',
-            success: function (response) {
-                alert(response);
-            }
-        });
-    }
+        } else {
+            $.ajax({
+                url: "funciones/correo.php",
+                data: {name: nombre,
+                    phone: telefono,
+                    correoel: correo,
+                    text: mensaje
+                },
+                type: 'POST',
+                success: function (response) {
+                    alert(response);
+                }
+            });
+        }
     }
 
-    //Función para comprobar la existencia del campo usuarioAcceso en página incio.php
+//Función para comprobar la existencia del campo usuarioAcceso en página incio.php
     function comprobarUsuAcc() {
         $("#ErrorClave").hide();
         let usuario = $("#usuarioAcceso").val();
@@ -293,7 +267,7 @@ function cargarEventos() {
         }
     }
 
-    //Función para comprobar la existencia del campo passwordAcceso y su longitud en página incio.php
+//Función para comprobar la existencia del campo passwordAcceso y su longitud en página incio.php
     function comprobarContAcc() {
         $("#errorUsu").hide();
         let clave = $("#passwordAcceso").val();
@@ -320,13 +294,16 @@ function cargarEventos() {
                     data: {user: nombre, password: clave},
                     type: 'POST',
                     success: function (response) {
-                         if (response == 0) {
-                         window.location.href = 'administrador.php';
-                         } else if (response == 1) {
-                         window.location.href = 'formularios.php';
-                         } else {
-                         $("#errorRegistro").show();
-                         }
+                        if (response == 0) {
+                            window.location.href = 'administrador.php';
+                        } else if (response == 1) {
+                            window.location.href = 'formularios.php';
+                        } else {
+                            $("#errorRegistro").show();
+                            setTimeout('$("#errorRegistro").hide();', 3000);
+                            $("#spinnerAcceso").hide();
+                            $("#acceder").show();
+                        }
                     }
                 });
             }
@@ -366,7 +343,24 @@ function cargarEventos() {
                     $('#mailFi').val(datosFicha.mail);
                     $('#dolenciaFi').val(datosFicha.enfermedad);
                     $('#mensajeFi').val(datosFicha.mensaje);
-                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#ciudad2').val(datosFicha.ciudad);
+                    $('#nombreFi').prop("disabled", true);
+                    $('#apellidoFi1').prop("disabled", true);
+                    $('#apellidoFi2').prop("disabled", true);
+                    $('#tipoFi').prop("disabled", true);
+                    $('#documentoFi').prop("disabled", true);
+                    $('#nacimientoFi').prop("disabled", true);
+                    $('#lugarNacFi').prop("disabled", true);
+                    $('#paisFi').prop("disabled", true);
+                    $('#addressFi').prop("disabled", true);
+                    $('#ciudadFi').prop("disabled", true);
+                    $('#provinciaFi').prop("disabled", true);
+                    $('#CPFi').prop("disabled", true);
+                    $('#telefonoFi').prop("disabled", true);
+                    $('#mailFi').prop("disabled", true);
+                    $('#dolenciaFi').prop("disabled", true);
+                    $('#mensajeFi').prop("disabled", true);
+                    $('#ciudad2').prop("disabled", true);
                 }
             }
         });
@@ -387,7 +381,6 @@ function cargarEventos() {
             data: {user: usuario},
             type: 'POST',
             success: function (response) {
-                alert(reponse);
                 if (response != 0) {
                     datosFicha = JSON.parse(response);
                     $('#nombreManMen').val(datosFicha.nombre);
@@ -395,12 +388,17 @@ function cargarEventos() {
                     $('#apellidoManMen2').val(datosFicha.apellido2);
                     $('#documentoManMen').val(datosFicha.documento);
                     $('#domicilioManMen').val(datosFicha.direccion);
+                    $('#CPManMen').val(datosFicha.codpostal);
                     $('#localidadManMen').val(datosFicha.ciudad);
-                    $('#telefonoManMen').val(datosFicha.telefono);
-                    $('#localidadManMen').val(datosFicha.ciudad);
-                    /*Faltarían los datos del tutor pero dudo de como condicionarlo
-                    al poder haberse guardado o no.
-                    */
+                    $('#ciudad3').val(datosFicha.ciudad);
+                    $('#nombreManMen').prop("disabled", true);
+                    $('#apellidoManMen').prop("disabled", true);
+                    $('#apellidoManMen2').prop("disabled", true);
+                    $('#documentoManMen').prop("disabled", true);
+                    $('#domicilioManMen').prop("disabled", true);
+                    $('#CPManMen').prop("disabled", true);
+                    $('#localidadManMen').prop("disabled", true);
+                    $('#ciudad3').prop("disabled", true);
                 }
             }
         });
@@ -415,32 +413,19 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form44").hide();
         $("#form33").show();
-    let usuario = $("#useroculto").val();
+        let usuario = $("#useroculto").val();
         $.ajax({
-            url: "funciones/traeMandato.php",
+            url: "funciones/traeCesImg.php",
             data: {user: usuario},
             type: 'POST',
             success: function (response) {
-                alert(reponse);
                 if (response != 0) {
-                    datosFicha = JSON.parse(response);
-                    $('#nombreManMen').val(datosFicha.nombre);
-                    $('#apellidoManMen').val(datosFicha.apellido1);
-                    $('#apellidoManMen').val(datosFicha.apellido2);
-                    $('#tipoFi').val(datosFicha.tipo);
-                    $('#documentoFi').val(datosFicha.documento);
-                    $('#nacimientoFi').val(datosFicha.nacimiento);
-                    $('#lugarNacFi').val(datosFicha.lugarnacim);
-                    $('#paisFi').val(datosFicha.nacionalidad);
-                    $('#addressFi').val(datosFicha.direccion);
-                    $('#ciudadFi').val(datosFicha.ciudad);
-                    $('#provinciaFi').val(datosFicha.provincia);
-                    $('#CPFi').val(datosFicha.codpostal);
-                    $('#telefonoFi').val(datosFicha.telefono);
-                    $('#mailFi').val(datosFicha.mail);
-                    $('#dolenciaFi').val(datosFicha.enfermedad);
-                    $('#mensajeFi').val(datosFicha.mensaje);
-                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#nombreCesIm').val(datosFicha.nombre);
+                    $('#apellidoCesIm').val(datosFicha.apellido1);
+                    $('#ciudad4').val(datosFicha.ciudad);
+                    $('#nombreCesIm').prop("disabled", true);
+                    $('#apellidoCesIm').prop("disabled", true);
+                    $('#ciudad4').prop("disabled", true);
                 }
             }
         });
@@ -455,35 +440,57 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").show();
-    let usuario = $("#useroculto").val();
+        let usuario = $("#useroculto").val();
         $.ajax({
-            url: "funciones/traeMandatoMen.php",
+            url: "funciones/traeMandatoMay.php",
             data: {user: usuario},
             type: 'POST',
             success: function (response) {
-                alert(reponse);
                 if (response != 0) {
-                    datosFicha = JSON.parse(response);
-                    $('#nombreManMen').val(datosFicha.nombre);
-                    $('#apellidoManMen').val(datosFicha.apellido1);
-                    $('#apellidoManMen').val(datosFicha.apellido2);
-                    $('#tipoFi').val(datosFicha.tipo);
-                    $('#documentoFi').val(datosFicha.documento);
-                    $('#nacimientoFi').val(datosFicha.nacimiento);
-                    $('#lugarNacFi').val(datosFicha.lugarnacim);
-                    $('#paisFi').val(datosFicha.nacionalidad);
-                    $('#addressFi').val(datosFicha.direccion);
-                    $('#ciudadFi').val(datosFicha.ciudad);
-                    $('#provinciaFi').val(datosFicha.provincia);
-                    $('#CPFi').val(datosFicha.codpostal);
-                    $('#telefonoFi').val(datosFicha.telefono);
-                    $('#mailFi').val(datosFicha.mail);
-                    $('#dolenciaFi').val(datosFicha.enfermedad);
-                    $('#mensajeFi').val(datosFicha.mensaje);
-                    $('#ciudadFi').val(datosFicha.ciudad);
+                    $('#nombreManMay').val(datosFicha.nombre);
+                    $('#apellidoManMay').val(datosFicha.apellido1);
+                    $('#apellidoManMay2').val(datosFicha.apellido2);
+                    $('#documentoManMay').val(datosFicha.documento);
+                    $('#domicilioManMay').val(datosFicha.direccion);
+                    $('#CPManMay').val(datosFicha.codpostal);
+                    $('#localidadManMay').val(datosFicha.ciudad);
+                    $('#ciudad5').val(datosFicha.ciudad);
+                    $('#nombreManMay').prop("disabled", true);
+                    $('#apellidoManMay').prop("disabled", true);
+                    $('#apellidoManMay2').prop("disabled", true);
+                    $('#documentoManMay').prop("disabled", true);
+                    $('#domicilioManMay').prop("disabled", true);
+                    $('#CPManMay').prop("disabled", true);
+                    $('#localidadManMay').prop("disabled", true);
+                    $('#ciudad5').prop("disabled", true);
                 }
             }
         });
+    }
+
+    /*Con las 4 funciones que se han creado se podrán aceptar las condiciones y tras aceptarlas,
+    el botón de acceso a las mismas se desabilitará y se marcará como disable un checkbox que
+    dice que se han aceptado las condiciones.
+    */
+
+    function aceptacionForm1() {
+        $("#checkFicha").show();
+        $("#modal1").prop("disabled", true);
+    }
+
+    function aceptacionForm2() {
+        $("#checkManMen").show();
+        $("#modal2").prop("disabled", true);
+    }
+
+    function aceptacionForm3() {
+        $("#checkCesImg").show();
+        $("#modal3").prop("disabled", true);
+    }
+
+    function aceptacionForm4() {
+        $("#checkManMay").show();
+        $("#modal4").prop("disabled", true);
     }
 
     /*Con estas funciones se podran grabar los datos nuevos o actualizar los que modifique el usuario.

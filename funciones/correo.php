@@ -1,5 +1,5 @@
 <?php
-
+//@author Alberto Bravo
 /* Código php para enviar correo */
 $nombre = $_REQUEST['name'];
 $telefono = $_REQUEST['phone'];

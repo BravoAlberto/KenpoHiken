@@ -1,4 +1,5 @@
 <?php
+//@author Alberto Bravo
 
 include_once 'password.php';
 include_once 'conectaDB.php';
