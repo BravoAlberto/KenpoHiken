@@ -43,9 +43,9 @@ create table usuario(
     primary key(usuario)
     );
 	
-#Creo tabla para los datos de los tutores
+#Creo tabla para los datos de los tutores en los mandadatos
 
-create table tutor (
+create table tutorman (
     usuario varchar (25) not null,
     nombre varchar(25) not null,
     apellido1 varchar(100) not null,
@@ -54,5 +54,15 @@ create table tutor (
     direccion varchar (200) not null,
     codpostal numeric(6) not null,
     ciudad varchar(50) not null,
+    primary key (usuario)
+    );
+	
+	#Creo tabla para los datos de los tutores en los mandadatos
+
+create table tutorimg (
+    usuario varchar (25) not null,
+    nombre varchar(25) not null,
+    apellido1 varchar(100) not null,
+    apellido2 varchar(100),
     primary key (usuario)
     );
