@@ -618,12 +618,12 @@
             header('location:accesoDenegado.php');
         }
         ?>
-        <footer class="footer p-4">
+        <footer class="footer p-4 fixed-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"></p>
                     </div>
                 </div>
             </div>

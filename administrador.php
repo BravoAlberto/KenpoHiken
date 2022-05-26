@@ -40,73 +40,71 @@
                 </div>
             </div>
         </header>
-        <?php 
+        <?php
         session_start();
-        if($_SESSION['usuario']=="administrador"){
-           ?>
-        <main class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-9 bg-white contenido-nosotros py-2 px-2">
-                    <h2 class="text-center py-3">Listado de deportistas</h2>
-                    <div class="table-responsive-md text-center">
-                        <table style="height: 100px;" class="table table-hover">
-                            <caption>Temporada 2021/2022</caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido.1º</th>
-                                    <th scope="col">Apellido.2º</th>
-                                    <th scope="col">Teléfono</th>
-                                    <th scope="col">Ficha</th>
-                                    <th scope="col">Imágenes</th>
-                                    <th scope="col">Mandato</th>
-                                    <th scope="col">Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle">Alberto</td>
-                                    <td class="align-middle">Bravo</td>
-                                    <td class="align-middle">García</td>
-                                    <td class="align-middle">672233318</td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#borrarCuenta">X</button>
-                                        <div class="alinear modal fade" data-backdrop="false" id="borrarCuenta" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header justify-content-around">
-                                                        <h5 class="alert alert-primary text-light modal-title text-uppercase" id="ModalLongTitle">Borrado de cuenta de usuario</h5>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>¿Estás seguro de que quieres borrar la cuenta de este deportista?<p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
-                                                        <button type="button" class="btn btn-success" id="borrarCuenta">Si</button>
+        if ($_SESSION['usuario'] == "administrador") {
+            ?>
+            <main class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-9 bg-white contenido-nosotros py-2 px-2">
+                        <h2 class="text-center py-3">Listado de deportistas</h2>
+                        <div class="table-responsive-md text-center">
+                            <table style="height: 100px;" class="table table-hover">
+                                <caption>Temporada 2021/2022</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido.1º</th>
+                                        <th scope="col">Apellido.2º</th>
+                                        <th scope="col">Teléfono</th>
+                                        <th scope="col">Ficha</th>
+                                        <th scope="col">Imágenes</th>
+                                        <th scope="col">Mandato</th>
+                                        <th scope="col">Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle">Alberto</td>
+                                        <td class="align-middle">Bravo</td>
+                                        <td class="align-middle">García</td>
+                                        <td class="align-middle">672233318</td>
+                                        <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
+                                        <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
+                                        <td class="align-middle"><button class="btn btn-info" type="button" id="abrir">PDF</button></td>
+                                        <td class="align-middle">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#borrarCuenta">X</button>
+                                            <div class="alinear modal fade" data-backdrop="false" id="borrarCuenta" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header justify-content-around">
+                                                            <h5 class="alert alert-primary text-light modal-title text-uppercase" id="ModalLongTitle">Borrado de cuenta de usuario</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>¿Estás seguro de que quieres borrar la cuenta de este deportista?<p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                                            <button type="button" class="btn btn-success" id="borrarCuenta">Si</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <?php
-        }else{
+            </main>
+            <?php
+            session_destroy();
+        } else {
             header('location:accesoDenegado.php');
-        ?>            
-            <!--<script>alert('Donde vas golfo?');</script>-->
-        <?php
         }
         ?>
-        <footer class="footer mt-auto p-4">
+        <footer class="footer mt-auto p-4 fixed-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">

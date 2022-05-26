@@ -91,7 +91,7 @@
                 </div>
             </div>
         </main>
-        <footer class="footer p-4">
+        <footer class="footer p-4 fixed-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
