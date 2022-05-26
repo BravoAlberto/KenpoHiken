@@ -13,11 +13,12 @@ $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB49
 $sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
 $query = $con->prepare($sql);
 $query->execute();
+$resultado = $query->fetchAll(PDO::FETCH_ASSOC);
 $pdf = new FPDF();
 $pdf->AddPage('p', 'A4');
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Image("../img/Logo_Hiken.jpg", 10, 8, 35, 38, "JPG");
-foreach ($query->fetchAll() as $valor):
+foreach ($resultado as $valor):
     $pdf->Cell(0);
     $pdf->Ln(40);
     $pdf->Write(10, '                                     FICHA DEPORTIVA');
