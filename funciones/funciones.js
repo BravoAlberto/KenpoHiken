@@ -319,6 +319,7 @@ function cargarEventos() {
         $("#form33").hide();
         $("#form44").hide();
         $("#form11").show();
+        let hoy = new Date();
         let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeFicha.php",
@@ -344,6 +345,7 @@ function cargarEventos() {
                     $('#dolenciaFi').val(datosFicha.enfermedad);
                     $('#mensajeFi').val(datosFicha.mensaje);
                     $('#ciudad2').val(datosFicha.ciudad);
+                    $('#fecha2').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
                     $('#nombreFi').prop("disabled", true);
                     $('#apellidoFi1').prop("disabled", true);
                     $('#apellidoFi2').prop("disabled", true);
@@ -361,6 +363,7 @@ function cargarEventos() {
                     $('#dolenciaFi').prop("disabled", true);
                     $('#mensajeFi').prop("disabled", true);
                     $('#ciudad2').prop("disabled", true);
+                    $('#fecha2').prop("disabled", true);
                 }
             }
         });
@@ -375,6 +378,7 @@ function cargarEventos() {
         $("#form33").hide();
         $("#form44").hide();
         $("#form22").show();
+        let hoy = new Date();
         let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeMandatoMen.php",
@@ -391,6 +395,7 @@ function cargarEventos() {
                     $('#CPManMen').val(datosFicha.codpostal);
                     $('#localidadManMen').val(datosFicha.ciudad);
                     $('#ciudad3').val(datosFicha.ciudad);
+                    $('#fecha3').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
                     $('#nombreManMen').prop("disabled", true);
                     $('#apellidoManMen').prop("disabled", true);
                     $('#apellidoManMen2').prop("disabled", true);
@@ -399,6 +404,7 @@ function cargarEventos() {
                     $('#CPManMen').prop("disabled", true);
                     $('#localidadManMen').prop("disabled", true);
                     $('#ciudad3').prop("disabled", true);
+                    $('#fecha3').prop("disabled", true);
                 }
             }
         });
@@ -413,6 +419,7 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form44").hide();
         $("#form33").show();
+        let hoy = new Date();
         let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeCesImg.php",
@@ -420,12 +427,15 @@ function cargarEventos() {
             type: 'POST',
             success: function (response) {
                 if (response != 0) {
+                    datosFicha = JSON.parse(response);
                     $('#nombreCesIm').val(datosFicha.nombre);
                     $('#apellidoCesIm').val(datosFicha.apellido1);
                     $('#ciudad4').val(datosFicha.ciudad);
+                    $('#fecha4').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
                     $('#nombreCesIm').prop("disabled", true);
                     $('#apellidoCesIm').prop("disabled", true);
                     $('#ciudad4').prop("disabled", true);
+                    $('#fecha4').prop("disabled", true);
                 }
             }
         });
@@ -440,6 +450,7 @@ function cargarEventos() {
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").show();
+        let hoy = new Date();
         let usuario = $("#useroculto").val();
         $.ajax({
             url: "funciones/traeMandatoMay.php",
@@ -447,6 +458,7 @@ function cargarEventos() {
             type: 'POST',
             success: function (response) {
                 if (response != 0) {
+                    datosFicha = JSON.parse(response);
                     $('#nombreManMay').val(datosFicha.nombre);
                     $('#apellidoManMay').val(datosFicha.apellido1);
                     $('#apellidoManMay2').val(datosFicha.apellido2);
@@ -455,6 +467,7 @@ function cargarEventos() {
                     $('#CPManMay').val(datosFicha.codpostal);
                     $('#localidadManMay').val(datosFicha.ciudad);
                     $('#ciudad5').val(datosFicha.ciudad);
+                    $('#fecha5').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
                     $('#nombreManMay').prop("disabled", true);
                     $('#apellidoManMay').prop("disabled", true);
                     $('#apellidoManMay2').prop("disabled", true);
@@ -463,15 +476,16 @@ function cargarEventos() {
                     $('#CPManMay').prop("disabled", true);
                     $('#localidadManMay').prop("disabled", true);
                     $('#ciudad5').prop("disabled", true);
+                    $('#fecha5').prop("disabled", true);
                 }
             }
         });
     }
 
     /*Con las 4 funciones que se han creado se podrán aceptar las condiciones y tras aceptarlas,
-    el botón de acceso a las mismas se desabilitará y se marcará como disable un checkbox que
-    dice que se han aceptado las condiciones.
-    */
+     el botón de acceso a las mismas se desabilitará y se marcará como disable un checkbox que
+     dice que se han aceptado las condiciones.
+     */
 
     function aceptacionForm1() {
         $("#checkFicha").show();
