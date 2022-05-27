@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <nav class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                                <a href="index.php" class="nav-link">Cerrar sesión<abbr title="Cierra la sesión para regresar a la página de incio">
+                                <a href="index.php" class="nav-link">Cerrar sesión<abbr title="Cierra la sesión para regresar a la página de incio"
                                         <img src="img/pregunta.png" class="ayuda align-top justify-content-end" alt="imagenPregunta"></abbr></a>
                             </nav>
                         </div>
@@ -172,7 +172,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fecha2:">a</label>
-                                    <input type="date" class="form-control" name="fecha2" id="fecha2" required>
+                                    <input type="text" class="form-control" name="fecha2" id="fecha2">
                                 </div>
                             </div>
                             <div class="text-dark mt-4">
@@ -328,7 +328,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fecha3:">a</label>
-                                    <input type="date" class="form-control" name="fecha3" id="fecha3" required>
+                                    <input type="text" class="form-control" name="fecha3" id="fecha3">
                                 </div>
                             </div>
                             <div class="form-check mt-3" style="display: none" id="checkManMen">
@@ -436,7 +436,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fecha4:">a</label>
-                                    <input type="date" class="form-control" name="fecha4" id="fecha4" required>
+                                    <input type="text" class="form-control" name="fecha4" id="fecha4">
                                 </div>
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkCesImg">
@@ -551,7 +551,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fecha5:">a</label>
-                                    <input type="date" class="form-control" name="fecha5" id="fecha5" required>
+                                    <input type="text" class="form-control" name="fecha5" id="fecha5">
                                 </div>
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkManMay">
