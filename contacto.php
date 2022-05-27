@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
         <script src="funciones/funciones.js"></script>    
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -48,6 +48,11 @@
                 <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
                     <h2 class="separador text-center my-3">Contacto</h2>
                     <form method="POST">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert" id="camposVaciosContacto" style="display: none">
+                            No puedes enviar el mensaje con campos vacíos.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
+                            </button>
+                        </div>
                         <div class="form-group">
                             <label for="nombreMail">Nombre:</label>
                             <input type="text" class="form-control" name="nombreMail" id="nombreMail" placeholder="Tu nombre" required>
@@ -84,7 +89,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                    <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                     </div>
                 </div>
             </div>

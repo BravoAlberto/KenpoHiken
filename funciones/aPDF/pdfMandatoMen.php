@@ -1,10 +1,25 @@
 <?php
 //@autdor Alberto Bravo
-//fecha a traer del html con la fecha en la que se rellena el formulario
-//$confirmación = $_REQUEST['fecha2'];
-//$usuario = $_REQUEST['user'];
-$usuario = 'Vera';
+$usuario = $_REQUEST['usuario'];
+$nombreTu = $_REQUEST['nombreTu'];
+$Apellido1Tu = $_REQUEST['Apellido1Tu'];
+$Apellido2Tu = $_REQUEST['Apellido2Tu'];
+$documentoTu = $_REQUEST['documentoTu'];
+$domicilioTu = $_REQUEST['domicilioTu'];
+$codPostalTu = $_REQUEST['codPostalTu'];
+$ciudadTu = $_REQUEST['ciudadTu'];
+$hoyTu = $_REQUEST['hoyTu'];
+
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+
+//if (!empty($usuario) || !empty($nombreTu) || !empty($Apellido1Tu) || !empty($Apellido2Tu) || !empty($documentoTu) || !empty($domicilioTu) || !empty($codPostal) || !empty($ciudadTu)) {
+    $sql1 = "INSERT INTO tutorMan VALUES('" . $usuario . "','" . $nombreTu. "','" .$Apellido1Tu. "','" .$Apellido2Tu. "','" .$documentoTu. "','" .$domicilioTu. "','" .$codPostal. "','" .$ciudadTu . "')";
+    $query1 = $con->prepare($sql1);
+    $query1->execute();
+//} else {
+    //echo('0');
+//}
+
 $sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
 $query = $con->prepare($sql);
 $query->execute();
@@ -13,7 +28,7 @@ $resultado = $query->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los regist
 $sql2 = "SELECT * FROM tutorMan WHERE usuario = '" . $usuario . "'";
 $query2 = $con->prepare($sql2);
 $query2->execute();
-$resultado2 = $query->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
+$resultado2 = $query2->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 
 require_once ('../../dompdf/autoload.inc.php');
 
@@ -58,11 +73,11 @@ ob_start();
                     con domicilio a efectos de notificación en <?php echo $valor['direccion'] . ", " . $valor['codpostal'] . ', localidad, ' . $valor['ciudad']; ?></p>
                 <?php
             }
-            foreach ($resultado as $valor) {
+            foreach ($resultado2 as $valor2) {
                 ?>
-                <p>D/Dª <span class="text-uppercase"><?php echo $valor['nombre'] . ' ' . $valor['apellido1'] . ' ' . $valor['apellido2']; ?></span> <strong>(representante legal)</strong> con <span class="text-uppercase"><?php echo $valor['tipo']; ?></span>
-                    número <span class="text-uppercase"><?php echo $valor['documento']; ?></span>,
-                    con domicilio a efectos de notificación en <?php echo $valor['direccion'] . ", " . $valor['codpostal'] . ', localidad, ' . $valor['ciudad']; ?></p>
+                <p>D/Dª <span class="text-uppercase"><?php echo $valor2['nombre'] . ' ' . $valor2['apellido1'] . ' ' . $valor2['apellido2']; ?></span> <strong>(representante legal)</strong> con <span class="text-uppercase"><?php echo $valor['tipo']; ?></span>
+                    número <span class="text-uppercase"><?php echo $valor2['documento']; ?></span>,
+                    con domicilio a efectos de notificación en <?php echo $valor2['direccion'] . ", " . $valor2['codpostal'] . ', localidad, ' . $valor2['ciudad']; ?></p>
                 <?php
             }
             ?>
@@ -99,6 +114,6 @@ $html = ob_get_clean();
 $dompdf->load_html($html);
 $dompdf->setPaper('a4', 'portrait');
 $dompdf->render();
-$dompdf->stream("Mandato_Menores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_".$fechaActual = date('d-m-Y').".pdf", array("Attachment" => false)); //con true lo autodescarga
+$dompdf->stream("Mandato_Menores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => false)); //con true lo autodescarga
 ?>
 

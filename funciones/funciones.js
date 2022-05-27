@@ -54,7 +54,14 @@ function cargarEventos() {
                 document.getElementById("aceptacionCondicionesImg").addEventListener("click", aceptacionForm3, false);
             if (document.getElementById("aceptacionMandatoMay") != null)
                 document.getElementById("aceptacionMandatoMay").addEventListener("click", aceptacionForm4, false);
+            if (document.getElementById("enviopdf22") != null) {
+                $("#enviopdf22").on("click", function (event) {
+                    event.preventDefault();
+                    grabarForm2();
+                });
+            }
         }
+
     }
 
     //Función para comprobar la existencia del campo usuario en página registro.php
@@ -238,7 +245,8 @@ function cargarEventos() {
         let correo = $("#emailMail").val();
         let mensaje = $("#mensajeMail").val();
         if (nombre == "" || telefono == "" || correo == "" || mensaje == "") {
-            alert("No puedes dejar los campos vacios");
+            $("#camposVaciosContacto").show();
+            setInterval('$("#camposVaciosContacto").hide();', 7000);
         } else {
             $.ajax({
                 url: "funciones/correo.php",
@@ -512,7 +520,49 @@ function cargarEventos() {
      en un campo oculto al inicio de la página formularios.php con el #useroculto
      */
     function grabarForm1() {}
-    function grabarForm2() {}
+
+    function grabarForm2() {
+        let confirmacion = $("#conformidad3").val;
+        let usuario = $("#useroculto").val;
+        let nombre = $("#nombreManMenTu").val;
+        let Apellido1 = $("#apellidoManMenTu").val;
+        let Apellido2 = $("#apellidoManMenTu2").val;
+        let documento = $("#documentoManMenTu").val;
+        let domicilio = $("#domicilioManMenTu").val;
+        let CP = $("#CPManMenTu").val;
+        let ciudad = $("#localidadManMenTu").val;
+        let hoy = $("#fecha3").val;
+        if ($("#conformidad3").prop('checked')) {
+            if (nombre == "" || Apellido1 == "" || documento == "" || domicilio == "" || CP == "" || ciudad == "") {
+                $("#erroMandMen").show();
+                setInterval('$("#erroMandMen").hide();', 7000);
+            } else {
+                $.ajax({
+                    url: "funciones/aPDF/pdfMandatoMen.php",
+                    data: {usuario: usuario,
+                        nombreTu: nombre,
+                        Apellido1Tu: Apellido1,
+                        Apellido2Tu: Apellido2,
+                        documentoTu: documento,
+                        domicilioTu: domicilio,
+                        codPostalTu: CP,
+                        ciudadTu: ciudad,
+                        hoyTu: hoy
+                    },
+                    type: 'POST',
+                    success: function () {
+                        if (response == 0) {
+                            $("#pdfNoOk22").show();
+                        } else {
+                            ("#downloadOK22").show();
+                        }
+                    }
+                });
+            }
+        } else {
+            $("#condicionesManMen").show();
+        }
+    }
     function grabarForm3() {}
     function grabarForm4() {}
 

@@ -43,7 +43,7 @@
                         <div class="col-12 col-md-8">
                             <nav class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
                                 <a href="index.php" class="nav-link">Cerrar sesión<abbr title="Cierra la sesión para regresar a la página de incio"
-                                        <img src="img/pregunta.png" class="ayuda align-top justify-content-end" alt="imagenPregunta"></abbr></a>
+                                                                                        <img src="img/pregunta.png" class="ayuda align-top justify-content-end" alt="imagenPregunta"></abbr></a>
                             </nav>
                         </div>
                     </div>
@@ -184,6 +184,9 @@
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" checked disabled>
                                 <label class="form-check-inline" for="conformidad2">Las condiciones han sido aceptadas</label>
                             </div>
+                            <div class="alert alert-success text-center" role="alert" id="condicionesFi" style="display: none;">
+                                <p>Debes aceptar las condiciones antes de enviar el formulario</p>
+                            </div>
                             <div class="form-group mt-3">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesFicha" id="modal1">
                                     Acepta las condiciones
@@ -299,17 +302,17 @@
                                 </div>
                             </div>
                             <div class="form-group mt-2">
-                                <label for="domicilioManMen2">con domicilio a efectos de notificaciones en </label>
-                                <input type="text" class="form-control" name="domicilioManMen2" id="domicilioManMen2" placeholder="Domicilio del tutor" required>
+                                <label for="domicilioManMenTu">con domicilio a efectos de notificaciones en </label>
+                                <input type="text" class="form-control" name="domicilioManMenTu" id="domicilioManMenTu" placeholder="Domicilio del tutor" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="telefonoManMen2">Código postal</label>
-                                    <input type="tel" class="form-control" name="telefonoManMen2" id="telefonoManMen2" placeholder="Código Postal del tutor" required>
+                                    <label for="CPManMenTu">Código postal</label>
+                                    <input type="tel" class="form-control" name="CPManMenTu" id="CPManMenTu" placeholder="Código Postal del tutor" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="localidadManMen2">Localidad</label>
-                                    <input type="text" class="form-control" name="localidadManMen2" id="localidadManMen2" placeholder="Localidad del tutor" required>
+                                    <label for="localidadManMenTu">Localidad</label>
+                                    <input type="text" class="form-control" name="localidadManMenTu" id="localidadManMenTu" placeholder="Localidad del tutor" required>
                                 </div>
                             </div>
                             <div class="text-dark mt-4">
@@ -330,10 +333,18 @@
                                     <label for="fecha3:">a</label>
                                     <input type="text" class="form-control" name="fecha3" id="fecha3">
                                 </div>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="erroMandMen" style="display: none">
+                                    No puedes enviar el mensaje con campos vacíos.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
+                                    </button>
+                                </div>
                             </div>
                             <div class="form-check mt-3" style="display: none" id="checkManMen">
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad3" id="conformidad3" checked disabled>
                                 <label class="form-check-inline" for="conformidad3">Las condiciones han sido aceptadas</label>
+                            </div>
+                            <div class="alert alert-success text-center" role="alert" id="condicionesManMen" style="display: none;">
+                                <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato1" id="modal2">
@@ -442,6 +453,9 @@
                             <div class="form-check py-2" style="display: none" id="checkCesImg">
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" checked disabled>
                                 <label class="form-check-inline" for="conformidad4">Las condiciones han sido aceptadas</label>
+                            </div>
+                            <div class="alert alert-success text-center" role="alert" id="condicionesCesImg" style="display: none;">
+                                <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesImagenes" id="modal3">
@@ -557,6 +571,9 @@
                             <div class="form-check py-2" style="display: none" id="checkManMay">
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad5" id="conformidad5" checked disabled>
                                 <label class="form-check-inline" for="conformidad5">Las condiciones han sido aceptadas</label>
+                            </div>
+                            <div class="alert alert-success text-center" role="alert" id="condicionesManMay" style="display: none;">
+                                <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato2" id="modal4">
