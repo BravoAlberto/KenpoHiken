@@ -45,7 +45,7 @@ function cargarEventos() {
                     mostrarForm4();
                 });
             }
-            //document.getElementById("form4").addEventListener("click", mostrarForm4, false);
+//document.getElementById("form4").addEventListener("click", mostrarForm4, false);
             if (document.getElementById("aceptacionFicha") != null)
                 document.getElementById("aceptacionFicha").addEventListener("click", aceptacionForm1, false);
             if (document.getElementById("aceptacionMandatoMen") != null)
@@ -54,17 +54,60 @@ function cargarEventos() {
                 document.getElementById("aceptacionCondicionesImg").addEventListener("click", aceptacionForm3, false);
             if (document.getElementById("aceptacionMandatoMay") != null)
                 document.getElementById("aceptacionMandatoMay").addEventListener("click", aceptacionForm4, false);
+            if (document.getElementById("enviopdf11") != null) {
+                $("#enviopdf11").on("click", function (event) {
+                    event.preventDefault();
+                    grabarForm1();
+                });
+            }
             if (document.getElementById("enviopdf22") != null) {
                 $("#enviopdf22").on("click", function (event) {
                     event.preventDefault();
                     grabarForm2();
                 });
             }
+            if (document.getElementById("enviopdf33") != null) {
+                $("#enviopdf33").on("click", function (event) {
+                    event.preventDefault();
+                    grabarForm3();
+                });
+            }
+            if (document.getElementById("enviopdf33") != null) {
+                $("#enviopdf44").on("click", function (event) {
+                    event.preventDefault();
+                    grabarForm4();
+                });
+            }
+            if (document.getElementById("ficha") != null) {
+                $("#ficha").on("click", function (event) {
+                    event.preventDefault();
+                    adminFicha();
+                });
+            }
+            if (document.getElementById("cesionImg") != null) {
+                $("#cesionImg").on("click", function (event) {
+                    event.preventDefault();
+                    adminCesionImg();
+                });
+            }
+            if (document.getElementById("mandato") != null) {
+                $("#mandato").on("click", function (event) {
+                    event.preventDefault();
+                    adminMandato();
+                });
+            }
+            if (document.getElementById("borrarCuenta") != null) {
+                $("#borrarCuenta").on("click", function (event) {
+                    event.preventDefault();
+                    adminborrado();
+                });
+            }
         }
+
 
     }
 
-    //Función para comprobar la existencia del campo usuario en página registro.php
+//Función para comprobar la existencia del campo usuario en página registro.php
     function comprobarUsuario() {
         $("#errorvacio17").hide();
         $("#errorvacio2").hide();
@@ -76,7 +119,7 @@ function cargarEventos() {
             return true;
         }
     }
-    //Función para comprobar la existencia del campo password y su longitud en página registro.php
+//Función para comprobar la existencia del campo password y su longitud en página registro.php
     function comprobarContraseña() {
         $("#errorvacio17").hide();
         $("#errorvacio1").hide();
@@ -126,7 +169,7 @@ function cargarEventos() {
         }
     }
 
-    //Función para comprobar con una Expresión relativa los campos del documentos
+//Función para comprobar con una Expresión relativa los campos del documentos
     function comprobarDocumento() {
         let documento = $("#documento").val();
         let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
@@ -162,76 +205,51 @@ function cargarEventos() {
         let enfermedad = $("#dolencia").val();
         let mensaje = $("#mensaje").val();
         /*Aquí grabamos el usuario y la contraseña junto con los datos del deportista en la base de datos*/
-        if (nombre == "") {
-            if (apellido1 == "") {
-                if (tipo == "") {
-                    if (documento == "") {
-                        if (nacimiento == "") {
-                            if (lugarnacim == "") {
-                                if (nacionalidad == "") {
-                                    if (direccion == "") {
-                                        if (ciudad == "") {
-                                            if (provincia == "") {
-                                                if (codpostal == "") {
-                                                    if (telefono == "") {
-                                                        if (mail == "") {
-                                                            if (enfermedad == "") {
-                                                                $("#camposVacios").show();
-                                                                //Para ocultar el aviso a los 5 segundos.
-                                                                setInterval('$("#camposVacios").hide();', 5000);
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+        if (nombre == "" || apellido1 == "" || tipo == "" || documento == "" || nacimiento == "" || lugarnacim == "" || nacionalidad == "" || direccion == "" || ciudad == "" || provincia == "" || codpostal == "" || telefono == "" || mail == "" || enfermedad == "") {
+            $("#camposVacios").show();
+            //Para ocultar el aviso a los 5 segundos.
+            setInterval('$("#camposVacios").hide();', 5000);
+        } else {
+            $.ajax({
+                url: "funciones/guardarficha.php",
+                data: {usuario: usuario,
+                    clave: clave,
+                    nombre: nombre,
+                    apellido1: apellido1,
+                    apellido2: apellido2,
+                    tipo: tipo,
+                    documento: documento,
+                    nacimiento: nacimiento,
+                    lugarnacim: lugarnacim,
+                    nacionalidad: nacionalidad,
+                    direccion: direccion,
+                    ciudad: ciudad,
+                    provincia: provincia,
+                    codpostal: codpostal,
+                    telefono: telefono,
+                    mail: mail,
+                    enfermedad: enfermedad,
+                    mensaje: mensaje,
+                },
+                type: 'POST',
+                success: function (response) {
+                    if (response == 1) {
+                        $("#cuentaOk").show();
+                        $('#ficha').hide();
+                        $('#condiciones').hide();
+                    } else if (response == 0) {
+                        $('#datos').hide();
+                        $('#condiciones').hide();
+                        $("#cuentaNoOk").show();
+                        $("#continuar").show();
+                        $('#usuario').removeAttr("disabled");
+                        $('#password').removeAttr("disabled");
+                    } else {
+                        $("#camposVacios").show();
                     }
                 }
-            }
+            });
         }
-        $.ajax({
-            url: "funciones/guardarficha.php",
-            data: {usuario: usuario,
-                clave: clave,
-                nombre: nombre,
-                apellido1: apellido1,
-                apellido2: apellido2,
-                tipo: tipo,
-                documento: documento,
-                nacimiento: nacimiento,
-                lugarnacim: lugarnacim,
-                nacionalidad: nacionalidad,
-                direccion: direccion,
-                ciudad: ciudad,
-                provincia: provincia,
-                codpostal: codpostal,
-                telefono: telefono,
-                mail: mail,
-                enfermedad: enfermedad,
-                mensaje: mensaje,
-            },
-            type: 'POST',
-            success: function (response) {
-                if (response == 1) {
-                    $("#cuentaOk").show();
-                    $('#ficha').hide();
-                    $('#condiciones').hide();
-                } else if (response == 0) {
-                    $('#datos').hide();
-                    $('#condiciones').hide();
-                    $("#cuentaNoOk").show();
-                    $("#continuar").show();
-                    $('#usuario').removeAttr("disabled");
-                    $('#password').removeAttr("disabled");
-                } else {
-                    $("#camposVacios").show();
-                }
-            }
-        });
     }
 
 
@@ -381,45 +399,47 @@ function cargarEventos() {
      y a su vez para poder llamar a la página del servidor traeFicha.php y traer todos los campos de la
      tabla ficha y grabarlos en los campos de este formulario al cargarlo.
      */
-    function mostrarForm2() {
-        $("#form11").hide();
-        $("#form33").hide();
-        $("#form44").hide();
-        $("#form22").show();
-        let hoy = new Date();
-        let usuario = $("#useroculto").val();
-        $.ajax({
-            url: "funciones/traeMandatoMen.php",
-            data: {user: usuario},
-            type: 'POST',
-            success: function (response) {
-                if (response != 0) {
-                    datosFicha = JSON.parse(response);
-                    $('#nombreManMen').val(datosFicha.nombre);
-                    $('#apellidoManMen').val(datosFicha.apellido1);
-                    $('#apellidoManMen2').val(datosFicha.apellido2);
-                    $('#documentoManMen').val(datosFicha.documento);
-                    $('#domicilioManMen').val(datosFicha.direccion);
-                    $('#CPManMen').val(datosFicha.codpostal);
-                    $('#localidadManMen').val(datosFicha.ciudad);
-                    $('#ciudad3').val(datosFicha.ciudad);
-                    $('#fecha3').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
-                    $('#nombreManMen').prop("disabled", true);
-                    $('#apellidoManMen').prop("disabled", true);
-                    $('#apellidoManMen2').prop("disabled", true);
-                    $('#documentoManMen').prop("disabled", true);
-                    $('#domicilioManMen').prop("disabled", true);
-                    $('#CPManMen').prop("disabled", true);
-                    $('#localidadManMen').prop("disabled", true);
-                    $('#ciudad3').prop("disabled", true);
-                    $('#fecha3').prop("disabled", true);
-                }
-            }
-        });
-    }
+    //DESABILITADO
+    /*
+     function mostrarForm2() {
+     $("#form11").hide();
+     $("#form33").hide();
+     $("#form44").hide();
+     $("#form22").show();
+     let hoy = new Date();
+     let usuario = $("#useroculto").val();
+     $.ajax({
+     url: "funciones/traeMandatoMen.php",
+     data: {user: usuario},
+     type: 'POST',
+     success: function (response) {
+     if (response != 0) {
+     datosFicha = JSON.parse(response);
+     $('#nombreManMen').val(datosFicha.nombre);
+     $('#apellidoManMen').val(datosFicha.apellido1);
+     $('#apellidoManMen2').val(datosFicha.apellido2);
+     $('#documentoManMen').val(datosFicha.documento);
+     $('#domicilioManMen').val(datosFicha.direccion);
+     $('#CPManMen').val(datosFicha.codpostal);
+     $('#localidadManMen').val(datosFicha.ciudad);
+     $('#ciudad3').val(datosFicha.ciudad);
+     $('#fecha3').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
+     $('#nombreManMen').prop("disabled", true);
+     $('#apellidoManMen').prop("disabled", true);
+     $('#apellidoManMen2').prop("disabled", true);
+     $('#documentoManMen').prop("disabled", true);
+     $('#domicilioManMen').prop("disabled", true);
+     $('#CPManMen').prop("disabled", true);
+     $('#localidadManMen').prop("disabled", true);
+     $('#ciudad3').prop("disabled", true);
+     $('#fecha3').prop("disabled", true);
+     }
+     }
+     });
+     }*/
 
-    /*Función para mostrar el formulario del mandato a <18 años en la página formularios.php y a su vez 
-     para poder llamar a la página del servidor traeFicha.php y traer todos los campos de loa
+    /*Función para mostrar el formulario de lla cesión de imágenes en la página formularios.php y a su vez 
+     para poder llamar a la página del servidor traeCesImg.php y traer todos los campos de loa
      tabla ficha y grabarlos en los campos de este formulario al cargarlo.
      */
     function mostrarForm3() {
@@ -436,12 +456,21 @@ function cargarEventos() {
             success: function (response) {
                 if (response != 0) {
                     datosFicha = JSON.parse(response);
-                    $('#nombreCesIm').val(datosFicha.nombre);
-                    $('#apellidoCesIm').val(datosFicha.apellido1);
-                    $('#ciudad4').val(datosFicha.ciudad);
+                    $('#nombreCesIm').val(datosFicha[0].nombre + ' ' + datosFicha[0].apellido1);
+                    //$('#apellidoCesIm').val(datosFicha[0].apellido1);
+                    $('#ciudad4').val(datosFicha[0].ciudad);
                     $('#fecha4').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
+                    $('#nombreCesImTu').val(datosFicha[1].nombre);
+                    $('#apellidoCesImTu').val(datosFicha[1].apellido1);
+                    $('#apellidoCesImTu2').val(datosFicha[1].apellido2);
+                    $('#documentoCesImTu').val(datosFicha[1].documento);
                     $('#nombreCesIm').prop("disabled", true);
                     $('#apellidoCesIm').prop("disabled", true);
+                    $('#nombreCesImTu').prop("disabled", true);
+                    $('#apellidoCesImTu').prop("disabled", true);
+                    $('#apellidoCesImTu2').prop("disabled", true);
+                    $('#apellidoCesImTu').prop("disabled", true);
+                    $('#documentoCesImTu').prop("disabled", true);
                     $('#ciudad4').prop("disabled", true);
                     $('#fecha4').prop("disabled", true);
                 }
@@ -499,11 +528,12 @@ function cargarEventos() {
         $("#checkFicha").show();
         $("#modal1").prop("disabled", true);
     }
-
-    function aceptacionForm2() {
-        $("#checkManMen").show();
-        $("#modal2").prop("disabled", true);
-    }
+    //DESABILITADO
+    /*
+     function aceptacionForm2() {
+     $("#checkManMen").show();
+     $("#modal2").prop("disabled", true);
+     }*/
 
     function aceptacionForm3() {
         $("#checkCesImg").show();
@@ -515,55 +545,272 @@ function cargarEventos() {
         $("#modal4").prop("disabled", true);
     }
 
-    /*Con estas funciones se podran grabar los datos nuevos o actualizar los que modifique el usuario.
-     Para grabar los datos de los tutores será necesario grabar también el dato del usuario que va incorporado
-     en un campo oculto al inicio de la página formularios.php con el #useroculto
+    /*Con esta funcion utilizando los datos que rescato de la generación de la cuenta
+     * de usuario y los completo para uqe solamente se tengan que aceptar las condiciones.
      */
-    function grabarForm1() {}
+    function grabarForm1() {
+        let usuario = $("#useroculto").val();
+        alert(usuario);
+        if ($("#conformidad2").is(":checked")) {
+            $("#condicionesFi").hide();
+            alert('entro2');
+            $.ajax({
+                url: "funciones/aPDF/pdfFicha.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response != 0) {
+                        $("#downloadOK11").show();
+                        window.open('funciones/aPDF/pdfFicha.php', '_blank');
+                    } else {
+                        $("#downloadNoOK11").show();
+                        setInterval('$("#downloadNoOK11").hide();', 7000);
+                    }
+                }
+            });
+        } else {
+            $("#condicionesFi").show();
+            setInterval('$("#condicionesFi").hide();', 7000);
+        }
+    }
 
-    function grabarForm2() {
-        let confirmacion = $("#conformidad3").val;
-        let usuario = $("#useroculto").val;
-        let nombre = $("#nombreManMenTu").val;
-        let Apellido1 = $("#apellidoManMenTu").val;
-        let Apellido2 = $("#apellidoManMenTu2").val;
-        let documento = $("#documentoManMenTu").val;
-        let domicilio = $("#domicilioManMenTu").val;
-        let CP = $("#CPManMenTu").val;
-        let ciudad = $("#localidadManMenTu").val;
-        let hoy = $("#fecha3").val;
-        if ($("#conformidad3").prop('checked')) {
-            if (nombre == "" || Apellido1 == "" || documento == "" || domicilio == "" || CP == "" || ciudad == "") {
-                $("#erroMandMen").show();
-                setInterval('$("#erroMandMen").hide();', 7000);
+    //DESABILITADO
+    /*
+     function grabarForm2() {
+     let usuario = $("#useroculto").val();
+     let nombre = $("#nombreManMenTu").val();
+     let Apellido1 = $("#apellidoManMenTu").val();
+     let Apellido2 = $("#apellidoManMenTu2").val();
+     let documento = $("#documentoManMenTu").val();
+     let domicilio = $("#domicilioManMenTu").val();
+     let CP = $("#CPManMenTu").val();
+     let ciudad = $("#localidadManMenTu").val();
+     let hoy = $("#fecha3").val();
+     alert('entro1');
+     //console.log(usuario + " - " + nombre + " - " + Apellido1 + " - " + Apellido2 + " - " + documento + " - " + domicilio + " - " + CP + " - " + ciudad + " - " + hoy);
+     if ($("#conformidad3").is(":checked")) {
+     $("#condicionesManMen").hide();
+     alert('entro2');
+     if (nombre == "" || Apellido1 == "" || documento == "" || domicilio == "" || CP == "" || ciudad == "") {
+     $("#erroMandMen").show();
+     setInterval('$("#erroMandMen").hide();', 10000);
+     alert("entro3");
+     } else {
+     alert("entro4");
+     $.ajax({
+     url: "funciones/guardarTutorMan.php",
+     data: {usuario: usuario,
+     nombreTu: nombre,
+     Apellido1Tu: Apellido1,
+     Apellido2Tu: Apellido2,
+     documentoTu: documento,
+     domicilioTu: domicilio,
+     codPostalTu: CP,
+     ciudadTu: ciudad,
+     hoyTu: hoy
+     },
+     type: 'POST',
+     success: function (response) {
+     if (response == 0) {
+     $("#downloadNoOK22").show();
+     } else if (response == 1) {
+     $("#pdfNoOk22").show();
+     } else if (response == 3) {
+     $("#pdfNoOk22").show();
+     } else {
+     $("#downloadOK22").show();
+     window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
+     }
+     }
+     });
+     }
+     } else {
+     $("#condicionesManMen").show();
+     setInterval('$("#condicionesManMen").hide();', 7000);
+     }
+     }*/
+
+//GRABA DATOS FORMULARIO DE CESIÓN DE IMÁGENES
+    function grabarForm3() {
+        let usuario = $("#useroculto").val();
+        let nombre = $("#nombreCesImTu").val();
+        let apellido1 = $("#apellidoCesImTu").val();
+        let apellido2 = $("#apellidoCesImTu2").val();
+        let documento = $("#documentoCesImTu").val();
+        let ciudad = $("#ciudad4").val();
+        let hoy = $("#fecha3").val();
+        if ($("#conformidad4").is(":checked")) {
+            $("#condicionesCesImg").hide();
+            if (nombre == "" || apellido1 == "" || ciudad == "") {
+                $("#erroCesImg").show();
+                setInterval('$("#erroCesImg").hide();', 10000);
             } else {
+                alert("entro1");
                 $.ajax({
-                    url: "funciones/aPDF/pdfMandatoMen.php",
+                    url: "funciones/guardarTutorCesImg.php",
                     data: {usuario: usuario,
                         nombreTu: nombre,
-                        Apellido1Tu: Apellido1,
-                        Apellido2Tu: Apellido2,
-                        documentoTu: documento,
-                        domicilioTu: domicilio,
-                        codPostalTu: CP,
+                        apellido1Tu: apellido1,
+                        apellido2Tu: apellido2,
+                        documento: documento,
                         ciudadTu: ciudad,
                         hoyTu: hoy
                     },
                     type: 'POST',
-                    success: function () {
+                    success: function (response) {
                         if (response == 0) {
-                            $("#pdfNoOk22").show();
+                            $("#pdfNoOk33").show();
+                        } else if (response == 1) {
+                            $("#pdfNoOk33").show();
                         } else {
-                            ("#downloadOK22").show();
+                            alert("entro2");
+                            $.ajax({
+                                url: "funciones/aPDF/pdfCesionImg.php",
+                                data: {usuario: usuario},
+                                type: 'POST',
+                                success: function (response) {
+                                    if (response != 0) {
+                                        $("#downloadOK33").show();
+                                        window.open('funciones/aPDF/pdfCesionImg.php', '_blank');
+                                    } else {
+                                        $("#downloadNoOK33").show();
+                                        setInterval('$("#downloadNoOK33").hide();', 7000);
+                                    }
+                                }
+                            });
                         }
                     }
                 });
             }
         } else {
-            $("#condicionesManMen").show();
+            $("#condicionesCesImg").show();
+            setInterval('$("#condicionesCesImg").hide();', 7000);
         }
     }
-    function grabarForm3() {}
-    function grabarForm4() {}
 
+    function grabarForm4() {
+        let usuario = $("#useroculto").val();
+        alert(usuario);
+        if ($("#conformidad5").is(":checked")) {
+            $("#condicionesManMay").hide();
+            alert('entro2');
+            $.ajax({
+                url: "funciones/aPDF/pdfMandatoMay.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response != 0) {
+                        $("#downloadOK44").show();
+                        window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
+                    } else {
+                        $("#downloadNoOK44").show();
+                        setInterval('$("#downloadNoOK44").hide();', 7000);
+                    }
+                }
+            });
+        } else {
+            $("#condicionesManMay").show();
+            setInterval('$("#condicionesManMay").hide();', 7000);
+        }
+    }
+
+    function adminFicha() {
+        let usuario = $("#ficha").val();
+        alert(usuario);
+        if (usuario == "") {
+            $("#noOk").show();
+            setInterval('$("#noOk").hide();', 7000);
+        } else {
+            alert("entro1");
+            $.ajax({
+                url: "funciones/aPDF/pdfFicha.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response == 0) {
+                        $("#noOk").show();
+                        setInterval('$("#noOk").hide();', 7000);
+                    } else {
+                        $("#noOk").hide();
+                        window.open('funciones/aPDF/pdfFicha.php', '_blank');
+                    }
+                }
+            });
+        }
+    }
+
+    function adminCesionImg() {
+        let usuario = $("#cesionImg").val();
+        alert(usuario);
+        if (usuario == "") {
+            $("#noOk").show();
+            setInterval('$("#noOk").hide();', 7000);
+        } else {
+            alert("entro1");
+            $.ajax({
+                url: "funciones/aPDF/pdfCesionImg.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response == 0) {
+                        $("#noOk").show();
+                        setInterval('$("#noOk").hide();', 7000);
+                    } else {
+                        $("#noOk").hide();
+                        window.open('funciones/aPDF/pdfCesionImg.php', '_blank');
+                    }
+                }
+            });
+        }
+    }
+
+    function adminMandato() {
+        let usuario = $("#mandato").val();
+        alert(usuario);
+        if (usuario == "") {
+            $("#noOk").show();
+            setInterval('$("#noOk").hide();', 7000);
+        } else {
+            alert("entro1");
+            $.ajax({
+                url: "funciones/aPDF/pdfMandatoMay.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response == 0) {
+                        $("#noOk").show();
+                        setInterval('$("#noOk").hide();', 7000);
+                    } else {
+                        $("#noOk").hide();
+                        window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
+                    }
+                }
+            });
+        }
+    }
+
+    function adminborrado() {
+        let usuario = $("#eliminaCuenta").val();
+        alert(usuario);
+        if (usuario == "") {
+            $("#noOk").show();
+            setInterval('$("#noOk").hide();', 7000);
+        } else {
+            alert("entro1");
+            $.ajax({
+                url: "funciones/borrarUsuario.php",
+                data: {usuario: usuario},
+                type: 'POST',
+                success: function (response) {
+                    if (response == 0) {
+                        $("#borradoError").show();
+                        setInterval('$("#noOk").hide();', 7000);
+                    } else {
+                        $("borradoOk#").show();
+                        setInterval('$("#noOk").hide();', 7000);
+                    }
+                }
+            });
+        }
+    }
 }

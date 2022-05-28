@@ -1,24 +1,42 @@
 <?php
+require_once ('../../dompdf/autoload.inc.php');
+
+//require_once '../../PHPMailer/src/PHPMailer.php';
+//$mail = new PHPMailer();
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+session_start();
+
+$usuario = $_SESSION['usuario'];
+echo ('<pre>');
+print_r($_SESSION);
+echo ('</pre>');
 //@autdor Alberto Bravo
-$usuario = $_REQUEST['usuario'];
-$nombreTu = $_REQUEST['nombreTu'];
-$Apellido1Tu = $_REQUEST['Apellido1Tu'];
-$Apellido2Tu = $_REQUEST['Apellido2Tu'];
-$documentoTu = $_REQUEST['documentoTu'];
-$domicilioTu = $_REQUEST['domicilioTu'];
-$codPostalTu = $_REQUEST['codPostalTu'];
-$ciudadTu = $_REQUEST['ciudadTu'];
-$hoyTu = $_REQUEST['hoyTu'];
+/* $usuario = $_REQUEST['usuario'];
+  $nombreTu = $_REQUEST['nombreTu'];
+  $Apellido1Tu = $_REQUEST['Apellido1Tu'];
+  $Apellido2Tu = $_REQUEST['Apellido2Tu'];
+  $documentoTu = $_REQUEST['documentoTu'];
+  $domicilioTu = $_REQUEST['domicilioTu'];
+  $codPostalTu = $_REQUEST['codPostalTu'];
+  $ciudadTu = $_REQUEST['ciudadTu'];
+  $hoyTu = $_REQUEST['hoyTu'];
 
+  $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+
+  if (!empty($usuario) || !empty($nombreTu) || !empty($Apellido1Tu) || !empty($Apellido2Tu) || !empty($documentoTu) || !empty($domicilioTu) || !empty($codPostal) || !empty($ciudadTu)) {
+
+  $sql1 = "INSERT IGNORE INTO tutorMan VALUES('" . $usuario . "','" . $nombreTu . "','" . $Apellido1Tu . "','" . $Apellido2Tu . "','" . $documentoTu . "','" . $domicilioTu . "','" . $codPostalTu . "','" . $ciudadTu . "')";
+  $query1 = $con->prepare($sql1);
+
+  $query1->execute();
+
+  if ($query1->rowCount() == 0) {
+  echo('1');
+  } else {
+ */
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
-
-//if (!empty($usuario) || !empty($nombreTu) || !empty($Apellido1Tu) || !empty($Apellido2Tu) || !empty($documentoTu) || !empty($domicilioTu) || !empty($codPostal) || !empty($ciudadTu)) {
-    $sql1 = "INSERT INTO tutorMan VALUES('" . $usuario . "','" . $nombreTu. "','" .$Apellido1Tu. "','" .$Apellido2Tu. "','" .$documentoTu. "','" .$domicilioTu. "','" .$codPostal. "','" .$ciudadTu . "')";
-    $query1 = $con->prepare($sql1);
-    $query1->execute();
-//} else {
-    //echo('0');
-//}
 
 $sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
 $query = $con->prepare($sql);
@@ -30,10 +48,7 @@ $query2 = $con->prepare($sql2);
 $query2->execute();
 $resultado2 = $query2->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 
-require_once ('../../dompdf/autoload.inc.php');
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
 
 $options = new Options();
 $options->setIsRemoteEnabled(true);
@@ -110,10 +125,24 @@ ob_start();
 </html>
 <?php
 $html = ob_get_clean();
-//echo $html;
+echo $html;
 $dompdf->load_html($html);
 $dompdf->setPaper('a4', 'portrait');
 $dompdf->render();
 $dompdf->stream("Mandato_Menores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => false)); //con true lo autodescarga
+/*
+  $to = "proyectohiken@gmail.com";
+  $subject = "Nuevo mensaje de " . $valor['nombre'] . "_" . $valor['apellido1'];
+  $message = "Se ha enviado la ficha de" . $valor['nombre'] . "_" . $valor['apellido1'];
+  $headers = "From:" . $valor['nombre'] . "_" . $valor['apellido1'];
+  if (mail($to, $subject, $message, $headers)) {
+  $mail->AddAttachment($dompdf->render(), "Mandato_Menores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf");
+  }else{
+  echo("3");
+  } */
+/*  }
+  } else {
+  echo('0');
+  } */
 ?>
 
