@@ -57,18 +57,16 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Club Kenpo Hiken</a>
-                            <a class="dropdown-item" href="#" id="form2">Mandato inscripción < 18 años</a>
                             <a class="dropdown-item" href="#" id="form3">Autorización imagenes < 18 años</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item breadcrumb-item" href="#" id="form4">Mandato inscripción > 18 años</a>
+                            <a class="dropdown-item" href="#" id="form4">Mandato inscripción</a>
                         </div>
                     </div>
                 </div>
-                <input type="hidden" id="useroculto" name="useroculto" value="<?php echo $logUser ?>">
                 <div class="row justify-content-center my-5" id="form11" style="display:none;">
                     <div class="col-md-8 bg-white contenido-nosotros py-5">
                         <h3 class="text-center mb-3">Ficha Deportiva Club Kenpo Hiken</h3>
-                        <form method="POST" action="#" >
+                        <form method="POST" action="#" id="formulario1">
+                            <input type="hidden" id="useroculto" name="useroculto" value="<?php echo $logUser ?>">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label for="nombreFi">Nombre</label>
@@ -181,7 +179,7 @@
                                 <p class="fw-normal">De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su representante legal, queda informado y consiente expresa e inequívocamente la incorporación de sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken, domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia, autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la actualización de estos cuando esta sea necesaria.</p>
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkFicha">
-                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" checked disabled>
+                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad2">Las condiciones han sido aceptadas</label>
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="condicionesFi" style="display: none;">
@@ -207,7 +205,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" id="aceptacionFicha" data-dismiss="modal">Acepto las condiciones</button>
+                                                <button type="button" class="btn btn-primary" id="aceptacionFicha" data-dismiss="modal" onClick="$('#conformidad2').prop('checked', true)">Acepto las condiciones</button>
                                             </div>
                                         </div>
                                     </div>
@@ -235,7 +233,8 @@
                             </div>
                         </form>
                     </div> 
-                </div>    
+                </div>  
+                <!--DESABILITADO_PARA PROXIMA IMPLEMENTACIÓN
                 <div class="row justify-content-center my-5" id="form22" style="display:none;">
                     <div class="col-md-8 bg-white contenido-nosotros py-5">
                         <h3 class="text-center">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.
@@ -340,7 +339,7 @@
                                 </div>
                             </div>
                             <div class="form-check mt-3" style="display: none" id="checkManMen">
-                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad3" id="conformidad3" checked disabled>
+                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad3" id="conformidad3" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad3">Las condiciones han sido aceptadas</label>
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="condicionesManMen" style="display: none;">
@@ -370,7 +369,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" id="aceptacionMandatoMen" data-dismiss="modal">Acepto las condiciones</button>
+                                                <button type="button" class="btn btn-primary" id="aceptacionMandatoMen" data-dismiss="modal" onClick="$('#conformidad3').prop('checked', true)">Acepto las condiciones</button>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +397,8 @@
                             </div>
                         </form>
                     </div> 
-                </div>         
+                </div> 
+                -->
                 <div class="row justify-content-center my-5" id="form33" style="display:none;">
                     <div class="col-md-8 bg-white contenido-nosotros py-5">
                         <h3 class="text-center">Autorización para la publicación de imágenes</h3>
@@ -426,13 +426,9 @@
                                     <label for="documentoCesImTu">y con D.N.I. o N.I.E.</label>
                                     <input type="tel" class="form-control" name="documentoCesImTu" id="documentoCesImTu" placeholder="Documento del tutor" required>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="nombreCesIm">como padre/madre o</label>
+                                <div class="col-md-8">
+                                    <label for="nombreCesIm">como padre/madre o tutor del deportista</label>
                                     <input type="email" class="form-control" name="nombreCesIm" id="nombreCesIm" placeholder="Nombre deportista" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="apellidoCesIm">tutor del deportista</label>
-                                    <input type="email" class="form-control" name="apellidoCesIm" id="apellidoCesIm" placeholder="1er apellido deportista" required>
                                 </div>
                             </div>
                             <div class="text-dark mt-4">
@@ -449,9 +445,14 @@
                                     <label for="fecha4:">a</label>
                                     <input type="text" class="form-control" name="fecha4" id="fecha4">
                                 </div>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="erroCesImg" style="display: none">
+                                    No puedes enviar el mensaje con campos vacíos.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
+                                    </button>
+                                </div>
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkCesImg">
-                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" checked disabled>
+                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad4">Las condiciones han sido aceptadas</label>
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="condicionesCesImg" style="display: none;">
@@ -477,7 +478,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" id="aceptacionCondicionesImg" data-dismiss="modal">Acepto las condiciones</button>
+                                                <button type="button" class="btn btn-primary" id="aceptacionCondicionesImg" data-dismiss="modal" onClick="$('#conformidad4').prop('checked', true)">Acepto las condiciones</button>
                                             </div>
                                         </div>
                                     </div>
@@ -491,16 +492,16 @@
                                     <input type="submit" class="btn btn-primary" id="downloadpdf33" value="Descargar y enviar documento">
                                 </div>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="pdfOk33" style="display: none;">
+                            <div class="alert alert-success text-center mt-2" role="alert" id="pdfOk33" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="downloadOK33" style="display: none;">
+                            <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK33" style="display: none;">
                                 <p>Tu formulario se ha descargado correctamente</p>
                             </div>
-                            <div class="alert alert-danger text-center" role="alert" id="pdfNoOk33" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="pdfNoOk33" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
                             </div>
-                            <div class="alert alert-danger text-center" role="alert" id="downloadNoOK33" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="downloadNoOK33" style="display: none;">
                                 <p>Tu formulario no se ha podido desacargar</p>
                             </div>
                         </form>
@@ -509,9 +510,7 @@
                 <div class="row justify-content-center my-5" id="form44" style="display:none;">
                     <div class="col-md-8 bg-white contenido-nosotros py-5">
                         <h3 class="text-center">Mandato específico para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A.
-                        </h3>
-                        <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los mayores de 18 años</span>
-                        </h5>                    
+                        </h3>                  
                         <form method="POST" action="#" >
                             <div class="row">
                                 <div class="col-md-6">
@@ -569,7 +568,7 @@
                                 </div>
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkManMay">
-                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad5" id="conformidad5" checked disabled>
+                                <input type="checkbox" class="form-check-input is-invalid" name="conformidad5" id="conformidad5" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad5">Las condiciones han sido aceptadas</label>
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="condicionesManMay" style="display: none;">
@@ -599,7 +598,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" id="aceptacionMandatoMay" data-dismiss="modal">Acepto las condiciones</button>
+                                                <button type="button" class="btn btn-primary" id="aceptacionMandatoMay" data-dismiss="modal" onClick="$('#conformidad5').prop('checked', true)">Acepto las condiciones</button>
                                             </div>
                                         </div>
                                     </div>
@@ -613,16 +612,16 @@
                                     <input type="submit" class="btn btn-primary" id="downloadpdf44" value="Descargar y enviar documento">
                                 </div>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="pdfOk44" style="display: none;">
+                            <div class="alert alert-success text-center mt-2" role="alert" id="pdfOk44" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="downloadOK44" style="display: none;">
+                            <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK44" style="display: none;">
                                 <p>Tu formulario se ha descargado correctamente</p>
                             </div>
-                            <div class="alert alert-danger text-center" role="alert" id="pdfNoOk44" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="pdfNoOk44" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
                             </div>
-                            <div class="alert alert-danger text-center" role="alert" id="downloadNoOK44" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="downloadNoOK44" style="display: none;">
                                 <p>Tu formulario no se ha podido desacargar</p>
                             </div>
                         </form>
