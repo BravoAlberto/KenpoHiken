@@ -40,8 +40,7 @@ if (!empty($usuario)) {
             <header class="header">
                 <h5 class="text-center fw-bold text-uppercase"  style="font-size: 35px;">
                     Mandato epecífico para la inscripción de la licencia y actividades de<br>
-                    la Federación Madrileña de Karate y D.A.<br>
-                    <span class="text-decoration-underline">(deportistas de 18 años y adultos)</span><br>2022</h5>
+                    la Federación Madrileña de Karate y D.A.<br>2022</h5>
             </header>
             <main class="mt-3" style="text-align:justify; text-justify: inter-word; font-size: 32px; line-height:40px;"><!-- Justificado texto a ancho página -->
                 <?php
@@ -76,7 +75,7 @@ if (!empty($usuario)) {
                 </div>
             </main>
             <footer class="fixed-bottom" style="font-size: 30px;">
-                <p class="text-muted">Impreso para deportistas con edad igual o mayor de 18 años</p>
+                <!--<p class="text-muted">Impreso para deportistas con edad igual o mayor de 18 años</p>-->
             </footer>
         </body>
     </html>
@@ -86,7 +85,7 @@ if (!empty($usuario)) {
     $dompdf->load_html($html);
     $dompdf->setPaper('a4', 'portrait');
     $dompdf->render();
-    $dompdf->stream("Mandato_Mayores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => false)); //con true lo autodescarga
+    $dompdf->stream("Mandato_Mayores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => true)); //con true lo autodescarga
 } else {
     echo('0');
 }

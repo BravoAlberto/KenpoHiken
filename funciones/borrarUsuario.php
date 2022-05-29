@@ -1,18 +1,19 @@
 <?php
+
 //@author Alberto Bravo
-include_once 'singleton.php';
-$con = Singleton::singleton();
+$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 
 $usuario = $_REQUEST['usuario'];
 
-if (!empty($usuario)){
-$sql = "DELETE FROM ficha WHERE usuario='".$usuario."'";
-$sql = "DELETE FROM usuario WHERE usuario='".$usuario."'";
-$sql = "DELETE FROM tutorImg WHERE usuario='".$usuario."'";
-$query = $con->getLdb($sql);
-$query->execute();
 
-}else {
+if (!empty($usuario)) {
+    $sql = "DELETE FROM ficha WHERE usuario='" . $usuario . "';";
+    $sql = $sql . "DELETE FROM usuario WHERE usuario='" . $usuario . "';";
+    $sql = $sql . "DELETE FROM tutorImg WHERE usuario='" . $usuario . "';";
+    $query = $con->prepare($sql);
+    $query->execute();
+    echo ('1');
+} else {
     echo ('0');
 }
 ?>

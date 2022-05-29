@@ -16,6 +16,8 @@ if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['em
     $subject = "Nuevo mensaje de " . $mail;
     $message = $mensaje;
     $headers = "From:" . $from;
+    $headers = "De:" . $nombre;
+    $headers = "Teléfono:" . $telefono;
     if (mail($to, $subject, $message, $headers)) {
         echo 1;
     } else {

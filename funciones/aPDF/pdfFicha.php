@@ -121,9 +121,6 @@ if (!empty($usuario)) {
                     <p>2. La hoja de inscripción junto con la bonificación de las cuotas serán requisito necesario para estar dado en el club.</p>
                     <p>3. De conformidad con la Ley Orgánica 15/1999, de 13 de diciembre Vd., o en su caso su representante legal, queda informado y consiente expresa e inequívocamente la incorporación de sus datos a los ficheros mixtos de datos personales y al tratamiento de estos con la finalidad de la gestión integral de su relación con el Club Deportivo Elemental Kenpo Hiken. Así mismo consiente el tratamiento para el envío de las comunicaciones incluidas las comerciales, aún por medios electrónicos. El responsable de los ficheros es el Club Deportivo Elemental Kenpo Hiken, domiciliado en C/ Puerto de la Mano de Hierro, 18, 28053 MADRID. Autoriza a que sus datos personales, incluidas imagen y/o voz, puedan ser utilizados para la organización, promoción y divulgación del deporte y/o club en cualquier medio. Asimismo, autoriza la cesión de sus datos a los Organismos Oficiales Deportivos y Seguros. Podrá ejercitar los derechos de acceso, rectificación, cancelación y oposición en la forma y de acuerdo con los procedimientos establecidos en la precitada Ley Orgánica, dirigiéndose a la dirección arriba indicada, según procedimiento. El deportista responde, en cualquier caso, de la veracidad, exactitud, vigencia, autenticidad y pertinencia de los Datos Personales proporcionados, comprometiéndose a la actualización de estos cuando esta sea necesaria.</p>
                 </div>
-                <div class="pt-2 text-right">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST']; ?>/kenpohiken/img/sello.png" class="logo img-fluid" alt="Logosello">
-                </div>
                 <div>
                     <p class="text-right"> Condiciones aceptadas en <?php echo $valor['ciudad']; ?> a <?php
                         echo $fechaActual;
@@ -135,11 +132,11 @@ if (!empty($usuario)) {
     </html>
     <?php
     $html = ob_get_clean();
-//echo $html;
+    //echo $html;
     $dompdf->load_html($html);
     $dompdf->setPaper('a4', 'portrait');
     $dompdf->render();
-    $dompdf->stream("Ficha_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => false)); //con true lo autodescarga
+    $dompdf->stream("Ficha_" . $valor['nombre'] . "_" . $valor['apellido1'] . ".pdf", array("Attachment" => true)); //con true lo autodescarga
 } else {
     echo('0');
 }

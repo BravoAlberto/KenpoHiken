@@ -78,30 +78,6 @@ function cargarEventos() {
                     grabarForm4();
                 });
             }
-            if (document.getElementById("ficha") != null) {
-                $("#ficha").on("click", function (event) {
-                    event.preventDefault();
-                    adminFicha();
-                });
-            }
-            if (document.getElementById("cesionImg") != null) {
-                $("#cesionImg").on("click", function (event) {
-                    event.preventDefault();
-                    adminCesionImg();
-                });
-            }
-            if (document.getElementById("mandato") != null) {
-                $("#mandato").on("click", function (event) {
-                    event.preventDefault();
-                    adminMandato();
-                });
-            }
-            if (document.getElementById("borrarCuenta") != null) {
-                $("#borrarCuenta").on("click", function (event) {
-                    event.preventDefault();
-                    adminborrado();
-                });
-            }
         }
 
 
@@ -275,7 +251,15 @@ function cargarEventos() {
                 },
                 type: 'POST',
                 success: function (response) {
-                    alert(response);
+                    if (response == 0) {
+                        $("#camposVaciosContacto").hide();
+                        $("#mailNoOk").show();
+                        $("#mailOk").hide();
+                    } else {
+                        $("#camposVaciosContacto").hide();
+                        $("#mailOk").show();
+                        $("#mailNoOk").hide();
+                    }
                 }
             });
         }
@@ -456,8 +440,9 @@ function cargarEventos() {
             success: function (response) {
                 if (response != 0) {
                     datosFicha = JSON.parse(response);
-                    $('#nombreCesIm').val(datosFicha[0].nombre + ' ' + datosFicha[0].apellido1);
-                    //$('#apellidoCesIm').val(datosFicha[0].apellido1);
+                    alert(datosFicha);
+                    $('#nombreCesIm').val(datosFicha[0].nombre);
+                    $('#apellidoCesIm').val(datosFicha[0].apellido1);
                     $('#ciudad4').val(datosFicha[0].ciudad);
                     $('#fecha4').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
                     $('#nombreCesImTu').val(datosFicha[1].nombre);
@@ -561,7 +546,8 @@ function cargarEventos() {
                 success: function (response) {
                     if (response != 0) {
                         $("#downloadOK11").show();
-                        window.open('funciones/aPDF/pdfFicha.php', '_blank');
+                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfFicha.php?usuario=' + usuario);
+                        //window.open('funciones/aPDF/pdfFicha.php', '_blank');
                     } else {
                         $("#downloadNoOK11").show();
                         setInterval('$("#downloadNoOK11").hide();', 7000);
@@ -671,7 +657,7 @@ function cargarEventos() {
                                 success: function (response) {
                                     if (response != 0) {
                                         $("#downloadOK33").show();
-                                        window.open('funciones/aPDF/pdfCesionImg.php', '_blank');
+                                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfCesionImg.php?usuario=' + usuario);
                                     } else {
                                         $("#downloadNoOK33").show();
                                         setInterval('$("#downloadNoOK33").hide();', 7000);
@@ -701,7 +687,7 @@ function cargarEventos() {
                 success: function (response) {
                     if (response != 0) {
                         $("#downloadOK44").show();
-                        window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
+                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfMandatoMay.php?usuario=' + usuario);
                     } else {
                         $("#downloadNoOK44").show();
                         setInterval('$("#downloadNoOK44").hide();', 7000);
@@ -713,104 +699,103 @@ function cargarEventos() {
             setInterval('$("#condicionesManMay").hide();', 7000);
         }
     }
-
-    function adminFicha() {
-        let usuario = $("#ficha").val();
-        alert(usuario);
-        if (usuario == "") {
-            $("#noOk").show();
-            setInterval('$("#noOk").hide();', 7000);
-        } else {
-            alert("entro1");
-            $.ajax({
-                url: "funciones/aPDF/pdfFicha.php",
-                data: {usuario: usuario},
-                type: 'POST',
-                success: function (response) {
-                    if (response == 0) {
-                        $("#noOk").show();
-                        setInterval('$("#noOk").hide();', 7000);
-                    } else {
-                        $("#noOk").hide();
-                        window.open('funciones/aPDF/pdfFicha.php', '_blank');
-                    }
-                }
-            });
-        }
-    }
-
-    function adminCesionImg() {
-        let usuario = $("#cesionImg").val();
-        alert(usuario);
-        if (usuario == "") {
-            $("#noOk").show();
-            setInterval('$("#noOk").hide();', 7000);
-        } else {
-            alert("entro1");
-            $.ajax({
-                url: "funciones/aPDF/pdfCesionImg.php",
-                data: {usuario: usuario},
-                type: 'POST',
-                success: function (response) {
-                    if (response == 0) {
-                        $("#noOk").show();
-                        setInterval('$("#noOk").hide();', 7000);
-                    } else {
-                        $("#noOk").hide();
-                        window.open('funciones/aPDF/pdfCesionImg.php', '_blank');
-                    }
-                }
-            });
-        }
-    }
-
-    function adminMandato() {
-        let usuario = $("#mandato").val();
-        alert(usuario);
-        if (usuario == "") {
-            $("#noOk").show();
-            setInterval('$("#noOk").hide();', 7000);
-        } else {
-            alert("entro1");
-            $.ajax({
-                url: "funciones/aPDF/pdfMandatoMay.php",
-                data: {usuario: usuario},
-                type: 'POST',
-                success: function (response) {
-                    if (response == 0) {
-                        $("#noOk").show();
-                        setInterval('$("#noOk").hide();', 7000);
-                    } else {
-                        $("#noOk").hide();
-                        window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
-                    }
-                }
-            });
-        }
-    }
-
-    function adminborrado() {
-        let usuario = $("#eliminaCuenta").val();
-        alert(usuario);
-        if (usuario == "") {
-            $("#noOk").show();
-            setInterval('$("#noOk").hide();', 7000);
-        } else {
-            alert("entro1");
-            $.ajax({
-                url: "funciones/borrarUsuario.php",
-                data: {usuario: usuario},
-                type: 'POST',
-                success: function (response) {
-                    if (response == 0) {
-                        $("#borradoError").show();
-                        setInterval('$("#noOk").hide();', 7000);
-                    } else {
-                        $("borradoOk#").show();
-                        setInterval('$("#noOk").hide();', 7000);
-                    }
-                }
-            });
-        }
-    }
+    /*
+     function adminFicha(user) {
+     let usuario = user;
+     alert(usuario);
+     if (usuario == "") {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     $.ajax({
+     url: "funciones/aPDF/pdfFicha.php",
+     data: {usuario: usuario},
+     type: 'POST',
+     success: function (response) {
+     if (response == 0) {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     $("#noOk").hide();
+     //window.open('funciones/aPDF/pdfFicha.php', '_blank');
+     }
+     }
+     });
+     }
+     }
+     
+     function adminCesionImg() {
+     let usuario = $("#cesionImg").val();
+     alert(usuario);
+     if (usuario == "") {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     alert("entro1");
+     $.ajax({
+     url: "funciones/aPDF/pdfCesionImg.php",
+     data: {usuario: usuario},
+     type: 'POST',
+     success: function (response) {
+     if (response == 0) {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     $("#noOk").hide();
+     window.open('funciones/aPDF/pdfCesionImg.php', '_blank');
+     }
+     }
+     });
+     }
+     }
+     
+     function adminMandato() {
+     let usuario = $("#mandato").val();
+     alert(usuario);
+     if (usuario == "") {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     alert("entro1");
+     $.ajax({
+     url: "funciones/aPDF/pdfMandatoMay.php",
+     data: {usuario: usuario},
+     type: 'POST',
+     success: function (response) {
+     if (response == 0) {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     $("#noOk").hide();
+     window.open('funciones/aPDF/pdfMandatoMay.php', '_blank');
+     }
+     }
+     });
+     }
+     }
+     
+     function adminborrado() {
+     let usuario = $("#eliminaCuenta").val();
+     alert(usuario);
+     if (usuario == "") {
+     $("#noOk").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     alert("entro1");
+     $.ajax({
+     url: "funciones/borrarUsuario.php",
+     data: {usuario: usuario},
+     type: 'POST',
+     success: function (response) {
+     if (response == 0) {
+     $("#borradoError").show();
+     setInterval('$("#noOk").hide();', 7000);
+     } else {
+     $("borradoOk#").show();
+     setInterval('$("#noOk").hide();', 7000);
+     }
+     }
+     });
+     }
+     }*/
 }

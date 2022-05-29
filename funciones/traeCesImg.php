@@ -14,14 +14,13 @@ $query1 = $con->prepare($sql1);
 $query1->execute();
 $resultado1 = $query1->fetch();
 
-$array = array($resultado, $resultado1);
-
 if ($resultado['usuario'] == null) {
     echo ('0');
 } else {
-    if ($resultado1['usuario'] == null) {
+    if (empty($resultado1['usuario'])) {
         echo json_encode($resultado);
     } else {
+        $array = array($resultado, $resultado1);
         echo json_encode($array);
     }
 }

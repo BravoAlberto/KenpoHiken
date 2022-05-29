@@ -211,13 +211,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="enviopdf11" value="Enviar documento">   
-                                </div>
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="downloadpdf11" value="Descargar y enviar documento">
-                                </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary" id="enviopdf11" value="Descargar y enviar documento">   
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="pdfOk11" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
@@ -375,13 +370,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="enviopdf22" value="Enviar documento">   
-                                </div>
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="downloadpdf22" value="Descargar y enviar documento">
-                                </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary" id="enviopdf22" value="Descargar y enviar documento">   
                             </div>
                             <div class="alert alert-success text-center" role="alert" id="pdfOk22" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
@@ -424,11 +414,15 @@
                             <div class="row mt-3">
                                 <div class="col-md-4 mt-1">
                                     <label for="documentoCesImTu">y con D.N.I. o N.I.E.</label>
-                                    <input type="tel" class="form-control" name="documentoCesImTu" id="documentoCesImTu" placeholder="Documento del tutor" required>
+                                    <input type="text" class="form-control" name="documentoCesImTu" id="documentoCesImTu" placeholder="Documento del tutor" required>
                                 </div>
-                                <div class="col-md-8">
-                                    <label for="nombreCesIm">como padre/madre o tutor del deportista</label>
-                                    <input type="email" class="form-control" name="nombreCesIm" id="nombreCesIm" placeholder="Nombre deportista" required>
+                                <div class="col-md-4">
+                                    <label for="nombreCesIm">como padre/madre</label>
+                                    <input type="text" class="form-control" name="nombreCesIm" id="nombreCesIm" placeholder="Nombre deportista" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="apellidoCesIm">o tutor del deportista</label>
+                                    <input type="text" class="form-control" name="apellidoCesIm" id="apellidoCesIm" placeholder="Apellido deportista" required>
                                 </div>
                             </div>
                             <div class="text-dark mt-4">
@@ -484,13 +478,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="enviopdf33" value="Enviar documento">   
-                                </div>
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="downloadpdf33" value="Descargar y enviar documento">
-                                </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary" id="enviopdf33" value="Descargar y enviar documento">   
                             </div>
                             <div class="alert alert-success text-center mt-2" role="alert" id="pdfOk33" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
@@ -604,13 +593,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="enviopdf44" value="Enviar documento">   
-                                </div>
-                                <div class="col-md-3 col-4">
-                                    <input type="submit" class="btn btn-primary" id="downloadpdf44" value="Descargar y enviar documento">
-                                </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary" id="enviopdf44" value="Descargar y enviar documento">   
                             </div>
                             <div class="alert alert-success text-center mt-2" role="alert" id="pdfOk44" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>

@@ -76,7 +76,7 @@
                         <div class="alert alert-success text-center" role="alert" id="mailOk" style="display: none;">
                             <p>Tu email se ha enviado correctamete</p>
                         </div>
-                        <div class="alert alert-danger text-center" role="alert" id="mailNoOk" style="display: none;">
+                        <div class="alert alert-danger text-center p-2" role="alert" id="mailNoOk" style="display: none;">
                             <p>Tu email no ha podido enviarse</p>
                         </div>
                     </form>
