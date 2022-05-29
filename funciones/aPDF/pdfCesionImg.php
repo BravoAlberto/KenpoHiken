@@ -98,7 +98,7 @@ if (!empty($usuario)) {
     $dompdf->load_html($html);
     $dompdf->setPaper('a4', 'portrait');
     $dompdf->render();
-    $dompdf->stream("ficha_" . $valor['nombre'] . "_" . $valor['apellido1'] . ".pdf", array("Attachment" => true)); //con true lo autodescarga
+    $dompdf->stream("Cesión_Imágenes_" . $valor['nombre'] . "_" . $valor['apellido1'] . ".pdf", array("Attachment" => true)); //con true lo autodescarga
 } else {
     echo('0');
 }

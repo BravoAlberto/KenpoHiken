@@ -85,7 +85,7 @@ if (!empty($usuario)) {
     $dompdf->load_html($html);
     $dompdf->setPaper('a4', 'portrait');
     $dompdf->render();
-    $dompdf->stream("Mandato_Mayores18_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => true)); //con true lo autodescarga
+    $dompdf->stream("Mandato_" . $valor['nombre'] . "_" . $valor['apellido1'] . "_" . $fechaActual = date('d-m-Y') . ".pdf", array("Attachment" => true)); //con true lo autodescarga
 } else {
     echo('0');
 }
