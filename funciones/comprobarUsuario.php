@@ -1,5 +1,6 @@
 <?php
 //@author Alberto Bravo
+//Creado para utilizar en formularios.php
 class Usuario {
 
     private $con;

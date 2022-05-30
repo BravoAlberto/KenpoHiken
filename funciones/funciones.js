@@ -1,4 +1,4 @@
-//@author Alberto Bravo
+//@author Alberto Bravo 
 document.addEventListener("readystatechange", cargarEventos, false);
 function cargarEventos() {
     if (document.readyState == "interactive") {
@@ -11,6 +11,20 @@ function cargarEventos() {
                 document.getElementById("continuar").addEventListener("click", seguir, false);
             if (document.getElementById("documento") != null)
                 document.getElementById("documento").addEventListener("blur", comprobarDocumento, false);
+            if (document.getElementById("documentoCesImTu") != null)
+                document.getElementById("documentoCesImTu").addEventListener("blur", comprobarDocumento2, false);
+            if (document.getElementById("mail") != null)
+                document.getElementById("mail").addEventListener("blur", comprobarEmail, false);
+            if (document.getElementById("telefono") != null)
+                document.getElementById("telefono").addEventListener("blur", comprobarTelefono, false);
+            if (document.getElementById("CP") != null)
+                document.getElementById("CP").addEventListener("blur", comprobarCP, false);
+            if (document.getElementById("telefonoMail") != null)
+                document.getElementById("telefonoMail").addEventListener("blur", comprobarTelefono2, false);
+            if (document.getElementById("emailMail") != null)
+                document.getElementById("emailMail").addEventListener("blur", comprobarEmail2, false);
+            if (document.getElementById("nacimiento") != null)
+                document.getElementById("nacimiento").addEventListener("blur", comprobarFecha, false);
             if (document.getElementById("enviar") != null) {
                 $("#enviar").on("click", function (event) {
                     event.preventDefault();
@@ -35,8 +49,6 @@ function cargarEventos() {
             }
             if (document.getElementById("form1") != null)
                 document.getElementById("form1").addEventListener("click", mostrarForm1, false);
-            if (document.getElementById("form2") != null)
-                document.getElementById("form2").addEventListener("click", mostrarForm2, false);
             if (document.getElementById("form3") != null)
                 document.getElementById("form3").addEventListener("click", mostrarForm3, false);
             if (document.getElementById("form4") != null) {
@@ -45,11 +57,8 @@ function cargarEventos() {
                     mostrarForm4();
                 });
             }
-//document.getElementById("form4").addEventListener("click", mostrarForm4, false);
             if (document.getElementById("aceptacionFicha") != null)
                 document.getElementById("aceptacionFicha").addEventListener("click", aceptacionForm1, false);
-            if (document.getElementById("aceptacionMandatoMen") != null)
-                document.getElementById("aceptacionMandatoMen").addEventListener("click", aceptacionForm2, false);
             if (document.getElementById("aceptacionCondicionesImg") != null)
                 document.getElementById("aceptacionCondicionesImg").addEventListener("click", aceptacionForm3, false);
             if (document.getElementById("aceptacionMandatoMay") != null)
@@ -79,8 +88,6 @@ function cargarEventos() {
                 });
             }
         }
-
-
     }
 
 //Función para comprobar la existencia del campo usuario en página registro.php
@@ -109,7 +116,7 @@ function cargarEventos() {
     }
 
     /*Llamamos a las funciones anteriores (comprobarUsuario() & comprobarContraseña()
-     para luego con Jquery llamar a la página combruebaUsuario.php y hacer petición a la BBDD
+     para luego con Jquery llamar a la página compruebaUsuario.php y hacer petición a la BBDD
      con objeto de comprobar que el usuario existe*/
     function seguir() {
         $("#errorvacio1").show();
@@ -155,6 +162,77 @@ function cargarEventos() {
             $('#errordn1').hide();
         }
     }
+
+    function comprobarDocumento2() {
+        let documento = $("#documentoCesImTu").val();
+        let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
+        if (!expreg.test(documento)) {
+            $('#errordnForm').show();
+        } else {
+            $('#errordnForm').hide();
+        }
+    }
+
+    function comprobarEmail() {
+        let email = $("#mail").val();
+        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi; //para la correcta estructura de un email
+        if (!expreg.test(email)) {
+            $('#errormail').show();
+        } else {
+            $('#errormail').hide();
+        }
+    }
+
+    function comprobarEmail2() {
+        let email = $("#emailMail").val();
+        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi; //para la correcta estructura de un email
+        if (!expreg.test(email)) {
+            $('#errormailMail').show();
+        } else {
+            $('#errormailMail').hide();
+        }
+    }
+
+    function comprobarTelefono() {
+        let telefono = $("#telefono").val();
+        let expreg = /^[0-9]{9}$/g; //para la correcta estructura de un email
+        if (!expreg.test(telefono)) {
+            $('#errorTelefono').show();
+        } else {
+            $('#errorTelefono').hide();
+        }
+    }
+
+    function comprobarTelefono2() {
+        let telefono = $("#telefonoMail").val();
+        let expreg = /^[0-9]{9}$/g; //para la correcta estructura de un email
+        if (!expreg.test(telefono)) {
+            $('#errorTelefonoMail').show();
+        } else {
+            $('#errorTelefonoMail').hide();
+        }
+    }
+    function comprobarCP() {
+        let CP = $("#CP").val();
+        let expreg = /^[0-9]{5}$/g; //para la correcta estructura de un email
+        if (!expreg.test(CP)) {
+            $('#errorCP').show();
+        } else {
+            $('#errorCP').hide();
+        }
+    }
+
+    function comprobarFecha() {
+        let nacimiento = $("#nacimiento").val();
+        let hoy = new Date();
+        let fecha = new Date(nacimiento);
+        if (fecha > hoy) {
+            $('#errorFecha').show();
+        } else {
+            $('#errorFecha').hide();
+        }
+    }
+
     /*
      Función para enviar de la página registro.php todos los datos introducidos a la página del lado del servidor 
      guardarficha.php y así grabar los datos en 2 tablas,
@@ -186,6 +264,8 @@ function cargarEventos() {
             //Para ocultar el aviso a los 5 segundos.
             setInterval('$("#camposVacios").hide();', 5000);
         } else {
+            $("#spinnerEnviar").show();
+            $("#enviar").hide();
             $.ajax({
                 url: "funciones/guardarficha.php",
                 data: {usuario: usuario,
@@ -213,6 +293,8 @@ function cargarEventos() {
                         $("#cuentaOk").show();
                         $('#ficha').hide();
                         $('#condiciones').hide();
+                        $("#enviar").show();
+                        $("#spinnerEnviar").hide();
                     } else if (response == 0) {
                         $('#datos').hide();
                         $('#condiciones').hide();
@@ -220,8 +302,12 @@ function cargarEventos() {
                         $("#continuar").show();
                         $('#usuario').removeAttr("disabled");
                         $('#password').removeAttr("disabled");
+                        $("#enviar").show();
+                        $("#spinnerEnviar").hide();
                     } else {
                         $("#camposVacios").show();
+                        $("#enviar").show();
+                        $("#spinnerEnviar").hide();
                     }
                 }
             });
@@ -325,6 +411,7 @@ function cargarEventos() {
      tabla ficha y grabarlos en los campos de este formulario al cargarlo.
      */
     function mostrarForm1() {
+        $("#downloadOK11").hide();
         $("#form22").hide();
         $("#form33").hide();
         $("#form44").hide();
@@ -386,6 +473,7 @@ function cargarEventos() {
     //DESABILITADO
     /*
      function mostrarForm2() {
+     $("#downloadOK22").hide();
      $("#form11").hide();
      $("#form33").hide();
      $("#form44").hide();
@@ -423,10 +511,12 @@ function cargarEventos() {
      }*/
 
     /*Función para mostrar el formulario de lla cesión de imágenes en la página formularios.php y a su vez 
-     para poder llamar a la página del servidor traeCesImg.php y traer todos los campos de loa
-     tabla ficha y grabarlos en los campos de este formulario al cargarlo.
+     para poder llamar a la página del servidor traeFicha.php y traeTutores.php para traer todos los campos de loa
+     tablas y grabarlos en los campos de este formulario al cargarlo.
+     Si no hay tutores no grabará los campos
      */
     function mostrarForm3() {
+        $("#downloadOK33").hide();
         $("#form11").hide();
         $("#form22").hide();
         $("#form44").hide();
@@ -434,33 +524,71 @@ function cargarEventos() {
         let hoy = new Date();
         let usuario = $("#useroculto").val();
         $.ajax({
-            url: "funciones/traeCesImg.php",
+            url: "funciones/traeFicha.php",
             data: {user: usuario},
             type: 'POST',
             success: function (response) {
                 if (response != 0) {
                     datosFicha = JSON.parse(response);
-                    alert(datosFicha);
-                    $('#nombreCesIm').val(datosFicha[0].nombre);
-                    $('#apellidoCesIm').val(datosFicha[0].apellido1);
-                    $('#ciudad4').val(datosFicha[0].ciudad);
+                    $('#nombreCesIm').val(datosFicha.nombre);
+                    $('#apellidoCesIm').val(datosFicha.apellido1);
+                    $('#ciudad4').val(datosFicha.ciudad);
                     $('#fecha4').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
-                    $('#nombreCesImTu').val(datosFicha[1].nombre);
-                    $('#apellidoCesImTu').val(datosFicha[1].apellido1);
-                    $('#apellidoCesImTu2').val(datosFicha[1].apellido2);
-                    $('#documentoCesImTu').val(datosFicha[1].documento);
-                    $('#nombreCesIm').prop("disabled", true);
-                    $('#apellidoCesIm').prop("disabled", true);
-                    $('#nombreCesImTu').prop("disabled", true);
-                    $('#apellidoCesImTu').prop("disabled", true);
-                    $('#apellidoCesImTu2').prop("disabled", true);
-                    $('#apellidoCesImTu').prop("disabled", true);
-                    $('#documentoCesImTu').prop("disabled", true);
-                    $('#ciudad4').prop("disabled", true);
-                    $('#fecha4').prop("disabled", true);
+                    $.ajax({
+                        url: "funciones/traeTutores.php",
+                        data: {user: usuario},
+                        type: 'POST',
+                        success: function (response) {
+                            if (response != 0) {
+                                datosTutor = JSON.parse(response);
+                                $('#nombreCesImTu').val(datosTutor.nombre);
+                                $('#apellidoCesImTu').val(datosTutor.apellido1);
+                                $('#apellidoCesImTu2').val(datosTutor.apellido2);
+                                $('#documentoCesImTu').val(datosTutor.documento);
+                                $('#nombreCesIm').prop("disabled", true);
+                                $('#apellidoCesIm').prop("disabled", true);
+                                $('#ciudad4').prop("disabled", true);
+                                $('#fecha4').prop("disabled", true);
+                                $('#nombreCesImTu').prop("disabled", true);
+                                $('#apellidoCesImTu').prop("disabled", true);
+                                $('#apellidoCesImTu2').prop("disabled", true);
+                                $('#documentoCesImTu').prop("disabled", true);
+                            } else {
+                                $('#nombreCesIm').prop("disabled", true);
+                                $('#apellidoCesIm').prop("disabled", true);
+                                $('#ciudad4').prop("disabled", true);
+                                $('#fecha4').prop("disabled", true);
+                            }
+                        }
+                    });
+                } else {
+                    alert("Se ha producido un error");
                 }
             }
         });
+        /*
+         success: function (response) {
+         if (response != 0) {
+         datosFicha = JSON.parse(response);
+         $('#nombreCesIm').val(datosFicha[0].nombre);
+         $('#apellidoCesIm').val(datosFicha[0].apellido1);
+         $('#ciudad4').val(datosFicha[0].ciudad);
+         $('#fecha4').val(hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear());
+         $('#nombreCesImTu').val(datosFicha[1].nombre);
+         $('#apellidoCesImTu').val(datosFicha[1].apellido1);
+         $('#apellidoCesImTu2').val(datosFicha[1].apellido2);
+         $('#documentoCesImTu').val(datosFicha[1].documento);
+         $('#nombreCesIm').prop("disabled", true);
+         $('#apellidoCesIm').prop("disabled", true);
+         $('#nombreCesImTu').prop("disabled", true);
+         $('#apellidoCesImTu').prop("disabled", true);
+         $('#apellidoCesImTu2').prop("disabled", true);
+         $('#documentoCesImTu').prop("disabled", true);
+         $('#ciudad4').prop("disabled", true);
+         $('#fecha4').prop("disabled", true);
+         }
+         }
+         });*/
     }
 
     /*Función para mostrar el formulario del mandato a >18 años en la página formularios.php y a su vez 
@@ -468,6 +596,7 @@ function cargarEventos() {
      tabla ficha y grabarlos en los campos de este formulario al cargarlo.
      */
     function mostrarForm4() {
+        $("#downloadOK44").hide();
         $("#form11").hide();
         $("#form22").hide();
         $("#form33").hide();
@@ -535,10 +664,8 @@ function cargarEventos() {
      */
     function grabarForm1() {
         let usuario = $("#useroculto").val();
-        alert(usuario);
         if ($("#conformidad2").is(":checked")) {
             $("#condicionesFi").hide();
-            alert('entro2');
             $.ajax({
                 url: "funciones/aPDF/pdfFicha.php",
                 data: {usuario: usuario},
@@ -546,8 +673,7 @@ function cargarEventos() {
                 success: function (response) {
                     if (response != 0) {
                         $("#downloadOK11").show();
-                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfFicha.php?usuario=' + usuario);
-                        //window.open('funciones/aPDF/pdfFicha.php', '_blank');
+                        window.open('/KenpoHiken/funciones/aPDF/pdfFicha.php?usuario=' + usuario);
                     } else {
                         $("#downloadNoOK11").show();
                         setInterval('$("#downloadNoOK11").hide();', 7000);
@@ -631,7 +757,6 @@ function cargarEventos() {
                 $("#erroCesImg").show();
                 setInterval('$("#erroCesImg").hide();', 10000);
             } else {
-                alert("entro1");
                 $.ajax({
                     url: "funciones/guardarTutorCesImg.php",
                     data: {usuario: usuario,
@@ -649,7 +774,6 @@ function cargarEventos() {
                         } else if (response == 1) {
                             $("#pdfNoOk33").show();
                         } else {
-                            alert("entro2");
                             $.ajax({
                                 url: "funciones/aPDF/pdfCesionImg.php",
                                 data: {usuario: usuario},
@@ -657,7 +781,7 @@ function cargarEventos() {
                                 success: function (response) {
                                     if (response != 0) {
                                         $("#downloadOK33").show();
-                                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfCesionImg.php?usuario=' + usuario);
+                                        window.open('/KenpoHiken/funciones/aPDF/pdfCesionImg.php?usuario=' + usuario);
                                     } else {
                                         $("#downloadNoOK33").show();
                                         setInterval('$("#downloadNoOK33").hide();', 7000);
@@ -676,10 +800,8 @@ function cargarEventos() {
 
     function grabarForm4() {
         let usuario = $("#useroculto").val();
-        alert(usuario);
         if ($("#conformidad5").is(":checked")) {
             $("#condicionesManMay").hide();
-            alert('entro2');
             $.ajax({
                 url: "funciones/aPDF/pdfMandatoMay.php",
                 data: {usuario: usuario},
@@ -687,7 +809,7 @@ function cargarEventos() {
                 success: function (response) {
                     if (response != 0) {
                         $("#downloadOK44").show();
-                        window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfMandatoMay.php?usuario=' + usuario);
+                        window.open('/KenpoHiken/funciones/aPDF/pdfMandatoMay.php?usuario=' + usuario);
                     } else {
                         $("#downloadNoOK44").show();
                         setInterval('$("#downloadNoOK44").hide();', 7000);

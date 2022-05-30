@@ -2,9 +2,10 @@
 //@author Alberto Bravo
 
 include_once 'password.php';
+include_once 'filtrado.php';
 session_start();//inicio sesion para guardar el usuario
 
-$usuario = $_REQUEST['user'];
+$usuario = filtrado($_REQUEST['user']);
 $clave = $_REQUEST['password'];
 $admin = 'administrador';
 $password = 'AB492ga2';

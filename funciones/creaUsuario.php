@@ -1,8 +1,9 @@
 <?php
 //@author Alberto Bravo
 include_once 'password.php';
+include_once 'filtrado.php';
 
-$usuario = $_POST['user'];
+$usuario = filtrado($_POST['user']);
 $clave = Password::hash($_POST['password']);
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 

@@ -1,27 +1,28 @@
 <?php
 //@author Alberto Bravo
 include_once 'password.php';
+include_once 'filtrado.php';
 
 $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
 
-$usuario = $_REQUEST['usuario'];
+$usuario = filtrado($_REQUEST['usuario']);
 $clave = Password::hash($_REQUEST['clave']);
-$nombre = $_REQUEST['nombre'];
-$apellido1 = $_REQUEST['apellido1'];
-$apellido2 = $_REQUEST['apellido2'];
-$tipo = $_REQUEST['tipo'];
-$documento = $_REQUEST['documento'];
-$nacimiento = $_REQUEST['nacimiento'];
-$lugarnacim = $_REQUEST['lugarnacim'];
-$nacionalidad = $_REQUEST['nacionalidad'];
-$direccion = $_REQUEST['direccion'];
-$ciudad = $_REQUEST['ciudad'];
-$provincia = $_REQUEST['provincia'];
-$codpostal = $_REQUEST['codpostal'];
-$telefono = $_REQUEST['telefono'];
-$mail = $_REQUEST['mail'];
-$enfermedad = $_REQUEST['enfermedad'];
-$mensaje = $_REQUEST['mensaje'];
+$nombre = filtrado($_REQUEST['nombre']);
+$apellido1 = filtrado($_REQUEST['apellido1']);
+$apellido2 = filtrado($_REQUEST['apellido2']);
+$tipo = filtrado($_REQUEST['tipo']);
+$documento = filtrado($_REQUEST['documento']);
+$nacimiento = filtrado($_REQUEST['nacimiento']);
+$lugarnacim = filtrado($_REQUEST['lugarnacim']);
+$nacionalidad = filtrado($_REQUEST['nacionalidad']);
+$direccion = filtrado($_REQUEST['direccion']);
+$ciudad = filtrado($_REQUEST['ciudad']);
+$provincia = filtrado($_REQUEST['provincia']);
+$codpostal = filtrado($_REQUEST['codpostal']);
+$telefono = filtrado($_REQUEST['telefono']);
+$mail = filtrado($_REQUEST['mail']);
+$enfermedad = filtrado($_REQUEST['enfermedad']);
+$mensaje = filtrado($_REQUEST['mensaje']);
 
 
     $sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
