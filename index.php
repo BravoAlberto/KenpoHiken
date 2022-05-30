@@ -80,21 +80,21 @@
                         <h3>Kenpo Hiken</h3>
                         <p>Nuestro club nace como consecuencia de la amistad creada entre compañeros de Kenpo del
                             Polideportivo Municipal Arganzuela.<br>
-                            <a class="btn btn-link" href="https://www.kenpohiken.es/">Más información</a></p>
+                            <a class="btn btn-link" href="https://www.kenpohiken.es/"  target="_blank">Más información</a></p>
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/icono_kenpo_americano.jpg" class="img-fluid mb-3" alt="imagenAmer">
                         <h3>Kenpo Americano</h3>
                         <p>Somos practicantes de Kenpo en el estilo de Kenpo Karate o Kenpo Americano, creado por Ed.
                             Parker.<br>
-                            <a class="btn btn-link" href="https://www.americankenpo.com/">Más información</a></p>                        
+                            <a class="btn btn-link" href="https://www.americankenpo.com/"  target="_blank">Más información</a></p>                        
                     </div>
                     <div class="col-md-4 text-center informacion">
                         <img src="img/AKA_BN.jpg" class="img-fluid mb-3" alt="imagenAKA">
                         <h3>A.K.A.</h3>
                         <p>Nuestro club es miembro de American Kenpo Academies, una asociación de clubes y para la práctica
                             y mejora de nuestro arte.<br>
-                            <a class="btn btn-link" href="https://es-es.facebook.com/akakenpo/">Más información</a></p>
+                            <a class="btn btn-link" href="https://es-es.facebook.com/akakenpo/"  target="_blank">Más información</a></p>
                     </div>
                 </div>
             </section>
@@ -184,16 +184,16 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 mb-2 mb-md-0">
                         <nav class="nav justify-content-center">
-                            <a href="https://www.instagram.com/kenpohiken/"
+                            <a href="https://www.instagram.com/kenpohiken/"  target="_blank"
                                class="fab fa-instagram icono instagram d-inline-flex align-items-center justify-content-center">
                             </a>
-                            <a href="https://www.facebook.com/KenpoHiken"
+                            <a href="https://www.facebook.com/KenpoHiken"  target="_blank"
                                class="fab fa-facebook-f icono facebook d-inline-flex align-items-center justify-content-center">
                             </a>
-                            <a href="https://www.youtube.com/channel/UCMua7FE1B_lpO1lzTXDwgvw"
+                            <a href="https://www.youtube.com/channel/UCMua7FE1B_lpO1lzTXDwgvw"  target="_blank"
                                class="fab fa-youtube icono youtube d-inline-flex align-items-center justify-content-center">
                             </a>
-                            <a href="https://twitter.com/kenpohiken"
+                            <a href="https://twitter.com/kenpohiken" target="_blank"
                                class="fab fa-twitter icono twitter d-inline-flex align-items-center justify-content-center">
                             </a>
                         </nav>
