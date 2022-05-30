@@ -1,10 +1,11 @@
 <?php
 //@author Alberto Bravo
 /* Código php para enviar correo */
-$nombre = $_REQUEST['name'];
-$telefono = $_REQUEST['phone'];
-$mail = $_REQUEST['correoel'];
-$mensaje = $_REQUEST['text'];
+include_once 'filtrado.php';
+$nombre = filtrado($_REQUEST['name']);
+$telefono = filtrado($_REQUEST['phone']);
+$mail = filtrado($_REQUEST['correoel']);
+$mensaje = filtrado($_REQUEST['text']);
 
 if (isset($_REQUEST['name']) && isset($_REQUEST['phone']) && isset($_REQUEST['email']) && isset($_REQUEST['text'])) {
     $nombre = $_REQUEST['name'];
