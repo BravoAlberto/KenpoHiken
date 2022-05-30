@@ -42,8 +42,7 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <nav class="menu nav flex-column flex-md-row text-center d-flex justify-content-md-end justify-content-center">
-                                <a href="index.php" class="nav-link">Cerrar sesión<abbr title="Cierra la sesión para regresar a la página de incio"
-                                                                                        <img src="img/pregunta.png" class="ayuda align-top justify-content-end" alt="imagenPregunta"></abbr></a>
+                                <a href="incio.php" class="nav-link">Cerrar sesión</a>
                             </nav>
                         </div>
                     </div>
@@ -51,13 +50,13 @@
             </header>
             <main class="container">
                 <div class="row justify-content-center">
-                    <div class="justify-content-center btn-group col-12 mb-5">
+                    <div class="justify-content-center btn-group col-md-10 mb-5">
                         <button type="button" class="btn btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Formularios Inscripción temporada
+                            Formularios temporada 22/23
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="#" id="form1">Ficha Deportiva Club Kenpo Hiken</a>
-                            <a class="dropdown-item" href="#" id="form3">Autorización imagenes < 18 años</a>
+                            <a class="dropdown-item" href="#" id="form3">Claúsula - Protección de Datos < 18 años</a>
                             <a class="dropdown-item" href="#" id="form4">Mandato inscripción</a>
                         </div>
                     </div>
@@ -182,7 +181,7 @@
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad2" id="conformidad2" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad2">Las condiciones han sido aceptadas</label>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="condicionesFi" style="display: none;">
+                            <div class="alert alert-danger text-center" role="alert" id="condicionesFi" style="display: none;">
                                 <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
@@ -217,8 +216,8 @@
                             <div class="alert alert-success text-center" role="alert" id="pdfOk11" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="downloadOK11" style="display: none;">
-                                <p>Tu formulario se ha descargado correctamente</p>
+                            <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK11" style="display: none;">
+                                <p>Tu formulario se ha procesado correctamente</p>
                             </div>
                             <div class="alert alert-danger text-center" role="alert" id="pdfNoOk11" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
@@ -376,8 +375,8 @@
                             <div class="alert alert-success text-center" role="alert" id="pdfOk22" style="display: none;">
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="downloadOK22" style="display: none;">
-                                <p>Tu formulario se ha descargado correctamente</p>
+                            <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK22" style="display: none;">
+                                <p>Tu formulario se ha procesado correctamente</p>
                             </div>
                             <div class="alert alert-danger text-center" role="alert" id="pdfNoOk22" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
@@ -391,7 +390,7 @@
                 -->
                 <div class="row justify-content-center my-5" id="form33" style="display:none;">
                     <div class="col-md-8 bg-white contenido-nosotros py-5">
-                        <h3 class="text-center">Autorización para la publicación de imágenes</h3>
+                        <h3 class="text-center">Autorización para la publicación de imágenes y el tratamiento de datos</h3>
                         <h5 class="text-center py-2"><span class="fw-bold text-danger">A cumplimentar sólo para los menores de 18 años</span>
                         </h5>
                         <form method="POST" action="#" >
@@ -425,6 +424,9 @@
                                     <input type="text" class="form-control" name="apellidoCesIm" id="apellidoCesIm" placeholder="Apellido deportista" required>
                                 </div>
                             </div>
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="errordnForm" style="display: none;">
+                                    El número del DNI o del NIE no es correcto.<br><strong>Debe contener 9 caracteres, entre digitos y letras, revíselo.</strong>
+                            </div>
                             <div class="text-dark mt-4">
                                 <p class="fw-normal">DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</p>
                                 <p class="fw-normal">La Ley de Protección de Datos nos obliga a disponer de esta autorización para hacer uso delas fotos y videos, que puedan ser realizadas en los actos de la Asociación y de KENPO HIKEN en los que participe el alumno/a, por ello solicitamos el consentimiento a los padres, o tutores legales.</p>
@@ -439,17 +441,15 @@
                                     <label for="fecha4:">a</label>
                                     <input type="text" class="form-control" name="fecha4" id="fecha4">
                                 </div>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="erroCesImg" style="display: none">
-                                    No puedes enviar el mensaje con campos vacíos.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
-                                    </button>
-                                </div>
+                            </div>
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="erroCesImg" style="display: none">
+                                No puedes enviar el formulario dejando campos vacíos.<br>Recuerda que si eres mayor de edad no necesitas cumplimentar este formulario.
                             </div>
                             <div class="form-check py-2" style="display: none" id="checkCesImg">
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad4" id="conformidad4" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad4">Las condiciones han sido aceptadas</label>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="condicionesCesImg" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="condicionesCesImg" style="display: none;">
                                 <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
@@ -485,7 +485,7 @@
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
                             <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK33" style="display: none;">
-                                <p>Tu formulario se ha descargado correctamente</p>
+                                <p>Tu formulario se ha procesado correctamente</p>
                             </div>
                             <div class="alert alert-danger text-center mt-2" role="alert" id="pdfNoOk33" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
@@ -560,7 +560,7 @@
                                 <input type="checkbox" class="form-check-input is-invalid" name="conformidad5" id="conformidad5" unchecked onclick="return false;">
                                 <label class="form-check-inline" for="conformidad5">Las condiciones han sido aceptadas</label>
                             </div>
-                            <div class="alert alert-success text-center" role="alert" id="condicionesManMay" style="display: none;">
+                            <div class="alert alert-danger text-center mt-2" role="alert" id="condicionesManMay" style="display: none;">
                                 <p>Debes aceptar las condiciones antes de enviar el formulario</p>
                             </div>
                             <div class="form-group mt-3">
@@ -600,7 +600,7 @@
                                 <p>Tu formulario se ha enviado correctamente</p>
                             </div>
                             <div class="alert alert-success text-center mt-2" role="alert" id="downloadOK44" style="display: none;">
-                                <p>Tu formulario se ha descargado correctamente</p>
+                                <p>Tu formulario se ha procesado correctamente</p>
                             </div>
                             <div class="alert alert-danger text-center mt-2" role="alert" id="pdfNoOk44" style="display: none;">
                                 <p>Tu formulario no se ha podido procesar</p>
@@ -618,7 +618,7 @@
             header('location:accesoDenegado.php');
         }
         ?>
-        <footer class="footer p-4 fixed-bottom">
+        <footer class="footer fixed-bottom mt-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
