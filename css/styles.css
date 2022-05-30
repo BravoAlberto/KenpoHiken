@@ -387,3 +387,10 @@ aside .card-footer a {
 .alinear{
     margin-top: 275px;
 }
+
+/*Sobre la acción show del menú dropdown priorizo unas propiedades sobre las demás*/
+.dropdown-menu.show {   
+    left: 50%!important;   
+    top: 100%!important;
+    transform: translate(-50%, 0)!important; 
+}
