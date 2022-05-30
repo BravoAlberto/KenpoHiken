@@ -58,14 +58,13 @@
                     <h2 class="separador text-center my-3">Regístrate</h2>
                     <div id="ficha">
                         <p class="fw-normal fs-5">Introduce los datos con los se accederá a la cuenta de usuario<br>                            
-                            <span class="fw-bold">Todos los campos son obligatorios</span></p>
+                            <span class="fw-bold">La contraseña debe tener entre 6 y 8 caracteres<br>Todos los campos son obligatorios</span></p>
                         <form method="POST">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
                                 <input type="text" class="form-control" name="usuario" id="usuario"
                                        placeholder="Tu nombre de usuario" value="<?php echo (!empty($_POST['usuario'])) ? $nombre : ''; ?>" required>
-                                <div class="alert alert-danger" role="alert" id="errorvacio1" style="display: none;">
-                                    <a class="close" data-dismiss="alert"> × </a>
+                                <div class="alert alert-danger mt-2" role="alert" id="errorvacio1" style="display: none;">
                                     No puedes dejar este campo vacío.
                                 </div>
                             </div>
@@ -73,41 +72,24 @@
                                 <label for="password">Contraseña de acceso</label>
                                 <input type="password" class="form-control" name="password" id="password"
                                        placeholder="Tu password" required>
-                                <div class="alert alert-danger" role="alert" id="errorvacio2" style="display: none;">
-                                    <a class="close" data-dismiss="alert"> × </a>
+                                <div class="alert alert-danger mt-2" role="alert" id="errorvacio2" style="display: none;">
                                     La contraseña tiene que tener entre 6 y 8 caracteres.
                                 </div>
+                            </div>
+                            <div class="alert alert-info mt-2" role="alert" id="errorvacio17" style="display: none;">
+                                Este usuario ya existe, debes probar con otro nombre de usuario.
                             </div>
                             <button class="btn btn-primary" type="button" id="continuar">Continuar</button>
                             <button class="btn btn-primary" type="button" id="spinner" disabled style="display: none;">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Continuar</button>
-                            <br>
-                            <br>
-                            <div class="alert alert-info" role="alert" id="errorvacio17" style="display: none;">
-                                <a class="close" data-dismiss="alert"> × </a>
-                                Este usuario ya existe, debes probar con otro nombre de usuario.
-                            </div>
                             <div id="datos" style="display: none;">
                                 <hr class="my-3"/>
                                 <p class="fw-normal fs-5">Introduce ahora los siguientes datos del <span class="fw-bold text-danger">deportista</span> para que podamos crear su ficha.<br>
                                     <span class="fw-bold">Todos los campos son obligatorios</span></p>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="camposVacios" style="display: none">
-                                    No puedes enviar el formulario con campos vacíos.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="cierre">
-                                        <!--<span aria-hidden="true">&times;</span>-->
-                                    </button>
-                                </div>
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Tu nombre" required>
-                                    <div class="alert alert-danger" role="alert" id="errorvacio3" style="display: none;">
-                                        <a class="close" data-dismiss="alert"> × </a>
-                                        No puedes dejar este campo vacío.
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid name.
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -140,11 +122,7 @@
                                         <div class="form-group ">
                                             <label for="documento">Número de documento</label>
                                             <input type="text" class="form-control" name="documento" id="documento"
-                                                   aria-describedby="helpId" placeholder="Tu documento" onbrequired>
-                                            <div class="alert alert-danger" role="alert" id="errordn1" style="display: none;">
-                                                <a class="close" data-dismiss="alert"> × </a>
-                                                El número del DNI o del NIE no es correcto, revíselo.
-                                            </div>
+                                                   aria-describedby="helpId" placeholder="Tu documento" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -154,6 +132,12 @@
                                                    aria-describedby="helpId" required>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="errordn1" style="display: none;">
+                                    El número del DNI o del NIE no es correcto.<br><strong>Debe contener 9 caracteres, entre digitos y letras, revíselo.</strong>
+                                </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="errorFecha" style="display: none;">
+                                    La fecha de nacimiento tiene que ser anterior al día de hoy.
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -195,16 +179,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="CP">Código Postal</label>
-                                            <input type="number" class="form-control" name="CP" id="CP" aria-describedby="helpId"
+                                            <input type="text" class="form-control" name="CP" id="CP" aria-describedby="helpId"
                                                    placeholder="Tu código postal" required>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="errorCP" style="display: none;">
+                                    El Código postal introducido no es correcto, <strong>debe tener 5 dígitos.</strong>.
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label for="telefono">Teléfono</label>
-                                            <input type="number" class="form-control" name="telefono" id="telefono"
+                                            <input type="text" class="form-control" name="telefono" id="telefono"
                                                    aria-describedby="helpId" placeholder="Tu teléfono" required>
                                         </div>
                                     </div>
@@ -215,6 +202,13 @@
                                                    aria-describedby="helpId" placeholder="Tu e-mail" required>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="errormail" style="display: none;">
+                                    El email introducido no es correcto. Un ejemplo de email podría ser<br>
+                                    <strong>ejemplo@ejemplo.com(es,org...)</strong>.
+                                </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="errorTelefono" style="display: none;">
+                                    El teléfono introducido no es correcto, <strong>debe tener 9 dígitos.</strong>.
                                 </div>
                                 <div class="form-group">
                                     <label for="dolencia">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
@@ -229,12 +223,15 @@
                                     <label for="mensaje">En caso afirmativo, indique cuales</label>
                                     <textarea class="form-control" name="mensaje" id="mensaje" rows="2"></textarea>
                                 </div>
+                                <div class="alert alert-danger text-center mt-1" role="alert" id="camposVacios" style="display: none">
+                                    No puedes enviar el formulario con campos vacíos.
+                                </div>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-primary" id="enviar" value="Enviar datos">
+                                    <button class="btn btn-primary" type="button" id="spinnerEnviar" disabled style="display: none;">
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Continuar</button>
                                 </div>
-                                <!-- antes del submit funciona pero no funcionan las validadciones de Bootstrap y ahora envía directamente
-                            <button class="btn btn-primary" type="button" id="enviar">Enviar</button>
-                                -->
                             </div>      
                         </form>
                     </div>
@@ -243,13 +240,13 @@
                             TU CUENTA DE USUARIO HA SIDO CREADA CON EXITO</p>
                         <a class="btn btn-light" href="incio.php">Accede a tu cuenta</a>
                     </div>
-                    <div class="alert alert-success text-center" role="alert" id="cuentaNoOk" style="display: none;">
+                    <div class="alert alert-success text-center mt-2" role="alert" id="cuentaNoOk" style="display: none;">
                         Se ha producido un error a la hora de grabar sus datos.<br>Inténtalo de nuevo utilizando un nombre de usuario diferente.
                     </div>
                 </div>
             </div>
         </main>
-        <footer class="footer mt-auto p-4">
+        <footer class="footer mt-auto">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
