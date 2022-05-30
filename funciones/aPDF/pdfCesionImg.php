@@ -19,8 +19,6 @@ if (!empty($usuario)) {
     $query2->execute();
     $resultado2 = $query2->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 
-
-
     $options = new Options();
     $options->setIsRemoteEnabled(true);
     $dompdf = new Dompdf($options);
@@ -36,7 +34,7 @@ if (!empty($usuario)) {
             <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <meta name="autdor" content="Alberto Bravo">
-            <title>Cesión imágenes menores 18 años</title>
+            <title>Cesión imágenes y tratamiento de datos (menores 18 años)</title>
             <link rel="stylesheet" href="css/bootstrap.css">
             <link rel="shortcut icon" href="#">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
@@ -46,7 +44,7 @@ if (!empty($usuario)) {
         <body class="mx-auto" style="width: 1380px;"><!-- margen auto para ancho específico -->
             <header class="header">
                 <h5 class="text-center fw-bold text-uppercase">
-                    Cesión de imágenes<br>
+                    Cesión de imágenes y tratamiento de datos<br>
                     <span class="text-decoration-underline">(deportistas menores de 18 años)</span><br>2022</h5>
             </header>
             <h5 class="fw-bold text-uppercase mt-2"  style="font-size: 35px;">
@@ -78,10 +76,22 @@ if (!empty($usuario)) {
                             D./Dña. <?php echo $valor['nombre'] . ' ' . $valor['apellido1'] . ' ' . $valor['apellido2']; ?><br>
                             DNI / NIE - <?php echo $valor['documento']; ?>
                         </td>
-                        <td style="border: solid 1px; width: 50%;">
-                            D./Dña. <?php echo $valor2['nombre'] . ' ' . $valor2['apellido1'] . ' ' . $valor2['apellido2']; ?><br>
-                            DNI / NIE - <?php echo $valor2['documento']; ?>
-                        </td>
+                        <?php if (!empty($resultado2)) {
+                            ?>
+                            <td style = "border: solid 1px; width: 50%;">
+                                D./Dña. <?php echo $valor2['nombre'] . ' ' . $valor2['apellido1'] . ' ' . $valor2['apellido2']; ?>
+                                <br>
+                                DNI / NIE - <?php echo $valor2['documento']; ?>
+                            </td><?php
+                        } else {
+                            ?>
+                            <td style = "border: solid 1px; width: 50%; background-color: lightgray">
+                                D./Dña. <?php echo ' '; ?><br>
+                                DNI / NIE - <?php echo ' '; ?><br>
+                            </td>
+                            <?php
+                        }
+                        ?>
                     </tr>
                 </table>
                 <div>

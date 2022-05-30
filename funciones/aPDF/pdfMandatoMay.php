@@ -62,11 +62,11 @@ if (!empty($usuario)) {
                     <p>Que el MANDATO se concede para su actuación ante la Federación Madrileña de Karate y D.A., en las dependencias federativas personalmente o a través de los recursos online, en relación <u>exclusivamente</u> de los asuntos citados como objeto del MANDATO.</p>
                 </div>
                 <div>
-                    <p class="text-center"> Condiciones aceptadas en <?php echo $valor['ciudad']; ?> a <?php
+                    <p class="text-right"> Condiciones aceptadas en <?php echo $valor['ciudad']; ?> a <?php
                         echo $fechaActual = date('d-m-Y');
                         ;
                         ?></p>
-                    <p class="text-right">EL MANDANTE (representante legal)<br><?php echo $valor['nombre'] . ' ' . $valor['apellido1'] . ' ' . $valor['apellido2']; ?></p>
+                    <p class="text-right">EL MANDANTE<br><?php echo $valor['nombre'] . ' ' . $valor['apellido1'] . ' ' . $valor['apellido2']; ?></p>
                     <p>Acepto el MANDATO conferido y me obligo a cumplirlo de conformidad a las instrucciones del MANDANTE, y declaro bajo mi responsabilidad de la veracidad y actualización de los datos facilitados para la inscripción de la licencia y actividades de la Federación Madrileña de Karate y D.A</p>
                 </div>
                 <div class="text-right">
