@@ -5,7 +5,7 @@ include_once 'funciones/singleton.php';
 session_start();
 if ($_SESSION['usuario'] == "administrador") {
     $con = Singleton::singleton();
-    $sql = "SELECT * FROM ficha;";
+    $sql = "SELECT * FROM ficha order by apellido1;";
     $query = $con->getLdb($sql);
     $query->execute();
     $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +35,6 @@ if ($_SESSION['usuario'] == "administrador") {
                         $("#noOk").show();
                         setInterval('$("#noOk").hide();', 7000);
                     } else {
-                        alert("entro1");
                         $.ajax({
                             url: "funciones/aPDF/pdfFicha.php",
                             data: {usuario: usuario},
@@ -46,7 +45,7 @@ if ($_SESSION['usuario'] == "administrador") {
                                     setInterval('$("#noOk").hide();', 7000);
                                 } else {
                                     $("#noOk").hide();
-                                    window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfFicha.php?usuario=' + user);
+                                    window.open('http://<?php echo $_SERVER['HTTP_HOST']; ?>/KenpoHiken/funciones/aPDF/pdfFicha.php?usuario=' + user);
                                 }
                             }
                         });
@@ -55,12 +54,10 @@ if ($_SESSION['usuario'] == "administrador") {
 
                 function adminCesionImg(user) {
                     let usuario = user;
-                    alert(usuario);
                     if (usuario == "") {
                         $("#noOk").show();
                         setInterval('$("#noOk").hide();', 7000);
                     } else {
-                        alert("entro1");
                         $.ajax({
                             url: "funciones/aPDF/pdfCesionImg.php",
                             data: {usuario: usuario},
@@ -71,7 +68,7 @@ if ($_SESSION['usuario'] == "administrador") {
                                     setInterval('$("#noOk").hide();', 7000);
                                 } else {
                                     $("#noOk").hide();
-                                    window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfCesionImg.php?usuario=' + user);
+                                    window.open('http://<?php echo $_SERVER['HTTP_HOST']; ?>/KenpoHiken/funciones/aPDF/pdfCesionImg.php?usuario=' + user);
                                 }
                             }
                         });
@@ -80,12 +77,10 @@ if ($_SESSION['usuario'] == "administrador") {
 
                 function adminMandato(user) {
                     let usuario = user;
-                    alert(usuario);
                     if (usuario == "") {
                         $("#noOk").show();
                         setInterval('$("#noOk").hide();', 7000);
                     } else {
-                        alert("entro1");
                         $.ajax({
                             url: "funciones/aPDF/pdfMandatoMay.php",
                             data: {usuario: usuario},
@@ -96,7 +91,7 @@ if ($_SESSION['usuario'] == "administrador") {
                                     setInterval('$("#noOk").hide();', 7000);
                                 } else {
                                     $("#noOk").hide();
-                                    window.open('http://127.0.0.1/KenpoHiken/funciones/aPDF/pdfMandatoMay.php?usuario=' + user);
+                                    window.open('http://<?php echo $_SERVER['HTTP_HOST']; ?>/KenpoHiken/funciones/aPDF/pdfMandatoMay.php?usuario=' + user);
                                 }
                             }
                         });
@@ -105,12 +100,10 @@ if ($_SESSION['usuario'] == "administrador") {
 
                 function adminborrado(user) {
                     let usuario = user;
-                    alert(usuario);
                     if (usuario == "") {
                         $("#noOk").show();
                         setInterval('$("#noOk").hide();', 7000);
                     } else {
-                        alert("entro1");
                         $.ajax({
                             url: "funciones/borrarUsuario.php",
                             data: {usuario: usuario},
@@ -118,15 +111,16 @@ if ($_SESSION['usuario'] == "administrador") {
                             success: function (response) {
                                 if (response == 0) {
                                     $("#borradoError").show();
-                                    setInterval('$("#noOk").hide();', 7000);
+                                    setInterval('$("#borradoError").hide();', 7000);
                                 } else {
                                     $("#borradoOk").show();
-                                    setInterval('$("#noOk").hide();', 7000);
+                                    setInterval('$("#borradoOk").hide();', 7000);
                                 }
                             }
                         });
                     }
                 }
+
             </script>
         </head>
         <body>
@@ -172,7 +166,17 @@ if ($_SESSION['usuario'] == "administrador") {
                                         <tr>
                                             <td class="align-middle" id="nomb"><?php echo $valor['nombre']; ?></td>
                                             <td class="align-middle" id="ape1"><?php echo $valor['apellido1']; ?></td>
-                                            <td class="align-middle" id="ape2"><?php echo $valor['apellido2']; ?></td>
+                                            <?php
+                                            if (empty($valor['apellido2'])) {
+                                                ?>
+                                            <td class = "align-middle" id = "ape2"><strong>-</strong></td>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <td class="align-middle" id="ape2"><?php echo $valor['apellido2']; ?></td>
+                                                <?php
+                                            }
+                                            ?>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="ficha" onclick="javascript:adminFicha('<?php echo $valor['usuario']; ?>')">PDF</button></td>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="cesionImg" onclick="javascript:adminCesionImg('<?php echo $valor['usuario']; ?>')">PDF</button></td>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="mandato" onclick="javascript:adminMandato('<?php echo $valor['usuario']; ?>')">PDF</button></td>
@@ -211,13 +215,17 @@ if ($_SESSION['usuario'] == "administrador") {
                                 <p>No se ha podido borrar esta cuenta</p>
                             </div>
                         </div>
+                        <hr class="my-4">
+                        <div class="justify-content-center">
+                            <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/KenpoHiken/funciones/aPDF/pdfListado.php" target="_blank" class="btn btn-primary">Listado de alumnos</a>
+                        </div>
                         <div class="container py-5">
                             <div class="row justify-content-around">
                                 <div class="col-md-4 col-6">
                                     <a href="https://karatescoring.com/FMK/index.php?accion=login" target="_blank"><img src="./img/FMK.png" alt="FMK" style="border:solid 1px; color: grey;"/></a>
                                 </div>
                                 <div class="col-md-4 col-6">
-                                    <a href="https://www.openbank.es/?toggleLogin" target="_blank"><img src="./img/openbank_logo.jpg" alt="banco" style="border:solid 1px; color: grey;"/></a>
+                                    <a href="https://www.openbank.es" target="_blank"><img src="./img/openbank_logo.jpg" alt="banco" style="border:solid 1px; color: grey;"/></a>
                                 </div>
                             </div>
                         </div>
