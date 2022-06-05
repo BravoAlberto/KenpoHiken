@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="alert alert-danger text-center mt-1" role="alert" id="errordn1" style="display: none;">
-                                    El número del DNI o del NIE no es correcto.<br><strong>Debe contener 9 caracteres, entre digitos y letras, revíselo.</strong>
+                                    El número del DNI o del NIE no es correcto.<br><strong>No contiene 9 caracteres o la letra no es correcta, revíselo.</strong>
                                 </div>
                                 <div class="alert alert-danger text-center mt-1" role="alert" id="errorFecha" style="display: none;">
                                     La fecha de nacimiento tiene que ser anterior al día de hoy.

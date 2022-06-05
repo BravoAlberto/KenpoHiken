@@ -10,9 +10,9 @@ function cargarEventos() {
             if (document.getElementById("continuar") != null)
                 document.getElementById("continuar").addEventListener("click", seguir, false);
             if (document.getElementById("documento") != null)
-                document.getElementById("documento").addEventListener("blur", comprobarDocumento, false);
+                document.getElementById("documento").addEventListener("blur", validaDNI, false);
             if (document.getElementById("documentoCesImTu") != null)
-                document.getElementById("documentoCesImTu").addEventListener("blur", comprobarDocumento2, false);
+                document.getElementById("documentoCesImTu").addEventListener("blur", validaDNI2, false);
             if (document.getElementById("mail") != null)
                 document.getElementById("mail").addEventListener("blur", comprobarEmail, false);
             if (document.getElementById("telefono") != null)
@@ -123,7 +123,6 @@ function cargarEventos() {
         $("#errorvacio2").show();
         let usuario = $("#usuario").val();
         let clave = $("#password").val();
-        /*Aquí comprobamos si el usuario ya existe en la base de datos*/
         if (comprobarContraseña()) {
             if (comprobarUsuario()) {
                 $("#continuar").hide();
@@ -134,11 +133,13 @@ function cargarEventos() {
                     data: {user: usuario, password: clave},
                     type: 'POST',
                     success: function (response) {
-                        if (response == 0) {//Esto significa que el usuario existe
+                        if (response == 0) {
+                            //Esto significa que el usuario existe
                             $("#errorvacio17").show();
                             $("#spinner").hide();
                             $("#continuar").show();
                         } else {
+                            //Esto significa que el usuario no existe
                             $('#usuario').prop("disabled", true);
                             $('#password').prop("disabled", true);
                             $("#errorvacio17").hide();
@@ -151,9 +152,58 @@ function cargarEventos() {
             }
         }
     }
+   //Función para comprobar con una Expresión relativa los campos del documentos 
+    function validaDNI(d) {
+        let numero, ok, letra;
+        let expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
+        d = $("#documento").val();
+        dni = d.toUpperCase();
 
+        if (expresion_regular_dni.test(dni) === true) {
+            numero = dni.substr(0, dni.length - 1);
+            numero = numero.replace('X', 0);
+            numero = numero.replace('Y', 1);
+            numero = numero.replace('Z', 2);
+            ok = dni.substr(dni.length - 1, 1);
+            numero = numero % 23;
+            letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+            letra = letra.substring(numero, numero + 1);
+            if (letra != ok) {
+                $('#errordn1').show();
+            } else {
+                $('#errordn1').hide();
+            }
+        } else {
+            $('#errordn1').show();
+        }
+    }
+   //Función para comprobar con una Expresión relativa los campos del documentos 
+        function validaDNI2(d) {
+        let numero, ok, letra;
+        let expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
+        d = $("#documentoCesImTu").val();
+        dni = d.toUpperCase();
+
+        if (expresion_regular_dni.test(dni) === true) {
+            numero = dni.substr(0, dni.length - 1);
+            numero = numero.replace('X', 0);
+            numero = numero.replace('Y', 1);
+            numero = numero.replace('Z', 2);
+            ok = dni.substr(dni.length - 1, 1);
+            numero = numero % 23;
+            letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+            letra = letra.substring(numero, numero + 1);
+            if (letra != ok) {
+                $('#errordnForm').show();
+            } else {
+                $('#errordnForm').hide();
+            }
+        } else {
+            $('#errordnForm').show();
+        }
+    }
 //Función para comprobar con una Expresión relativa los campos del documentos
-    function comprobarDocumento() {
+    /*function comprobarDocumento() {
         let documento = $("#documento").val();
         let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
         if (!expreg.test(documento)) {
@@ -161,9 +211,9 @@ function cargarEventos() {
         } else {
             $('#errordn1').hide();
         }
-    }
+    }*/
 
-    function comprobarDocumento2() {
+    /*function comprobarDocumento2() {
         let documento = $("#documentoCesImTu").val();
         let expreg = /^[A-Z][0-9]{7}[A-Z]$|^[0-9]{8}[A-Z]$/gi; //para el DNI y el NIE
         if (!expreg.test(documento)) {
@@ -171,7 +221,7 @@ function cargarEventos() {
         } else {
             $('#errordnForm').hide();
         }
-    }
+    }*/
 
     function comprobarEmail() {
         let email = $("#mail").val();
@@ -753,7 +803,7 @@ function cargarEventos() {
         let hoy = $("#fecha3").val();
         if ($("#conformidad4").is(":checked")) {
             $("#condicionesCesImg").hide();
-            if (nombre == "" || apellido1 == "" || ciudad == "") {
+            if (nombre == "" || apellido1 == "" || ciudad == ""|| documento=="") {
                 $("#erroCesImg").show();
                 setInterval('$("#erroCesImg").hide();', 10000);
             } else {

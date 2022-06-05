@@ -425,7 +425,7 @@
                                 </div>
                             </div>
                             <div class="alert alert-danger text-center mt-2" role="alert" id="errordnForm" style="display: none;">
-                                    El número del DNI o del NIE no es correcto.<br><strong>Debe contener 9 caracteres, entre digitos y letras, revíselo.</strong>
+                                    El número del DNI o del NIE no es correcto.<br><strong>No contiene 9 caracteres o la letra no es correcta, revíselo.</strong>
                             </div>
                             <div class="text-dark mt-4">
                                 <p class="fw-normal">DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</p>
