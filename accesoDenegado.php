@@ -34,7 +34,7 @@
                 </div>
             </div>
         </header>
-        <main class="container py-5">
+        <main class="container py-5 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-9 bg-light contenido-nosotros py-2 px-2">
                     <h2 class="text-center py-3 text-danger text-uppercase">Acceso denegado</h2>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </main>
-        <footer class="footer mt-auto p-4 fixed-bottom">
+        <footer class="footer mt-5 p-4 fixed-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">

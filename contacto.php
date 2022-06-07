@@ -49,7 +49,7 @@
                 </div>
             </div>
         </header>
-        <main class="container py-4">
+        <main class="container py-4 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 bg-white contenido-nosotros py-5 px-3">
                     <h2 class="separador text-center my-3">Contacto</h2>
@@ -101,7 +101,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"> <!--<a href="privacidad.php">Todos los derechos reservados</a>--></p>
                     </div>
                 </div>
             </div>

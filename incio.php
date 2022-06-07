@@ -49,7 +49,7 @@
                 </div>
             </div>
         </header>
-        <main class="container py-3">
+        <main class="container py-3 mb-5">
             <div class="row justify-content-center">
                 <div class=" col-sm-6 col-9 bg-white contenido-nosotros py-4 px-3">
                     <h2 class="separador text-center my-3">Inicio de sesión</h2>
@@ -66,7 +66,7 @@
                                 <label for="passwordAcceso">Contraseña</label>
                                 <input type="password" class="form-control" name="passwordAcceso" id="passwordAcceso" placeholder="Tu contraseña de usuario" required>
                                 <div class="alert alert-danger mt-2" role="alert" id="ErrorClave" style="display: none;">
-                                    La contraseña tiene que tener entre 6 y 8 caracteres.
+                                    La contraseña tiene que tener entre 6 y 15 caracteres.
                                 </div>
                             </div>
                             <div class="alert alert-danger text-center mt-2" role="alert" id="errorRegistro" style="display: none;">
@@ -90,7 +90,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
                         <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
-                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"> <!--<a href="privacidad.php">Todos los derechos reservados</a>--></p>
                     </div>
                 </div>
             </div>

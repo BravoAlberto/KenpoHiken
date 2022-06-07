@@ -52,13 +52,13 @@
                 </div>
             </div>
         </header>
-        <main class="container py-3">
+        <main class="container py-3 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-8 bg-white contenido-nosotros py-4 px-3">
                     <h2 class="separador text-center my-3">Regístrate</h2>
                     <div id="ficha">
                         <p class="fw-normal fs-5">Introduce los datos con los se accederá a la cuenta de usuario<br>                            
-                            <span class="fw-bold">La contraseña debe tener entre 6 y 8 caracteres<br>Todos los campos son obligatorios</span></p>
+                            <span class="fw-bold">La contraseña debe tener entre 6 y 15 caracteres<br>Todos los campos son obligatorios</span></p>
                         <form method="POST">
                             <div class="form-group">
                                 <label for="usuario">Nombre de usuario</label>
@@ -73,7 +73,7 @@
                                 <input type="password" class="form-control" name="password" id="password"
                                        placeholder="Tu password" required>
                                 <div class="alert alert-danger mt-2" role="alert" id="errorvacio2" style="display: none;">
-                                    La contraseña tiene que tener entre 6 y 8 caracteres.
+                                    La contraseña tiene que tener entre 6 y 15 caracteres.
                                 </div>
                             </div>
                             <div class="alert alert-info mt-2" role="alert" id="errorvacio17" style="display: none;">
@@ -95,15 +95,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label for="apellido1">Primer apellido</label>
-                                            <input type="text" class="form-control" name="apellido1" id="apellido1"
-                                                   aria-describedby="helpId" placeholder="Tu primer apellido" required>
+                                            <input type="text" class="form-control" name="apellido1" id="apellido1" placeholder="Tu primer apellido" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group ">
                                             <label for="apellido2">Segundo apellido</label>
                                             <input type="text" class="form-control" name="apellido2" id="apellido2"
-                                                   aria-describedby="helpId" placeholder="Tu segundo apellido">
+                                                    placeholder="Tu segundo apellido">
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +110,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="tipo">Tipo de documento</label>
-                                            <select class="form-control" name="tipo" id="tipo" aria-describedby="helpId" required>
+                                            <select class="form-control" name="tipo" id="tipo"  required>
                                                 <option selected value="">Tipo documento</option>
                                                 <option value="dni">DNI</option>
                                                 <option value="nie">NIE</option>
@@ -122,14 +121,14 @@
                                         <div class="form-group ">
                                             <label for="documento">Número de documento</label>
                                             <input type="text" class="form-control" name="documento" id="documento"
-                                                   aria-describedby="helpId" placeholder="Tu documento" required>
+                                                    placeholder="Tu documento" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="nacimiento">Fecha de nacimiento</label>
                                             <input type="date" class="form-control" name="nacimiento" id="nacimiento"
-                                                   aria-describedby="helpId" required>
+                                                    required>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +143,7 @@
                                         <div class="form-group ">
                                             <label for="lugarNac">Lugar de nacimiento</label>
                                             <input type="text" class="form-control" name="lugarNac" id="lugarNac"
-                                                   aria-describedby="helpId" placeholder="Tu lugar de nacimiento" required>
+                                                    placeholder="Tu lugar de nacimiento" required>
                                         </div>
                                     </div>
                                     <!--.col-md-6-->
@@ -152,7 +151,7 @@
                                         <div class="form-group ">
                                             <label for="pais">Nacionalidad</label>
                                             <input type="text" class="form-control" name="pais" id="pais"
-                                                   aria-describedby="helpId" placeholder="Tu nacionalidad" required>
+                                                    placeholder="Tu nacionalidad" required>
                                         </div>
                                     </div>
                                 </div>
@@ -166,21 +165,20 @@
                                         <div class="form-group ">
                                             <label for="ciudad">Ciudad</label>
                                             <input type="text" class="form-control" name="ciudad" id="ciudad"
-                                                   aria-describedby="helpId" placeholder="Tu ciudad" required>
+                                                    placeholder="Tu ciudad" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="provincia">Provincia</label>
                                             <input type="text" class="form-control" name="provincia" id="provincia"
-                                                   aria-describedby="helpId" placeholder="Tu provincia" required>
+                                                    placeholder="Tu provincia" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group ">
                                             <label for="CP">Código Postal</label>
-                                            <input type="text" class="form-control" name="CP" id="CP" aria-describedby="helpId"
-                                                   placeholder="Tu código postal" required>
+                                            <input type="text" class="form-control" name="CP" id="CP" placeholder="Tu código postal" required>
                                         </div>
                                     </div>
                                 </div>
@@ -192,14 +190,14 @@
                                         <div class="form-group ">
                                             <label for="telefono">Teléfono</label>
                                             <input type="text" class="form-control" name="telefono" id="telefono"
-                                                   aria-describedby="helpId" placeholder="Tu teléfono" required>
+                                                    placeholder="Tu teléfono" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="mail">E-mail</label>
                                             <input type="text" class="form-control" name="mail" id="mail"
-                                                   aria-describedby="helpId" placeholder="Tu e-mail" required>
+                                                    placeholder="Tu e-mail" required>
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +211,7 @@
                                 <div class="form-group">
                                     <label for="dolencia">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
                                         práctica de kenpo?</label>
-                                    <select class="form-control" name="dolencia" id="dolencia" aria-describedby="helpId" required>
+                                    <select class="form-control" name="dolencia" id="dolencia"  required>
                                         <option selected value="">Elige una de las dos opciones</option>
                                         <option value="si">SI</option>
                                         <option value="no">NO</option>
@@ -246,16 +244,16 @@
                 </div>
             </div>
         </main>
-        <footer class="footer mt-auto">
+        <footer class="footer fixed-bottom mt-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
-                        <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
+                        <p class="copyright text-center text-md-center"> <!--<a href="privacidad.php">Todos los derechos reservados</a>--></p>
                     </div>
                 </div>
             </div>
         </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+        <a class="appwhatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
             <img src="img/whatsapp.png" alt="whatsapp"/>
         </a>
     </body>

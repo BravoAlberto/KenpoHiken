@@ -85,8 +85,7 @@
                     <div class="col-md-4 text-center informacion">
                         <img src="img/icono_kenpo_americano.jpg" class="img-fluid mb-3" alt="imagenAmer">
                         <h3>Kenpo Americano</h3>
-                        <p>Somos practicantes de Kenpo en el estilo de Kenpo Karate o Kenpo Americano, creado por Ed.
-                            Parker.<br>
+                        <p>Somos practicantes de Kenpo en el estilo de Kenpo Karate o Kenpo Americano, creado por Ed Parker en California en la decada de los 60.<br>
                             <a class="btn btn-link" href="https://www.americankenpo.com/"  target="_blank">Más información</a></p>                        
                     </div>
                     <div class="col-md-4 text-center informacion">
@@ -102,10 +101,10 @@
         <!--.container-->
         <section class="clases mt-5 py-5">
             <h2 class="inverso text-center mb-3">Sobre nuestras clases</h2>
-            <a name="info"></a>
+            <a id="info"></a>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-lg-4">
                         <div class="card">
                             <img src="img/clase1.jpg" class="card-img-top" alt="imagenClases">
                             <div
@@ -148,9 +147,9 @@
                             <div class="card-body">
                                 <h3 class="card-title">Localizaciones</h3>
                                 <p class="card-subtitle mb-2">
-                                    Elige en que gimanasio quieres entrenar.
+                                    Elige dónde quieres entrenar.
                                 </p>
-                                <p class="card-text">Contamos con dos ubicaciones en Madrid en las que podrás entrenar.
+                                <p class="card-text">Contamos con dos ubicaciones en las que podrás entrenar. En Madrid capital y en las Rozas. 
                                     Elige la que más te convenga.
                                 </p>
                                 <a class="btn btn-primary d-block d-md-inline" href="localizaciones.html">Más
@@ -179,7 +178,7 @@
             </div>
         </div>
 
-        <footer class="footer py-4">
+        <footer class="footer py-4 mt-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 mb-2 mb-md-0">
@@ -201,15 +200,14 @@
 
                 </div>
             </div>
-            <div class="container">
+            <div class="container mt-4">
                 <div class="menu contacto text-center text-md-right col-12 mt-4 mb-md-0">
                     <!--desde mediano en adelante ocupa el md y más bajo el resto y -->
                     <p class="copyright text-center text-md-center"> <a href="privacidad.php">Todos los derechos reservados</a></p>
                 </div>
             </div>
-        </div>
     </footer>
-    <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+    <a class="appwhatsapp" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?" target="_blank" >
         <img src="img/whatsapp.png" alt="whatsapp"/>
     </a>
 </body>

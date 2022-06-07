@@ -73,19 +73,17 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="apellidoFi1">Primer apellido</label>
-                                    <input type="text" class="form-control" name="apellidoFi1" id="apellidoFi1"
-                                           aria-describedby="helpId" placeholder="Tu primer apellido" required>
+                                    <input type="text" class="form-control" name="apellidoFi1" id="apellidoFi1" placeholder="Tu primer apellido" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="apellidoFi2">Segundo apellido</label>
-                                    <input type="text" class="form-control" name="apellidoFi2" id="apellidoFi2"
-                                           aria-describedby="helpId" placeholder="Tu segundo apellido">
+                                    <input type="text" class="form-control" name="apellidoFi2" id="apellidoFi2" placeholder="Tu segundo apellido">
                                 </div>
                             </div>
                             <div class="row py-3">
                                 <div class="col-md-4">
                                     <label for="tipoFi">Tipo de documento</label>
-                                    <select class="form-control" name="tipoFi" id="tipoFi" aria-describedby="helpId" required>
+                                    <select class="form-control" name="tipoFi" id="tipoFi" required>
                                         <option selected value="">Tipo documento</option>
                                         <option value="dni">DNI</option>
                                         <option value="nie">NIE</option>
@@ -93,26 +91,22 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="documentoFi">Número de documento</label>
-                                    <input type="text" class="form-control" name="documentoFi" id="documentoFi"
-                                           aria-describedby="helpId" placeholder="Tu documento" required>
+                                    <input type="text" class="form-control" name="documentoFi" id="documentoFi" placeholder="Tu documento" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="nacimientoFi">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" name="nacimientoFi" id="nacimientoFi"
-                                           aria-describedby="helpId" required>
+                                    <input type="date" class="form-control" name="nacimientoFi" id="nacimientoFi" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="lugarNacFi">Lugar de nacimiento</label>
-                                    <input type="text" class="form-control" name="lugarNacFi" id="lugarNacFi"
-                                           aria-describedby="helpId" placeholder="Tu lugar de nacimiento" required>
+                                    <input type="text" class="form-control" name="lugarNacFi" id="lugarNacFi" placeholder="Tu lugar de nacimiento" required>
                                 </div>
                                 <!--.col-md-6-->
                                 <div class="col-md-6">
                                     <label for="paisFi">Nacionalidad</label>
-                                    <input type="text" class="form-control" name="paisFi" id="paisFi"
-                                           aria-describedby="helpId" placeholder="Tu nacionalidad" required>
+                                    <input type="text" class="form-control" name="paisFi" id="paisFi" placeholder="Tu nacionalidad" required>
                                 </div>
                             </div>
                             <div class="form-group mt-3">
@@ -123,36 +117,31 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <label for="ciudadFi">Ciudad</label>
-                                    <input type="text" class="form-control" name="ciudadFi" id="ciudadFi"
-                                           aria-describedby="helpId" placeholder="Tu ciudad" required>
+                                    <input type="text" class="form-control" name="ciudadFi" id="ciudadFi" placeholder="Tu ciudad" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="provinciaFi">Provincia</label>
-                                    <input type="text" class="form-control" name="provinciaFi" id="provinciaFi"
-                                           aria-describedby="helpId" placeholder="Tu provincia" required>
+                                    <input type="text" class="form-control" name="provinciaFi" id="provinciaFi" placeholder="Tu provincia" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="CPFi">Código Postal</label>
-                                    <input type="text" class="form-control" name="CPFi" id="CPFi" aria-describedby="helpId"
-                                           placeholder="Tu código postal" required>
+                                    <input type="text" class="form-control" name="CPFi" id="CPFi" placeholder="Tu código postal" required>
                                 </div>
                             </div>
                             <div class="row py-3">
                                 <div class="col-md-6">
                                     <label for="telefonoFi">Teléfono</label>
-                                    <input type="tel" class="form-control" name="telefonoFi" id="telefonoFi"
-                                           aria-describedby="helpId" placeholder="Tu teléfono" required>
+                                    <input type="tel" class="form-control" name="telefonoFi" id="telefonoFi" placeholder="Tu teléfono" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="mailFi">E-mail</label>
-                                    <input type="email" class="form-control" name="mailFi" id="mailFi"
-                                           aria-describedby="helpId" placeholder="Tu e-mail" required>
+                                    <input type="email" class="form-control" name="mailFi" id="mailFi" placeholder="Tu e-mail" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="dolenciaFi">¿Padece usted alguna enfermedad o trastorno que impida o dificulte la
                                     práctica de kenpo?</label>
-                                <select class="form-control" name="dolenciaFi" id="dolenciaFi" aria-describedby="helpId" required>
+                                <select class="form-control" name="dolenciaFi" id="dolenciaFi" required>
                                     <option selected value="">Elige una de las dos opciones</option>
                                     <option value="si">SI</option>
                                     <option value="no">NO</option>
@@ -164,11 +153,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="ciudad2:">En</label>
+                                    <label for="ciudad2">En</label>
                                     <input type="text" class="form-control" name="ciudad2" id="ciudad2" placeholder="Ciudad" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="fecha2:">a</label>
+                                    <label for="fecha2">a</label>
                                     <input type="text" class="form-control" name="fecha2" id="fecha2">
                                 </div>
                             </div>
@@ -188,11 +177,11 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesFicha" id="modal1">
                                     Acepta las condiciones
                                 </button>
-                                <div class="modal fade"data-backdrop="false" id="condicionesFicha" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                                <div class="modal fade" data-backdrop="false" id="condicionesFicha" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle1" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la inscripción del alumno en el Club Deportivo Kenpo Hiken</h5>
+                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle1">Aceptación de condiciones para la inscripción del alumno en el Club Deportivo Kenpo Hiken</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -243,15 +232,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="apellidoManMen">con primer apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMen" id="apellidoManMen"
-                                           aria-describedby="helpId" placeholder="Primer apellido" required>
+                                    <input type="text" class="form-control" name="apellidoManMen" id="apellidoManMen" placeholder="Primer apellido" required>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col-md-6 mt-1">
                                     <label for="apellidoManMen2">, segundo apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMen2" id="apellidoManMen2"
-                                           aria-describedby="helpId" placeholder="Segundo apellido">
+                                    <input type="text" class="form-control" name="apellidoManMen2" id="apellidoManMen2" placeholder="Segundo apellido">
                                 </div>
                                 <div class="col-md-6 mt-1">
                                     <label for="documentoManMen">y con D.N.I. o N.I.E.</label>
@@ -279,15 +266,13 @@
                                 </div>
                                 <div class="col-md-6 mt-1">
                                     <label for="apellidoManMenTu">con primer apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMenTu" id="apellidoManMenTu"
-                                           aria-describedby="helpId" placeholder="Primer apellido del tutor" required>
+                                    <input type="text" class="form-control" name="apellidoManMenTu" id="apellidoManMenTu" placeholder="Primer apellido del tutor" required>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col-md-6">
                                     <label for="apellidoManMenTu2">, segundo apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMenTu2" id="apellidoManMenTu2"
-                                           aria-describedby="helpId" placeholder="Segundo apellido del tutor">
+                                    <input type="text" class="form-control" name="apellidoManMenTu2" id="apellidoManMenTu2" placeholder="Segundo apellido del tutor">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="documentoManMenTu">y con D.N.I. o N.I.E.</label>
@@ -319,11 +304,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="ciudad3:">En</label>
+                                    <label for="ciudad3">En</label>
                                     <input type="text" class="form-control" name="ciudad3" id="ciudad3" placeholder="Ciudad" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="fecha3:">a</label>
+                                    <label for="fecha3">a</label>
                                     <input type="text" class="form-control" name="fecha3" id="fecha3">
                                 </div>
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert" id="erroMandMen" style="display: none">
@@ -343,11 +328,11 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato1" id="modal2">
                                     Acepta las condiciones
                                 </button>
-                                <div class="modal fade"data-backdrop="false" id="condicionesMandato1" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                                <div class="modal fade"data-backdrop="false" id="condicionesMandato1" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle2" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la inscripción de la licencia y actividades en la FMK</h5>
+                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle2">Aceptación de condiciones para la inscripción de la licencia y actividades en la FMK</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -401,13 +386,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="apellidoCesImTu">con primer apellido</label>
-                                    <input type="text" class="form-control" name="apellidoCesImTu" id="apellidoCesImTu"
-                                           aria-describedby="helpId" placeholder="1er apellido del tutor" required>
+                                    <input type="text" class="form-control" name="apellidoCesImTu" id="apellidoCesImTu" placeholder="1er apellido del tutor" required>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="apellidoCesImTu2">, segundo apellido</label>
-                                    <input type="text" class="form-control" name="apellidoCesImTu2" id="apellidoCesImTu2"
-                                           aria-describedby="helpId" placeholder="2do apellido del tutor">
+                                    <input type="text" class="form-control" name="apellidoCesImTu2" id="apellidoCesImTu2" placeholder="2do apellido del tutor">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -425,7 +408,7 @@
                                 </div>
                             </div>
                             <div class="alert alert-danger text-center mt-2" role="alert" id="errordnForm" style="display: none;">
-                                    El número del DNI o del NIE no es correcto.<br><strong>No contiene 9 caracteres o la letra no es correcta, revíselo.</strong>
+                                El número del DNI o del NIE no es correcto.<br><strong>No contiene 9 caracteres o la letra no es correcta, revíselo.</strong>
                             </div>
                             <div class="text-dark mt-4">
                                 <p class="fw-normal">DOY MI CONSENTIMIENTO para que el CDE KENPO HIKEN y la Asociación Kenpo Academies (A.K.A) PUEDAN UTILIZAR Y DISPONER DE LAS IMÁGENES DE MI HIJO/A en medios de comunicación social.</p>
@@ -438,7 +421,7 @@
                                     <input type="text" class="form-control" name="ciudad4" id="ciudad4" placeholder="Ciudad" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="fecha4:">a</label>
+                                    <label for="fecha4">a</label>
                                     <input type="text" class="form-control" name="fecha4" id="fecha4">
                                 </div>
                             </div>
@@ -456,11 +439,11 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesImagenes" id="modal3">
                                     Acepta las condiciones
                                 </button>
-                                <div class="modal fade"data-backdrop="false" id="condicionesImagenes" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                                <div class="modal fade" data-backdrop="false" id="condicionesImagenes" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle3" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la cesión de imágenes de menores de 18 años</h5>
+                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle3">Aceptación de condiciones para la cesión de imágenes de menores de 18 años</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -508,15 +491,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="apellidoManMay">con primer apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMay" id="apellidoManMay"
-                                           aria-describedby="helpId" placeholder="Primer apellido" required>
+                                    <input type="text" class="form-control" name="apellidoManMay" id="apellidoManMay" placeholder="Primer apellido" required>
                                 </div>
                             </div>
                             <div class="row py-2">
                                 <div class="col-md-6">
                                     <label for="apellidoManMay2">, segundo apellido</label>
-                                    <input type="text" class="form-control" name="apellidoManMay2" id="apellidoManMay2"
-                                           aria-describedby="helpId" placeholder="Segundo apellido">
+                                    <input type="text" class="form-control" name="apellidoManMay2" id="apellidoManMay2" placeholder="Segundo apellido">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="documentoManMay">y con D.N.I. o N.I.E.</label>
@@ -548,11 +529,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="ciudad5:">En</label>
+                                    <label for="ciudad5">En</label>
                                     <input type="text" class="form-control" name="ciudad5" id="ciudad5" placeholder="Ciudad" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="fecha5:">a</label>
+                                    <label for="fecha5">a</label>
                                     <input type="text" class="form-control" name="fecha5" id="fecha5">
                                 </div>
                             </div>
@@ -567,11 +548,11 @@
                                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#condicionesMandato2" id="modal4">
                                     Acepta las condiciones
                                 </button>
-                                <div class="modal fade" data-backdrop="false" id="condicionesMandato2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                                <div class="modal fade" data-backdrop="false" id="condicionesMandato2" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle4" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle">Aceptación de condiciones para la cesión de imágenes de mayores de 18 años</h5>
+                                                <h5 class="modal-title text-uppercase text-center fw-normal" id="ModalLongTitle4">Aceptación de condiciones para la cesión de imágenes de mayores de 18 años</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -628,7 +609,7 @@
                 </div>
             </div>
         </footer>
-        <a class="appwhatsapp" target="_blanck" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
+        <a class="appwhatsapp" target="_blank" href="https://api.whatsapp.com/send?phone=+34627605310&amp;text=Hola!&nbsp;me&nbsp;pueden&nbsp;ayudar?">
             <img src="img/whatsapp.png" alt="whatsapp"/>
         </a>
     </body>

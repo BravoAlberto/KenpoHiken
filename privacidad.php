@@ -23,13 +23,13 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
-        <a name="inicio"></a>
+        <a id="inicio"></a>
         <header class="header py-3 mb-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-md-4 col-12 mb-4 mb-md-0">
                         <a href="index.php">
-                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
+                            <img src="img/Logo_Hiken.jpg" class="logo img-fluid" alt="imgLogo">
                         </a>
                     </div>
                     <div class="col-12 col-md-8">
@@ -51,32 +51,36 @@
                             <li><a class="item-action" href="#list-item-2">2 Ámbito de aplicación</a></li>
                             <li><a class="item-action" href="#list-item-3">3 Nuestro compromiso con el cumplimiento legal</a></li>
                             <li><a class="item-action" href="#list-item-4">4 Nuestro compromiso interno</a></li>
-                            <ul>
-                                <li><a class="item-action" href="#list-item-5">4.1 Respeto por la seguridad y salud en la páctica del Kenpo</a></li>
-                                <li><a class="item-action" href="#list-item-6">4.2 Respeto por la dignidad, integridad, intimidad, no discriminación e igualdad de oportunidades de todos los alumnos y socios</a></li>
-                                <li><a class="item-action" href="#list-item-7">4.3 Compromiso con la formación</a></li>
-                                <li><a class="item-action" href="#list-item-8">4.4 Tratamiento del conflicto de intereses</a></li>
-                                <li><a class="item-action" href="#list-item-9">4.5 Uso de los recursos y bienes del club</a></li>
-                                <li><a class="item-action" href="#list-item-10">4.6 Tratamiento de la información</a></li>
-                                <li><a class="item-action" href="#list-item-11">4.7 Protección de la propiedad intelectual</a></li>
-                                <li><a class="item-action" href="#list-item-12">4.8 Respeto a la imagen y reputación del club</a></li>
-                                <li><a class="item-action" href="#list-item-13">4.9 Rechazo a cualquier forma de corrupción y soborno</a></li>
-                            </ul>
+                            <li style="list-style: none;">
+                                <ul>
+                                    <li><a class="item-action" href="#list-item-5">4.1 Respeto por la seguridad y salud en la páctica del Kenpo</a></li>
+                                    <li><a class="item-action" href="#list-item-6">4.2 Respeto por la dignidad, integridad, intimidad, no discriminación e igualdad de oportunidades de todos los alumnos y socios</a></li>
+                                    <li><a class="item-action" href="#list-item-7">4.3 Compromiso con la formación</a></li>
+                                    <li><a class="item-action" href="#list-item-8">4.4 Tratamiento del conflicto de intereses</a></li>
+                                    <li><a class="item-action" href="#list-item-9">4.5 Uso de los recursos y bienes del club</a></li>
+                                    <li><a class="item-action" href="#list-item-10">4.6 Tratamiento de la información</a></li>
+                                    <li><a class="item-action" href="#list-item-11">4.7 Protección de la propiedad intelectual</a></li>
+                                    <li><a class="item-action" href="#list-item-12">4.8 Respeto a la imagen y reputación del club</a></li>
+                                    <li><a class="item-action" href="#list-item-13">4.9 Rechazo a cualquier forma de corrupción y soborno</a></li>
+                                </ul>
+                            </li>
                             <li><a class="item-action" href="#list-item-14">5 Nuestro compromiso con los socios</a></li>
                             <li><a class="item-action" href="#list-item-15">6 Nuestro compromiso social y medioambiental</a></li>
                             <li><a class="item-action" href="#list-item-16">7 Nuestro compromiso con el cumplimiento de este código</a></li>
-                            <ul>
-                                <li><a class="item-action" href="#list-item-17">7.1 Comité de Ética y Canal Ético</a></li>
-                                <li><a class="item-action" href="#list-item-18">7.2 Aprobación y vigencia del Código Ético</a></li>
-                                <li><a class="item-action" href="#list-item-19">7.3 Comunicación, publicidad, cumplimiento y seguimiento del Código</a></li>
-                                <li><a class="item-action" href="#list-item-20">7.4 Revisión de la eficacia del Código</a></li>
-                            </ul>
+                            <li style="list-style: none;">
+                                <ul>
+                                    <li><a class="item-action" href="#list-item-17">7.1 Comité de Ética y Canal Ético</a></li>
+                                    <li><a class="item-action" href="#list-item-18">7.2 Aprobación y vigencia del Código Ético</a></li>
+                                    <li><a class="item-action" href="#list-item-19">7.3 Comunicación, publicidad, cumplimiento y seguimiento del Código</a></li>
+                                    <li><a class="item-action" href="#list-item-20">7.4 Revisión de la eficacia del Código</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                    <div id="indice" class="list-group" style="line-height:2;">
+                    <div id="indice1" class="list-group" style="line-height:2;">
                         <h3> <a class="item-action text-uppercase text-danger py-2" href="#list-item-21">USO RESPONSABLE DE DATOS EN LA NUBE Y REDES SOCIALES</a></h3>
                     </div>
-                    <div id="indice" class="list-group py-2" style="line-height:2;">
+                    <div id="indice2" class="list-group py-2" style="line-height:2;">
                         <h3 class="text-uppercase text-danger py-2 ">PROTECCIÓN DE DATOS EN EL C.D.E. KENPO HIKEN</h3>
                         <ul>
                             <li><a class="item-action" href="#list-item-22">1. ¿QUIÉN ES EL RESPONSABLE DE TRATAMIENTO DE SUS DATOS?</a></li>
@@ -91,7 +95,7 @@
                         </ul>
                     </div>
                     <hr class="my-3"/>
-                    <div data-bs-spy="scroll" class="text-justify" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                    <div data-bs-spy="scroll" class="text-justify scrollspy-example" data-bs-target="#list-example" data-bs-offset="0" tabindex="0">
                         <p class="h4 text-dark">CÓDIGO ÉTICO</p>
                         <div id="list-item-1" class="text-dark my-3">
                             <p class="h4 text-dark">1 Definición y objeto del Código Ético</p>
@@ -126,7 +130,7 @@
                                 <p class="fw-normal">Las personas que ejerzan responsabilidades de dirección y los instructores deben facilitar el aprendizaje continuo de los socios y alumnos.</p>
                             </div> 
                             <div id="list-item-8" class="text-dark my-3">
-                                <p id="list-item-8" class=h6 text-dark">4.4 Tratamiento del conflicto de intereses</p>
+                                <p class="h6 text-dark">4.4 Tratamiento del conflicto de intereses</p>
                                 <p class="fw-normal">El conflicto de interés aparece cuando los intereses personales de algún socio o alumno, de forma directa o indirecta, son contrarios o entran en colisión con los intereses generales del CLUB y del grupo.</p>
                                 <p class="fw-normal">Durante el desempeño de sus funciones, la directiva y los instructores del C.D.E. KENPO HIKEN tiene la obligación de actuar dando prioridad a los intereses del grupo frente a los intereses personales. Consideramos que la relación de los socios y alumnos debe basarse en la lealtad que nace de unos intereses comunes. Por ello, los socios y alumnos deben evitar situaciones que puedan dar lugar a un conflicto entre los intereses personales y los del grupo.</p>
                             </div> 
@@ -275,7 +279,7 @@
                                         - Promoción de nuestras actividades mediante el uso de redes sociales, página web, etc. En concreto, C.D.E. KENPO HIKEN. puede publicar fotos/videos que pueden incluir su imagen en internet (p.e. Web, Facebook, Instagram, etc).</p> 
                                 </div> 
                                 <div id="list-item-25" class="text-dark my-3">
-                                    <p id="list-item-8" class=h6 text-dark">4. ¿POR CUÁNTO TIEMPO CONSERVAREMOS SUS DATOS?</p>
+                                    <p class="h6 text-dark">4. ¿POR CUÁNTO TIEMPO CONSERVAREMOS SUS DATOS?</p>
                                     <p class="fw-normal">Los datos personales que el alumno/socio nos proporciona se conservarán mientras se mantenga una relación con nuestro club.</p> 
                                     <p class="fw-normal">En cualquier caso C.D.E. KENPO HIKEN guardará sus datos personales durante el período de tiempo que sea razonablemente necesario. Esto significa que podemos conservar tus datos personales durante un período de tiempo razonable incluso después de que hayas dejado de formar parte de nuestro club. Después de este período, tus datos personales serán eliminados de todos los sistemas de C.D.E. KENPO HIKEN.</p> 
                                 </div> 
@@ -324,7 +328,7 @@
                 </div>
             </div>
         </main>
-        <footer class="footer">
+        <footer class="footer fixed-bottom mt-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-0 mb-md-0">

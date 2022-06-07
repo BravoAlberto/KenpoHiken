@@ -129,7 +129,7 @@ if ($_SESSION['usuario'] == "administrador") {
                     <div class="row justify-content-center align-items-center">
                         <div class="col-md-4 col-12 mb-4 mb-md-0">
                             <a href="index.php">
-                                <img src="img/Logo_Hiken.jpg" class="logo img-fluid">
+                                <img src="img/Logo_Hiken.jpg" class="logo img-fluid" alt="imgLogo">
                             </a>
                         </div>
                         <div class="col-12 col-md-8">
@@ -144,15 +144,15 @@ if ($_SESSION['usuario'] == "administrador") {
             <main class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-9 bg-white contenido-nosotros py-2 px-2">
-                        <h2 class="text-center py-3">Listado de deportistas</h2>
+                        <h2 class="text-center py-3 mb-3">Listado de deportistas</h2>
                         <div class="table-responsive-md text-center">
                             <table style="height: 100px;" class="table table-hover">
                                 <caption>Temporada 2021/2022</caption>
                                 <thead>
                                     <tr>
-                                        <th scope="col">Nombre</th>
                                         <th scope="col">Apellido.1º</th>
                                         <th scope="col">Apellido.2º</th>
+                                        <th scope="col">Nombre</th>
                                         <th scope="col">Ficha</th>
                                         <th scope="col">Imágenes</th>
                                         <th scope="col">Mandato</th>
@@ -164,12 +164,11 @@ if ($_SESSION['usuario'] == "administrador") {
                                     foreach ($resultado as $valor) {
                                         ?>
                                         <tr>
-                                            <td class="align-middle" id="nomb"><?php echo $valor['nombre']; ?></td>
                                             <td class="align-middle" id="ape1"><?php echo $valor['apellido1']; ?></td>
                                             <?php
                                             if (empty($valor['apellido2'])) {
                                                 ?>
-                                            <td class = "align-middle" id = "ape2"><strong>-</strong></td>
+                                                <td class = "align-middle" id = "ape2"><strong>-</strong></td>
                                                 <?php
                                             } else {
                                                 ?>
@@ -177,6 +176,7 @@ if ($_SESSION['usuario'] == "administrador") {
                                                 <?php
                                             }
                                             ?>
+                                            <td class="align-middle" id="nomb"><?php echo $valor['nombre']; ?></td>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="ficha" onclick="javascript:adminFicha('<?php echo $valor['usuario']; ?>')">PDF</button></td>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="cesionImg" onclick="javascript:adminCesionImg('<?php echo $valor['usuario']; ?>')">PDF</button></td>
                                             <td class="align-middle"><button class="btn btn-info" type="button" id="mandato" onclick="javascript:adminMandato('<?php echo $valor['usuario']; ?>')">PDF</button></td>
@@ -238,11 +238,10 @@ if ($_SESSION['usuario'] == "administrador") {
             header('location:accesoDenegado.php');
         }
         ?>
-        <footer class="footer mt-auto p-4 fixed-bottom">
+        <footer class="footer mt-auto p-4 mt-5 fixed-bottom">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-8 mb-2 mb-md-0">
-
                         <p class="copyright text-center text-md-center"></p>
                     </div>
                 </div>
