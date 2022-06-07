@@ -1,14 +1,17 @@
 <?php
 //@autdor Alberto Bravo
 require_once ('../../dompdf/autoload.inc.php');
+include_once '../singleton.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
 $fechaActual = date('d-m-Y');
-$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+//$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+$con = Singleton::singleton();
 $sql = "SELECT * FROM ficha order by apellido1;";
-$query = $con->prepare($sql);
+//$query = $con->prepare($sql);
+$query = $con->getLdb($sql);
 $query->execute();
 $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
 $contador = 0;
@@ -58,7 +61,7 @@ ob_start();
                         <?php
                         if (empty($valor['apellido2'])) {
                             ?>
-                        <td class="text-center"><strong>-</strong></td>
+                            <td class="text-center"><strong>-</strong></td>
                             <?php
                         } else {
                             ?>
@@ -68,7 +71,7 @@ ob_start();
                         ?>
                         <td><?php echo $valor['nombre']; ?></td>
                         <td><?php echo $valor['nacimiento']; ?></td>
-                        <td><?php echo ($valor['tipo'] . ' - ' . $valor['documento']); ?></td>
+                        <td><?php echo ($valor['tipo'] . '-' . $valor['documento']); ?></td>
                         <td><?php echo $valor['telefono']; ?></td>
                         <td><?php echo $valor['mail']; ?></td>
                     </tr>

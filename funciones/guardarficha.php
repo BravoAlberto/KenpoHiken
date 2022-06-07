@@ -1,9 +1,11 @@
 <?php
+
 //@author Alberto Bravo
 include_once 'password.php';
 include_once 'filtrado.php';
+include_once 'singleton.php';
 
-$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+$con = Singleton::singleton();
 
 $usuario = filtrado($_REQUEST['usuario']);
 $clave = Password::hash($_REQUEST['clave']);
@@ -25,27 +27,33 @@ $enfermedad = filtrado($_REQUEST['enfermedad']);
 $mensaje = filtrado($_REQUEST['mensaje']);
 
 
-    $sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
-    $query = $con->prepare($sql);
-    $query->execute();
-    $resultado = $query->fetch();
-    if ($resultado != null) {
-        echo ('0');
+$sql = "SELECT * FROM usuario WHERE usuario = '" . $usuario . "'";
+$query = $con->getLdb($sql);
+$query->execute();
+$resultado = $query->fetch();
+if ($resultado != null) {
+    echo ('0');
+} else {
+    if (empty($nombre) || empty($apellido1) || empty($tipo) || empty($documento) 
+            || empty($nacimiento) || empty($lugarnacim) || empty($nacionalidad) 
+            || empty($direccion) || empty($ciudad) || empty($provincia) 
+            || empty($codpostal) || empty($telefono) || empty($mail) 
+            || empty($enfermedad)) {
+        echo ('2');
     } else {
-        if (empty($nombre) || empty($apellido1) || empty($tipo) || empty($documento) || empty($nacimiento) || empty($lugarnacim) || empty($nacionalidad) || empty($direccion) || empty($ciudad) || empty($provincia) || empty($codpostal) || empty($telefono) || empty($mail) || empty($enfermedad)) {
-            echo ('2');
-        } else {
-            $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','" . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "'," . "'" . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','" . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
-                    . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "')";
-            $query = $con->prepare($sql1);
-            $resultado = $query->execute();
-            
-            $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
-            $query = $con->prepare($sql);
-            $resultado = $query->execute();
-            echo('1');
-            //echo"<script>alert('entro');</script>)";
-        }
-    }
+        $sql1 = "INSERT INTO ficha VALUES ('" . $usuario . "','" . $nombre . "','"
+                . $apellido1 . "','" . $apellido2 . "'" . ",'" . $tipo . "'," . "'"
+                . $documento . "','" . $nacimiento . "','" . $lugarnacim . "','"
+                . $nacionalidad . "','" . $direccion . "','" . $ciudad . "',"
+                . "'" . $provincia . "'" . ",'" . $codpostal . "','" . $telefono
+                . "','" . $mail . "','" . $enfermedad . "','" . $mensaje . "')";
+        $query = $con->getLdb($sql1);
+        $resultado = $query->execute();
 
+        $sql = "INSERT INTO usuario VALUES ('" . $usuario . "','" . $clave . "')";
+        $query = $con->getLdb($sql);
+        $resultado = $query->execute();
+        echo('1');
+    }
+}
 ?>

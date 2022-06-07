@@ -107,7 +107,7 @@ function cargarEventos() {
         $("#errorvacio17").hide();
         $("#errorvacio1").hide();
         let clave = $("#password").val();
-        if (clave.length < 6 || clave.length > 8) {
+        if (clave.length < 6 || clave.length > 15) {
             $("#errorvacio2").show();
         } else {
             $("#errorvacio2").hide();
@@ -225,7 +225,8 @@ function cargarEventos() {
 
     function comprobarEmail() {
         let email = $("#mail").val();
-        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi; //para la correcta estructura de un email
+        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi;
+        //para la correcta estructura de un email
         if (!expreg.test(email)) {
             $('#errormail').show();
         } else {
@@ -235,7 +236,8 @@ function cargarEventos() {
 
     function comprobarEmail2() {
         let email = $("#emailMail").val();
-        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi; //para la correcta estructura de un email
+        let expreg = /^[\w\.]{1,50}@[\w]{1,50}\.[a-z]{1,6}$/gi;
+        //para la correcta estructura de un email
         if (!expreg.test(email)) {
             $('#errormailMail').show();
         } else {
@@ -245,7 +247,7 @@ function cargarEventos() {
 
     function comprobarTelefono() {
         let telefono = $("#telefono").val();
-        let expreg = /^[0-9]{9}$/g; //para la correcta estructura de un email
+        let expreg = /^[0-9]{9}$/g; 
         if (!expreg.test(telefono)) {
             $('#errorTelefono').show();
         } else {
@@ -255,7 +257,7 @@ function cargarEventos() {
 
     function comprobarTelefono2() {
         let telefono = $("#telefonoMail").val();
-        let expreg = /^[0-9]{9}$/g; //para la correcta estructura de un email
+        let expreg = /^[0-9]{9}$/g; 
         if (!expreg.test(telefono)) {
             $('#errorTelefonoMail').show();
         } else {
@@ -264,7 +266,7 @@ function cargarEventos() {
     }
     function comprobarCP() {
         let CP = $("#CP").val();
-        let expreg = /^[0-9]{5}$/g; //para la correcta estructura de un email
+        let expreg = /^[0-9]{5}$/g; 
         if (!expreg.test(CP)) {
             $('#errorCP').show();
         } else {
@@ -308,8 +310,13 @@ function cargarEventos() {
         let mail = $("#mail").val();
         let enfermedad = $("#dolencia").val();
         let mensaje = $("#mensaje").val();
-        /*Aquí grabamos el usuario y la contraseña junto con los datos del deportista en la base de datos*/
-        if (nombre == "" || apellido1 == "" || tipo == "" || documento == "" || nacimiento == "" || lugarnacim == "" || nacionalidad == "" || direccion == "" || ciudad == "" || provincia == "" || codpostal == "" || telefono == "" || mail == "" || enfermedad == "") {
+        if (nombre == "" || apellido1 == "" || tipo == "" || 
+                documento == "" || nacimiento == "" || 
+                lugarnacim == "" || nacionalidad == "" || 
+                direccion == "" || ciudad == "" || 
+                provincia == "" || codpostal == "" || 
+                telefono == "" || mail == "" || 
+                enfermedad == "") {
             $("#camposVacios").show();
             //Para ocultar el aviso a los 5 segundos.
             setInterval('$("#camposVacios").hide();', 5000);
@@ -417,7 +424,7 @@ function cargarEventos() {
     function comprobarContAcc() {
         $("#errorUsu").hide();
         let clave = $("#passwordAcceso").val();
-        if (clave.length < 6 || clave.length > 8) {
+        if (clave.length < 6 || clave.length > 15) {
             $("#ErrorClave").show();
         } else {
             $("#ErrorClave").hide();

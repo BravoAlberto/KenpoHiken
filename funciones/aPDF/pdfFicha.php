@@ -2,6 +2,7 @@
 //@autdor Alberto Bravo
 
 require_once ('../../dompdf/autoload.inc.php');
+include_once '../singleton.php';
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -10,9 +11,11 @@ $usuario = $_REQUEST['usuario'];
 
 if (!empty($usuario)) {
     $fechaActual = date('d-m-Y');
-    $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+    //$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+    $con = Singleton::singleton();
     $sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
-    $query = $con->prepare($sql);
+    //$query = $con->prepare($sql);
+    $query = $con->getLdb($sql);
     $query->execute();
     $resultado = $query->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 

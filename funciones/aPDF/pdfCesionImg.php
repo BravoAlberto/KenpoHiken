@@ -1,6 +1,8 @@
 <?php
 //@autdor Alberto Bravo
 require_once ('../../dompdf/autoload.inc.php');
+include_once '../singleton.php';
+
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -8,14 +10,17 @@ use Dompdf\Options;
 $usuario = $_REQUEST['usuario'];
 
 if (!empty($usuario)) {
-    $con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+    //$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+    $con = Singleton::singleton();
     $sql = "SELECT * FROM ficha WHERE usuario = '" . $usuario . "'";
-    $query = $con->prepare($sql);
+    //$query = $con->prepare($sql);
+    $query = $con->getLdb($sql);
     $query->execute();
     $resultado = $query->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 
     $sql2 = "SELECT * FROM tutorImg WHERE usuario = '" . $usuario . "'";
-    $query2 = $con->prepare($sql2);
+    //$query2 = $con->prepare($sql2);
+    $query2 = $con->getLdb($sql2);
     $query2->execute();
     $resultado2 = $query2->fetchAll(PDO::FETCH_ASSOC); //Para obtener todos los registros de la tabla.
 

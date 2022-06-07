@@ -2,11 +2,15 @@
 
 //@author Alberto Bravo
 include_once 'filtrado.php';
+include_once 'singleton.php';
+
 $usuario = filtrado($_REQUEST['user']);
-$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+//$con = new PDO("mysql:host=localhost; dbname=kenpohiken", 'administrador', 'AB492ga2');
+$con = Singleton::singleton();
 
 $sql = "SELECT * FROM tutorImg WHERE usuario = '" . $usuario . "'";
-$query = $con->prepare($sql);
+//$query = $con->prepare($sql);
+$query = $con->getLdb($sql);
 $query->execute();
 $resultado = $query->fetch();
 if (empty($resultado['usuario'])) {
