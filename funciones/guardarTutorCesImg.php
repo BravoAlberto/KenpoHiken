@@ -22,7 +22,9 @@ if (!empty($usuario) || !empty($nombreTu) || !empty($apellido1Tu) || !empty($ape
     $query1->execute();
 
     if ($query1->rowCount() == 0) {
-        echo('1');
+        echo('3');
+    }else{
+        echo('3');
     }
 } else {
     echo ('0');
