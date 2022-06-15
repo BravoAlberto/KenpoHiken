@@ -106,7 +106,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card">
-                            <img src="img/clase1.jpg" class="card-img-top" alt="imagenClases">
+                            <img src="img/Clase1.jpg" class="card-img-top" alt="imagenClases">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
@@ -123,7 +123,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase2.png" class="card-img-top" alt="imagenPrecios">
+                            <img src="img/Clase2.png" class="card-img-top" alt="imagenPrecios">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                             </div>
@@ -139,7 +139,7 @@
                     <!--.col-md-4-->
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="img/clase3.jpg" class="card-img-top" alt="imagenlocaliz">
+                            <img src="img/Clase3.jpg" class="card-img-top" alt="imagenlocaliz">
                             <div
                                 class="card-meta bg-primary p-3 text-light d-flex justify-content-between align-items-center">
                                 <p class="text-center m-0"></p>
